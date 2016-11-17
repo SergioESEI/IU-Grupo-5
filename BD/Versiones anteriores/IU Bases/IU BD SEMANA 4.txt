@@ -1,0 +1,49 @@
+
+
+MERE
+
+	+Anañadir entidad Masaje
+
+	-¿Quitar la entidad Clase?
+
+BD
+
+	+Meter datos con inserts
+
+	+Poner como enumerado el atributo TipoDocumento de la tabla Documento y definir los tipos de documento (SEPA y otro más)
+
+	+¿Jornada no lleva el atriburo libre?
+
+	+El atributo Categoría de la tabla Actividad es un enumerado pero le has metido dos campos en blanco, ¿lo has hecho por algún motivo es un error?
+
+ -------------------------------------------------------------------
+| Para meter password usar un generador md5 online (para encriptar) |
+ -------------------------------------------------------------------
+
+Buscar en los inserts la palabra "MODIFICAR" para encontrar las modificaciones principales
+
+Controlamos que los id tengan que ser completos?
+Ponemos todos los Id con el mismo numero de caracteres
+
+Modificar los atributos Tipo para que si no son enumerados tengan más espacio para escribir
+Está bien el atriburo Tipo en la tabla Caja?
+
+Poner todos los DNI como VARCHAR(9)
+
+En Reserva cambiar el nombre de donde pone Id_Reserva
+Quitar de Cliente_Externo Id_Cliente, nos valdría Dni (con ello modificar la tabla Servicio)
+
+
+
+El la tabla Cobro, el importe no debería ser un float en lugar de un smallint?
+
+
+
+En Reserva_Espacio puede querer reservar un espacio sin trabajador, igual convendría modificar el MERE para poner una tabla donde se reflejen los trabajadores asociados a la reserva de espacio
+
+En todas las tablas con varias fechas y horas controlamos que el inicio sea menor que el fin?  Controlamos las fechas de nacimiento?
+Formato de la fecha? http://stackoverflow.com/questions/2869874/how-store-date-in-mysql-database
+
+
+
+
