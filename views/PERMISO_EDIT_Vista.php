@@ -23,7 +23,13 @@ class Permiso_Editar{
 		<script> 
 		//Confirmar la modificación.
 		function pregunta(){
-			if (confirm('<?php echo $strings['confirmar modificacion']; ?>')){
+			var grupo = document.getElementById("grupo").value;
+			var controlador = document.getElementById("controladorN").value;
+			var accion = document.getElementById("accionN").value;
+			if (confirm('<?php echo $strings['confirmar modificacion']; ?>'+
+				'\n\n<?php echo $strings['grupo']; ?>: '+grupo +
+				'\n<?php echo $strings['controlador']; ?>: '+controlador +
+				'\n<?php echo $strings['accion']; ?>: '+accion)){
 			   $("form").attr("action","../controllers/PERMISO_Controller.php?id=modificarPermiso");
 			   document.formulario.submit();
 			}
@@ -171,7 +177,7 @@ class Permiso_Editar{
 									</div><div class="col-sm-4">
 									<?php echo $_POST['grupo']; ?>
 								</div></div>
-								<input type="hidden" class="form-control" name="grupo" value="<?php echo $_POST['grupo']; ?>">
+								<input type="hidden" class="form-control" id="grupo" name="grupo" value="<?php echo $_POST['grupo']; ?>">
 								
 								<!-- Muestra el controlador que seleccionó el usuario -->
 								<div class="form-group">
@@ -205,14 +211,14 @@ class Permiso_Editar{
 								</div><div class="col-sm-4">
 								<?php echo $_POST['controladorN']; ?>
 							</div></div>
-							<input type="hidden" class="form-control" name="controladorN" value="<?php echo $_POST['controladorN']; ?>">
+							<input type="hidden" class="form-control" id="controladorN" name="controladorN" value="<?php echo $_POST['controladorN']; ?>">
 							
 							<!-- Recoge los datos de la nueva acción -->
 							<div class="form-group">
 								<div class="col-sm-4">
 								<label for="nombre" class="control-label"><?php echo $strings['accion']; ?>:</label>
 								</div><div class="col-sm-4">
-									<select name="accionN" required>
+									<select id="accionN" name="accionN" required>
 										<?php listarAccion($_POST['controladorN']); ?>
 									</select>
 							</div></div>

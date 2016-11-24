@@ -55,13 +55,25 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 	//Recoge del formulario los datos nuevos para modificar un usuario.
 	function datosFormUsuarioModificar(){
 		
-		$password2 = $_POST['passwordN'];
-		$grupo2 = $_POST['grupoN'];
-		$usuario2 = $_POST['usuarioN'];
-		$dni2 = $_POST['dniN'];
+		$usuario = $_POST['usuarioN'];
+		if(isset($_POST['passwordN'])){
+			$password = $_POST['passwordN'];
+		}else{
+			$password = null;
+		}
+		if(isset($_POST['grupoN'])){
+			$grupo = $_POST['grupoN'];
+		}else{
+			$grupo = null;
+		}
+		if(isset($_POST['dniN'])){
+			$dni = $_POST['dniN'];
+		}else{
+			$dni = null;
+		}
 		
-		$usuario2 = new usuario($password2,$grupo2,$usuario2,$dni2);
-		return $usuario2;
+		$usuario = new usuario($password,$grupo,$usuario,$dni);
+		return $usuario;
 	}
 	
 	//Primero invoca a la vista correspondiente según la opción elegida en el menú y pasada por get.
@@ -104,7 +116,8 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 					new Usuario_Editar();
 				}
 				else if(!isset($_POST['usuarioN'])){
-					new Usuario_Editar();
+					$array = mostrarUsuario($_POST['usuario']);
+					new Usuario_Editar($array);
 				}
 				else{
 					$usuario = datosFormUsuario();

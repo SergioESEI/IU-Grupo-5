@@ -19,7 +19,33 @@ class Usuario_Crear{
 ?>
 		<!-- Título de la página -->
 		<title><?php echo $strings['titulo añadir usuario']; ?></title>
-
+		
+		<script>
+		//Compruba que el formato del DNI sea válido.
+		function nif(dni) {
+		  var numero
+		  var letr
+		  var letra
+		  var expresion_regular_dni
+		 
+		  expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+		 
+		  if(expresion_regular_dni.test (dni) == true){
+			 numero = dni.substr(0,dni.length-1);
+			 letr = dni.substr(dni.length-1,1);
+			 numero = numero % 23;
+			 letra='TRWAGMYFPDXBNJZSQVHLCKET';
+			 letra=letra.substring(numero,numero+1);
+			if (letra!=letr.toUpperCase()) {
+			   alert('<?php echo $strings['error letra dni']; ?>');
+			 }
+		  }else{ 
+			if (dni != "")
+				alert('<?php echo $strings['error dni']; ?>');
+		   }
+		}
+		</script>
+		
 		<body>
 		<!-- Include del menú-->
 		  <div class="row-fluid">
@@ -50,7 +76,7 @@ class Usuario_Crear{
 									  <label for="nombre" class="control-label"><?php echo $strings['password']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-									  <input type="password" class="form-control" name="password" pattern="[A-Za-z0-9]{4,16}" title="<?php echo $strings['error password']; ?>" required>
+									  <input type="password" class="form-control" name="password" pattern="[0-9A-Za-z]{4-16}" title="<?php echo $strings['error password']; ?>" required>
 									</div>
 								</div>
 								
@@ -70,7 +96,7 @@ class Usuario_Crear{
 									  <label for="nombre" class="control-label"><?php echo $strings['dni opcional']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-									  <input type="text" class="form-control" name="dni" pattern="[0-9]{8}[A-Z]{1}" title="<?php echo $strings['error dni']; ?>">
+									  <input type="text" class="form-control" name="dni" onblur="nif(this.value)">
 									</div>
 								</div>
 								

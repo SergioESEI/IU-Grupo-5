@@ -23,9 +23,11 @@ class Grupo_Editar{
 			<script> 
 			//Confirman la edición.
 			function pregunta(){
-					if (confirm('<?php echo $strings['confirmar modificacion']; ?>')){
-					   document.formulario.submit();
-				} else return false;
+			var grupo = document.getElementById("grupoN").value;
+			if (confirm('<?php echo $strings['confirmar modificacion']; ?>'+
+				'\n\n<?php echo $strings['grupo']; ?>: '+grupo)){
+			   document.formulario.submit();
+			} else return false;
 			}
 			</script>
 			
@@ -64,7 +66,7 @@ class Grupo_Editar{
 								<div class="col-sm-4">
 								<label for="nombre" class="control-label"><?php echo $strings['grupo']; ?>:</label>
 								</div><div class="col-sm-4">
-								  <input type="text" class="form-control" name="grupoN" pattern="[A-ZÑña-zÁÉÍÓÚáéíóú]{4,30}" title="<?php echo $strings['error grupo']; ?>" required>
+								  <input type="text" class="form-control" id="grupoN" name="grupoN" pattern="[A-ZÑña-zÁÉÍÓÚáéíóú]{4,30}" title="<?php echo $strings['error grupo']; ?>" required>
 							</div></div>
 							
 							<!-- Submit para editar grupo, con confirmación -->

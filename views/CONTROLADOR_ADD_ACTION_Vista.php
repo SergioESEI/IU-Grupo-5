@@ -8,7 +8,7 @@ if(!isset($_SESSION)){
 if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){ 
 
 //Crea la clase e instancia la función render en el constructor. 
-class Controlador_Crear{
+class Accion_Crear{
 
 	function __construct(){
 		$this->render();
@@ -28,39 +28,32 @@ class Controlador_Crear{
 					<div class="section-fluid">
 					  <div class="container-fluid">
 								
-						<!-- Formulario para añadir funcionalidad-->
-						<form class="form-horizontal" role="form" action="../controllers/CONTROLADOR_Controller.php?id=altaControlador" method="POST">
+						<!-- Formulario para seleccionar el controlador al que se añade la acción y la acción a crear -->
+						<form class="form-horizontal" role="form" method="POST" action="../controllers/CONTROLADOR_Controller.php?id=altaAccion">
 							<div class="form-group">
 								<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['nuevo controlador']; ?></h2></div>
-								<div class="col-md-12"><hr></div>
-
-								<!-- Campo controlador-->
-								<div class="form-group">
-									<div class="col-sm-4">
-									  <label for="nombre" class="control-label"><?php echo $strings['controlador']; ?>:</label>
-									</div>
-									<div class="col-sm-4">
-									  <input type="text" class="form-control" name="controlador" pattern="[A-ZÑña-zÁÉÍÓÚáéíóú_]{4,30}" title="<?php echo $strings['error controlador']; ?>" required>
-									</div>
-								</div>
+									<div class="col-md-12"><hr></div>
 								
-								<!-- Acciones por defecto que se añaden al controlador -->
-								<div class="form-group">
-									<div class="col-sm-4"></div>
-									<div class="col-sm-4">
-									  <label for="nombre" class="control-label"><?php echo $strings['acciones por defecto']; ?></label>
-									</div>
-								</div>
-								
-								<!-- Muestra los controladores registrados en la BD para que el usuario tenga una referencia -->
+								<!-- Campo para seleccionar el controlador -->
 								<div class="form-group">
 									<div class="col-sm-4">
-									 <label for="nombre" class="control-label"><?php echo $strings['controladores registrados']; ?>:</label><br>
-									 <select>
+									<label for="nombre" class="control-label"><?php echo $strings['controlador']; ?>:</label>
+									</div><div class="col-sm-4">
+									<select name="controlador" required>
 										<?php listarControlador(); ?>
 									</select>
+								</div></div>
+								</div>
+
+								<!-- Campo acción -->
+								<div class="form-group">
+									<div class="col-sm-4">
+									  <label for="nombre" class="control-label"><?php echo $strings['accion']; ?>:</label>
 									</div>
-								 </div>
+									<div class="col-sm-4">
+									  <input type="text" class="form-control" name="accion" pattern="[A-ZÑña-zÁÉÍÓÚáéíóú]{4,30}" title="<?php echo $strings['error controlador']; ?>" required>
+									</div>
+								</div>
 								
 								<!-- Submit que envía en controlador a añadir -->
 								 <div class="form-group">

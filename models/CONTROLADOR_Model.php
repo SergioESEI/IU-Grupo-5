@@ -32,9 +32,47 @@ class controlador{
 		}
 	}
 	
-	//Añade un controlador a la BD en base al controlador y acción recibidos del controller. Controla que no exista el controlador.
+	//Añade un controlador a la BD en base al controlador recibido del controller. Controla que no exista el controlador.
+	//Añade las acciones por defecto: add, delete, edit, show y list.
 	//Si se había realizado un borrado lógico recupera el controlador.
-	function crear(){
+	function crearControlador(){
+		
+		$this->conectarBD();
+		
+		$sql = "SELECT * FROM Controlador WHERE Nombre_Controlador='".$this->controlador."';";
+		$resultado = $this->mysqli->query($sql);
+		if ($resultado->num_rows == 0){
+			$sql = "INSERT INTO Controlador (Nombre_Controlador,Accion) VALUES ('".$this->controlador."','Add');";
+			$this->mysqli->query($sql);	
+			$sql = "INSERT INTO Controlador (Nombre_Controlador,Accion) VALUES ('".$this->controlador."','Delete');";
+			$this->mysqli->query($sql);	
+			$sql = "INSERT INTO Controlador (Nombre_Controlador,Accion) VALUES ('".$this->controlador."','Edit');";
+			$this->mysqli->query($sql);	
+			$sql = "INSERT INTO Controlador (Nombre_Controlador,Accion) VALUES ('".$this->controlador."','Show');";
+			$this->mysqli->query($sql);	
+			$sql = "INSERT INTO Controlador (Nombre_Controlador,Accion) VALUES ('".$this->controlador."','List');";
+			$this->mysqli->query($sql);				
+			return "añadido exito";
+		}else{
+			$sql = "SELECT * FROM Controlador WHERE Nombre_Controlador='".$this->controlador."' AND Borrado='1';";
+			$resultado = $this->mysqli->query($sql);
+			if ($resultado->num_rows > 0){
+				$sql = "UPDATE Controlador SET Borrado='0' WHERE Nombre_Controlador='".$this->controlador."' AND Accion='Add';";
+				$this->mysqli->query($sql);	
+				$sql = "UPDATE Controlador SET Borrado='0' WHERE Nombre_Controlador='".$this->controlador."' AND Accion='Delete';";
+				$this->mysqli->query($sql);	
+				$sql = "UPDATE Controlador SET Borrado='0' WHERE Nombre_Controlador='".$this->controlador."' AND Accion='Edit';";
+				$this->mysqli->query($sql);	
+				$sql = "UPDATE Controlador SET Borrado='0' WHERE Nombre_Controlador='".$this->controlador."' AND Accion='Show';";
+				$this->mysqli->query($sql);	
+				$sql = "UPDATE Controlador SET Borrado='0' WHERE Nombre_Controlador='".$this->controlador."' AND Accion='List';";
+				$this->mysqli->query($sql);	
+				return "añadido exito";				
+			}else return "ya existe";
+		}
+	}
+	
+	function crearAccion(){
 		
 		$this->conectarBD();
 		

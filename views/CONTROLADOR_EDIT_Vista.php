@@ -23,8 +23,12 @@ class Controlador_Editar{
 		<script> 
 		//Confirmar la edición.
 		function pregunta(){
-				if (confirm('<?php echo $strings['confirmar modificacion']; ?>')){
-				   document.formulario.submit();
+			var controlador = document.getElementById("controladorN").value;
+			var accion = document.getElementById("accionN").value;
+			if (confirm('<?php echo $strings['confirmar modificacion']; ?>'+
+				'\n\n<?php echo $strings['controlador']; ?>: '+controlador +
+				'\n<?php echo $strings['accion']; ?>: '+accion)){
+			   document.formulario.submit();
 			} else return false;
 		}
 		</script>
@@ -78,6 +82,7 @@ class Controlador_Editar{
 									<?php echo $_POST['controlador']; ?>
 								</div></div>
 								<input type="hidden" class="form-control" name="controlador" value="<?php echo $_POST['controlador']; ?>">
+								<input type="hidden" class="form-control" id="controladorN" name="controladorN" value="<?php echo $_POST['controlador']; ?>">
 								
 								<!-- Lista las acciones del controlador a modificar -->
 								<div class="form-group">
@@ -93,14 +98,6 @@ class Controlador_Editar{
 									<label for="nombre" class="control-label"><?php echo $strings['nuevos datos']; ?>:</label>
 								</div></div>
 							</div>
-							
-							<!-- Campo para añadir el nuevo controlador -->
-							<div class="form-group">
-								<div class="col-sm-4">
-								<label for="nombre" class="control-label"><?php echo $strings['controlador']; ?>:</label>
-								</div><div class="col-sm-4">
-								<input type="text" class="form-control" id="controladorN" name="controladorN" value="<?php echo $_POST['controlador']; ?>" pattern="[A-ZÑña-zÁÉÍÓÚáéíóú ]{4,30}" title="<?php echo $strings['error controlador']; ?>" required>
-							</div></div>
 							
 							<!-- Campo para añadir la nueva acción -->
 							<div class="form-group">

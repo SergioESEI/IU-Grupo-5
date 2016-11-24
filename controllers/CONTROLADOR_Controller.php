@@ -11,6 +11,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 	require_once('../models/CONTROLADOR_Model.php'); 
 
 	require_once('../views/CONTROLADOR_ADD_Vista.php');
+	require_once('../views/CONTROLADOR_ADD_ACTION_Vista.php');
 	require_once('../views/CONTROLADOR_DELETE_Vista.php'); 
 	require_once('../views/CONTROLADOR_EDIT_Vista.php');
 	require_once('../views/CONTROLADOR_LIST_Vista.php');
@@ -58,19 +59,33 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		switch($action){
 			
 			case 'altaControlador':
-				if(!isset($_POST['accion'])){
+				if(!isset($_POST['controlador'])){
 					new Controlador_Crear();
 				}else{
 					$cont = datosFormControlador();
-					$mensaje = $cont->crear(); ?>
+					$mensaje = $cont->crearControlador(); ?>
 					<script>
 						window.alert('<?php echo $strings[$mensaje]; ?>');
 					</script> <?php
-					unset($_POST['accion']);
+					unset($_POST['controlador']);
 					new Controlador_Crear();
 				}
 				break;
-				
+			
+			case 'altaAccion':
+				if(!isset($_POST['controlador'])){
+					new Accion_Crear();
+				}else{
+					$cont = datosFormControlador();
+					$mensaje = $cont->crearAccion(); ?>
+					<script>
+						window.alert('<?php echo $strings[$mensaje]; ?>');
+					</script> <?php
+					unset($_POST['controlador']);
+					new Accion_Crear();
+				}
+				break;
+			
 			case 'bajaControlador':
 				if(!isset($_POST['controlador'])){
 					new Controlador_Borrar();

@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `Actividad` (
 --
 
 INSERT INTO `Actividad` (`Id_Actividad`, `Nombre`, `DNI_Trabajador`, `Id_Espacio`, `Precio`, `Categoria`, `Capacidad_Max`, `Duracion`, `Fecha`, `Hora_Inicio`, `Hora_Fin`, `Id_Calendario`, `Borrado`) VALUES
-('0123456789', 'Actividad 1', '22222222A', '9874563210', 10.5, 'Baile', 20, 'Mensual', '2016-12-17', '15:30:00', '16:30:00', '3210654987', 0);
+('0123456789', 'Actividad 1', '22222222J', '9874563210', 10.5, 'Baile', 20, 'Mensual', '2016-12-17', '15:30:00', '16:30:00', '3210654987', 0);
 
 -- --------------------------------------------------------
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `Alumno` (
 --
 
 INSERT INTO `Alumno` (`DNI`, `Apellidos`, `Nombre`, `Direccion`, `Email`, `Fecha_Nacimiento`, `Observaciones`, `Profesion`, `Borrado`) VALUES
-('11111111A', 'ApellidoA ApellidoA', 'NombreA', 'Direccion alumno, calle alumno', 'alumno@hotmail.com', '2017-10-31', 'Observo que este tío tiene esta lesión', 'Contable', 0);
+('33333333P', 'ApellidoA ApellidoA', 'NombreA', 'Direccion alumno, calle alumno', 'alumno@hotmail.com', '2017-10-31', 'Observo que este tío tiene esta lesión', 'Contable', 0);
 
 -- --------------------------------------------------------
 
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS `Asistencia` (
 --
 
 INSERT INTO `Asistencia` (`DNI`, `Fecha_Asistencia`, `Asistencia`, `Id_Actividad`, `Borrado`) VALUES
-('11111111A', '2016-12-17', 1, '0123456789', 0);
+('33333333P', '2016-12-17', 1, '0123456789', 0);
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,7 @@ INSERT INTO `Asistencia` (`DNI`, `Fecha_Asistencia`, `Asistencia`, `Id_Actividad
 CREATE TABLE IF NOT EXISTS `Caja` (
   `Id_Caja` varchar(10) NOT NULL,
   `Fecha` date NOT NULL,
-  `Tipo` enum('Ingreso','Pago','','') NOT NULL,
+  `Tipo` enum('Ingreso','Pago') NOT NULL,
   `Importe` float NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -170,10 +170,11 @@ INSERT INTO `Cliente_Externo` (`Id_Cliente`, `Nombre`, `DNI`, `Tlf`, `Email`, `B
 CREATE TABLE IF NOT EXISTS `Cobro` (
   `Id_Cobro` varchar(10) NOT NULL,
   `DNI_Alumno` varchar(9) NOT NULL,
+  `Id_Actividad` varchar(10) NOT NULL,
   `Importe` float NOT NULL,
   `Fecha_Cobro` date NOT NULL,
   `Fecha_Confirmacion` date NOT NULL,
-  `Tipo` enum('Efectivo','Domiciliacion','TPV','') NOT NULL,
+  `Tipo` enum('Efectivo','Domiciliacion','TPV') NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -181,8 +182,8 @@ CREATE TABLE IF NOT EXISTS `Cobro` (
 -- Volcado de datos para la tabla `Cobro`
 --
 
-INSERT INTO `Cobro` (`Id_Cobro`, `DNI_Alumno`, `Importe`, `Fecha_Cobro`, `Fecha_Confirmacion`, `Tipo`, `Borrado`) VALUES
-('1010101010', '11111111A', 18.9, '2016-12-17', '2016-12-17', 'Efectivo', 0);
+INSERT INTO `Cobro` (`Id_Cobro`, `DNI_Alumno`, `Id_Actividad`, `Importe`, `Fecha_Cobro`, `Fecha_Confirmacion`, `Tipo`, `Borrado`) VALUES
+('1010101010', '33333333P', '0123456789', 18.9, '2016-12-17', '2016-12-17', 'Efectivo', 0);
 
 -- --------------------------------------------------------
 
@@ -201,8 +202,8 @@ CREATE TABLE IF NOT EXISTS `Controlador` (
 --
 
 INSERT INTO `Controlador` (`Nombre_Controlador`, `Accion`, `Borrado`) VALUES
-('Gestionar actividades', 'Consultar', 0),
-('Gestionar actividades', 'Borrar', 0),
+('Actividades', 'Consultar', 0),
+('Actividades', 'Borrar', 0),
 ('Alumnos', 'Añadir', 0);
 
 -- --------------------------------------------------------
@@ -244,7 +245,7 @@ CREATE TABLE IF NOT EXISTS `Documento` (
 --
 
 INSERT INTO `Documento` (`DNI`, `Tipo_Documento`, `Fecha_Documento`, `Url_Documento`, `Borrado`) VALUES
-('11111111A', 'SEPA', '2017-10-31', 'url2', 0);
+('33333333P', 'SEPA', '2017-10-31', 'url2', 0);
 
 -- --------------------------------------------------------
 
@@ -294,8 +295,8 @@ INSERT INTO `Evento` (`Id_Evento`, `Descripcion`, `Nombre`, `Borrado`) VALUES
 CREATE TABLE IF NOT EXISTS `Factura` (
   `Id_Factura` varchar(10) NOT NULL,
   `Id_Cliente` varchar(10) NOT NULL,
-  `Fecha` date NOT NULL,
-  `Descripcion` varchar(500) NOT NULL,
+  `Fecha` date,
+  `Total` float,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -303,8 +304,8 @@ CREATE TABLE IF NOT EXISTS `Factura` (
 -- Volcado de datos para la tabla `Factura`
 --
 
-INSERT INTO `Factura` (`Id_Factura`, `Id_Cliente`, `Fecha`, `Descripcion`, `Borrado`) VALUES
-('5656565656', '48484848K', '2016-12-17', 'La descripcion de la factura',0);
+INSERT INTO `Factura` (`Id_Factura`, `Id_Cliente`, `Borrado`) VALUES
+('5656565656', '48484848K',0);
 
 
 -- --------------------------------------------------------
@@ -358,7 +359,6 @@ INSERT INTO `Horario` (`Id_Horario`, `Id_Calendario`, `Hora_Inicio`, `Hora_Fin`,
 CREATE TABLE IF NOT EXISTS `Inscripcion` (
   `DNI_A` varchar(9) NOT NULL,
   `Id_Actividad` varchar(10) NOT NULL,
-  `Id_Cobro` varchar(10) NOT NULL,
   `Fecha` date NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -367,8 +367,8 @@ CREATE TABLE IF NOT EXISTS `Inscripcion` (
 -- Volcado de datos para la tabla `Inscripcion`
 --
 
-INSERT INTO `Inscripcion` (`DNI_A`, `Id_Actividad`, `Id_Cobro`, `Fecha`, `Borrado`) VALUES
-('11111111A', '0123456789', '1010101010', '2016-12-17', 0);
+INSERT INTO `Inscripcion` (`DNI_A`, `Id_Actividad`, `Fecha`, `Borrado`) VALUES
+('33333333P', '0123456789', '2016-12-17', 0);
 
 -- --------------------------------------------------------
 
@@ -389,7 +389,7 @@ CREATE TABLE IF NOT EXISTS `Jornada` (
 --
 
 INSERT INTO `Jornada` (`DNI`, `Hora_Entrada`, `Hora_Salida`, `Observaciones`, `Borrado`) VALUES
-('22222222A', '08:55:00', '17:03:00', 'Observaciones', 0);
+('22222222J', '08:55:00', '17:03:00', 'Observaciones', 0);
 
 -- --------------------------------------------------------
 
@@ -411,7 +411,7 @@ CREATE TABLE IF NOT EXISTS `Lesion` (
 --
 
 INSERT INTO `Lesion` (`DNI`, `Id_Lesion`, `Tipo`, `Curada`, `Descripcion`, `Borrado`) VALUES
-('11111111A', '252525252', 'Lesion cervical', 0, 'La lesion se encuentra en...', 0);
+('33333333P', '252525252', 'Lesion cervical', 0, 'La lesion se encuentra en...', 0);
 
 -- --------------------------------------------------------
 
@@ -420,8 +420,10 @@ INSERT INTO `Lesion` (`DNI`, `Id_Lesion`, `Tipo`, `Curada`, `Descripcion`, `Borr
 --
 
 CREATE TABLE IF NOT EXISTS `Linea_Factura` (
+  `Id_Linea_Factura` varchar(10) NOT NULL,
   `Id_Factura` varchar(10) NOT NULL,
-  `Cantidad` int(11) NOT NULL,
+  `Id_Servicio` varchar(10) NOT NULL,
+  `Descripcion` varchar(500) NOT NULL,
   `Importe` float NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -430,8 +432,8 @@ CREATE TABLE IF NOT EXISTS `Linea_Factura` (
 -- Volcado de datos para la tabla `Linea_Factura`
 --
 
-INSERT INTO `Linea_Factura` (`Id_Factura`, `Cantidad`, `Importe`, `Borrado`) VALUES
-('5656565656', 32, 10.5, 0);
+INSERT INTO `Linea_Factura` (`Id_Linea_Factura`, `Id_Factura`, `Id_Servicio`, `Descripcion`, `Importe`, `Borrado`) VALUES
+('1111111111', '5656565656', '963852741', 'La descripcion de la linea', 10.5, 0);
 
 -- --------------------------------------------------------
 
@@ -453,7 +455,7 @@ CREATE TABLE IF NOT EXISTS `Log_Lesion` (
 --
 
 INSERT INTO `Log_Lesion` (`DNI_T`, `DNI_A`, `Id_Lesion`, `Fecha_Log`, `Hora_Log`, `Borrado`) VALUES
-('22222222A', '11111111A', '252525252', '2017-10-31', '15:05:00', 0);
+('22222222J', '33333333P', '252525252', '2017-10-31', '15:05:00', 0);
 
 -- --------------------------------------------------------
 
@@ -492,8 +494,8 @@ CREATE TABLE IF NOT EXISTS `Permisos` (
 --
 
 INSERT INTO `Permisos` (`Nombre_Grupo`, `Nombre_Controlador`, `Accion`, `Borrado`) VALUES
-('Monitor','Gestionar actividades', 'Consultar', 0),
-('Monitor','Gestionar actividades', 'Borrar', 0),
+('Monitor','Actividades', 'Consultar', 0),
+('Monitor','Actividades', 'Borrar', 0),
 ('Secretario','Gestionar actividades', 'Borrar', 0),
 ('Secretario','Alumnos', 'Añadir', 0);
 
@@ -519,7 +521,7 @@ CREATE TABLE IF NOT EXISTS `Reserva_Espacio` (
 --
 
 INSERT INTO `Reserva_Espacio` (`Id_Reserva`, `Id_Espacio`, `Hora_Inicio`, `Hora_Fin`, `Fecha`, `Descripción`, `Borrado`, `DNI_Reserva`) VALUES
-('3232323232', '9874563210', '12:00:00', '13:00:00', '2017-02-15', 'Descripcion reserva', 0, '22222222A');
+('3232323232', '9874563210', '12:00:00', '13:00:00', '2017-02-15', 'Descripcion reserva', 0, '22222222J');
 
 -- --------------------------------------------------------
 
@@ -563,7 +565,7 @@ CREATE TABLE IF NOT EXISTS `Reserva_Masaje` (
 --
 
 INSERT INTO `Reserva_Masaje` (`Id_Masaje`, `Id_Reserva`, `DNI_Alumno`, `DNI_Trabajador`, `Tipo`, `Hora_Inicio`, `Hora_Fin`, `Fecha`, `Borrado`) VALUES
-('2424242424', '5656565656', '11111111A', '22222222A', 'Exfoliante', '16:00:00', '17:00:00', '2016-11-23', 0);
+('2424242424', '5656565656', '33333333P', '22222222J', 'Exfoliante', '16:00:00', '17:00:00', '2016-11-23', 0);
 
 -- --------------------------------------------------------
 
@@ -574,7 +576,6 @@ INSERT INTO `Reserva_Masaje` (`Id_Masaje`, `Id_Reserva`, `DNI_Alumno`, `DNI_Trab
 CREATE TABLE IF NOT EXISTS `Servicio` (
   `Id_Servicio` varchar(10) NOT NULL,
   `Id_Trabajador` varchar(10) NOT NULL,
-  `Id_Cliente` varchar(10) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Descripcion` varchar(500) NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
@@ -584,8 +585,8 @@ CREATE TABLE IF NOT EXISTS `Servicio` (
 -- Volcado de datos para la tabla `Servicio`
 --
 
-INSERT INTO `Servicio` (`Id_Servicio`, `Id_Trabajador`, `Id_Cliente`, `Nombre`, `Descripcion`, `Borrado`) VALUES
-('963852741', '22222222A', '48484848K', 'Cena de empresa', 'Preparación de cena para 50 personas', 0);
+INSERT INTO `Servicio` (`Id_Servicio`, `Id_Trabajador`, `Nombre`, `Descripcion`, `Borrado`) VALUES
+('963852741', '22222222J', 'Cena de empresa', 'Preparación de cena para 50 personas', 0);
 
 -- --------------------------------------------------------
 
@@ -604,7 +605,7 @@ CREATE TABLE IF NOT EXISTS `Telefonos_Alumno` (
 --
 
 INSERT INTO `Telefonos_Alumno` (`DNI`, `Telefono`, `Borrado`) VALUES
-('11111111A', 777777777, 0);
+('33333333P', 777777777, 0);
 
 -- --------------------------------------------------------
 
@@ -623,7 +624,7 @@ CREATE TABLE IF NOT EXISTS `Telefonos_Trabajador` (
 --
 
 INSERT INTO `Telefonos_Trabajador` (`DNI`, `Telefono`, `Borrado`) VALUES
-('00000000Z', 666666666, 0);
+('11111111H', 666666666, 0);
 
 -- --------------------------------------------------------
 
@@ -652,9 +653,9 @@ CREATE TABLE IF NOT EXISTS `Trabajador` (
 --
 
 INSERT INTO `Trabajador` (`DNI`, `Apellidos`, `Nombre`, `Url_Foto`, `Direccion`, `Email`, `Fecha_Nacimiento`, `Observaciones`, `Numero_Cuenta`, `Horas_Extra`, `Tipo_Empleado`, `Externo`, `Borrado`) VALUES
-('00000000Z', 'ApellidoTr ApellidoTr', 'NombreTr', 'url1', 'Direccion 1, calle 1', 'email1@gmail.com', '1990-12-25', 'Observo que este trabajador se esfuerza', 2147483647, '+1 hora extra X dia', 'secretario', 0, 0),
-('12345678A', 'ApellidoTr3 Apellido2Tr3', 'NobreTr3', 'url', 'Direccion , calle', 'email@gmail.com', '1988-05-07', 'Observaciones', 2147483647, '+1 hora extra X dia', 'administrador', 0, 0),
-('22222222A', 'ApellidoTr2 Apellido2Tr', 'Nombre2Tr', 'url2', 'Direccion 2, calle 2', 'email2@gmail.com', '1989-07-21', 'Observo que este trabajador...', 2147483647, '+1 hora extra X dia', 'monitor', 0, 0);
+('11111111H', 'ApellidoTr ApellidoTr', 'NombreTr', 'url1', 'Direccion 1, calle 1', 'email1@gmail.com', '1990-12-25', 'Observo que este trabajador se esfuerza', 2147483647, '+1 hora extra X dia', 'secretario', 0, 0),
+('12345678Z', 'ApellidoTr3 Apellido2Tr3', 'NobreTr3', 'url', 'Direccion , calle', 'email@gmail.com', '1988-05-07', 'Observaciones', 2147483647, '+1 hora extra X dia', 'administrador', 0, 0),
+('22222222J', 'ApellidoTr2 Apellido2Tr', 'Nombre2Tr', 'url2', 'Direccion 2, calle 2', 'email2@gmail.com', '1989-07-21', 'Observo que este trabajador...', 2147483647, '+1 hora extra X dia', 'monitor', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -673,7 +674,7 @@ CREATE TABLE IF NOT EXISTS `Trabajador_Evento` (
 --
 
 INSERT INTO `Trabajador_Evento` (`DNI`, `Id_Evento`, `Borrado`) VALUES
-('22222222A', 1, 0);
+('22222222J', 1, 0);
 
 -- --------------------------------------------------------
 
@@ -683,7 +684,7 @@ INSERT INTO `Trabajador_Evento` (`DNI`, `Id_Evento`, `Borrado`) VALUES
 
 CREATE TABLE IF NOT EXISTS `Usuario` (
   `DNI` varchar(9) DEFAULT NULL,
-  `Nombre_Grupo` varchar(30) NOT NULL,
+  `Nombre_Grupo` varchar(30),
   `Password` varchar(40) NOT NULL,
   `Usuario` varchar(30) NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
@@ -694,8 +695,8 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 --
 
 INSERT INTO `Usuario` (`DNI`, `Nombre_Grupo`, `Password`, `Usuario`, `Borrado`) VALUES
-('00000000Z', 'Monitor', '2fb6c8d2f3842a5ceaa9bf320e649ff0', 'usuario2', 0),
-('22222222A', 'Secretario', '5a54c609c08a0ab3f7f8eef1365bfda6', 'usuario3', 0);
+('11111111H', 'Monitor', '2fb6c8d2f3842a5ceaa9bf320e649ff0', 'usuario2', 0),
+('22222222J', 'Secretario', '5a54c609c08a0ab3f7f8eef1365bfda6', 'usuario3', 0);
 INSERT INTO `Usuario` (`Nombre_Grupo`, `Password`, `Usuario`, `Borrado`) VALUES
 ('Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 0);
 
@@ -797,7 +798,7 @@ ALTER TABLE `Horario`
 -- Indices de la tabla `Inscripcion`
 --
 ALTER TABLE `Inscripcion`
- ADD PRIMARY KEY (`DNI_A`,`Id_Actividad`,`Id_Cobro`), ADD KEY `Id_Actividad` (`Id_Actividad`), ADD KEY `Id_Cobro` (`Id_Cobro`);
+ ADD PRIMARY KEY (`DNI_A`,`Id_Actividad`), ADD KEY `Id_Actividad` (`Id_Actividad`);
 
 --
 -- Indices de la tabla `Jornada`
@@ -815,7 +816,7 @@ ALTER TABLE `Lesion`
 -- Indices de la tabla `Linea_Factura`
 --
 ALTER TABLE `Linea_Factura`
- ADD PRIMARY KEY (`Id_Factura`);
+ ADD PRIMARY KEY (`Id_Linea_Factura`);
 
 --
 -- Indices de la tabla `Log_Lesion`
@@ -857,7 +858,7 @@ ALTER TABLE `Reserva_Masaje`
 -- Indices de la tabla `Servicio`
 --
 ALTER TABLE `Servicio`
- ADD PRIMARY KEY (`Id_Servicio`), ADD KEY `Id_Trabajador` (`Id_Trabajador`,`Id_Cliente`), ADD KEY `Id_Cliente` (`Id_Cliente`);
+ ADD PRIMARY KEY (`Id_Servicio`);
 
 --
 -- Indices de la tabla `Telefonos_Alumno`
@@ -912,7 +913,7 @@ ADD CONSTRAINT `Asistencia_ibfk_2` FOREIGN KEY (`Id_Actividad`) REFERENCES `Acti
 -- Filtros para la tabla `Cobro`
 --
 ALTER TABLE `Cobro`
-ADD CONSTRAINT `Cobro_ibfk_1` FOREIGN KEY (`DNI_Alumno`) REFERENCES `Alumno` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `Cobro_ibfk_1` FOREIGN KEY (`DNI_Alumno`) REFERENCES `Inscripcion` (`DNI_A`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `Documento`
@@ -937,14 +938,20 @@ ADD CONSTRAINT `Horario_ibfk_1` FOREIGN KEY (`Id_Calendario`) REFERENCES `Calend
 --
 ALTER TABLE `Inscripcion`
 ADD CONSTRAINT `Inscripcion_ibfk_1` FOREIGN KEY (`DNI_A`) REFERENCES `Alumno` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `Inscripcion_ibfk_2` FOREIGN KEY (`Id_Actividad`) REFERENCES `Actividad` (`Id_Actividad`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `Inscripcion_ibfk_3` FOREIGN KEY (`Id_Cobro`) REFERENCES `Cobro` (`Id_Cobro`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `Inscripcion_ibfk_2` FOREIGN KEY (`Id_Actividad`) REFERENCES `Actividad` (`Id_Actividad`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `Jornada`
 --
 ALTER TABLE `Jornada`
 ADD CONSTRAINT `Jornada_ibfk_1` FOREIGN KEY (`DNI`) REFERENCES `Trabajador` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Filtros para la tabla `Linea_Factura`
+--
+ALTER TABLE `Linea_Factura`
+ADD CONSTRAINT `Linea_Factura_ibfk_1` FOREIGN KEY (`Id_Servicio`) REFERENCES `Servicio` (`Id_Servicio`) ON DELETE CASCADE ON UPDATE CASCADE,
+ADD CONSTRAINT `Linea_Factura_ibfk_2` FOREIGN KEY (`Id_Factura`) REFERENCES `Factura` (`Id_Factura`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `Log_Lesion`
@@ -984,8 +991,7 @@ ADD CONSTRAINT `Reserva_Masaje_ibfk_3` FOREIGN KEY (`DNI_Trabajador`) REFERENCES
 -- Filtros para la tabla `Servicio`
 --
 ALTER TABLE `Servicio`
-ADD CONSTRAINT `Servicio_ibfk_1` FOREIGN KEY (`Id_Trabajador`) REFERENCES `Trabajador` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE,
-ADD CONSTRAINT `Servicio_ibfk_2` FOREIGN KEY (`Id_Cliente`) REFERENCES `Cliente_Externo` (`Id_Cliente`) ON DELETE CASCADE ON UPDATE CASCADE;
+ADD CONSTRAINT `Servicio_ibfk_1` FOREIGN KEY (`Id_Trabajador`) REFERENCES `Trabajador` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `Telefonos_Alumno`

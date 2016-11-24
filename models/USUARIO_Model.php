@@ -106,17 +106,23 @@ class usuario{
 		$sql = "SELECT * FROM Usuario WHERE DNI='".$usuarioNuevo->getDni()."' AND Usuario<>'".$usuarioNuevo->getUsuario()."';";
 		$resultado = $this->mysqli->query($sql);
 		if ($resultado->num_rows == 0){
+			if($usuarioNuevo->getPassword() != null){
+				$sql= "UPDATE Usuario SET Password='".$usuarioNuevo->getPassword()."' WHERE Usuario='".$this->usuario."';";
+				$this->mysqli->query($sql);
+			}
+			if($usuarioNuevo->getGrupo() != null){
+				$sql= "UPDATE Usuario SET Nombre_Grupo='".$usuarioNuevo->getGrupo()."' WHERE Usuario='".$this->usuario."';";
+				$this->mysqli->query($sql);
+			}
 			if($usuarioNuevo->getDni() == null){
-				$sql= "UPDATE Usuario SET DNI=NULL,Nombre_Grupo='".$usuarioNuevo->getGrupo()."',Password='".$usuarioNuevo->getPassword()."',Usuario='".$usuarioNuevo->getUsuario()."' WHERE Usuario='".$this->usuario."';";
-				if($this->mysqli->query($sql) === TRUE) {
-					return "modificacion exito";
-				}else
-					return "error modificacion";
+				$sql= "UPDATE Usuario SET DNI=NULL WHERE Usuario='".$this->usuario."';";
+				$this->mysqli->query($sql);
+				return "modificacion exito";
 			}else{
 				$sql = "SELECT * FROM Trabajador WHERE DNI='".$usuarioNuevo->getDni()."';";
 				$resultado = $this->mysqli->query($sql);
 				if ($resultado->num_rows == 1){
-					$sql= "UPDATE Usuario SET DNI='".$usuarioNuevo->getDni()."',Nombre_Grupo='".$usuarioNuevo->getGrupo()."',Password='".$usuarioNuevo->getPassword()."',Usuario='".$usuarioNuevo->getUsuario()."' WHERE Usuario='".$this->usuario."';";
+					$sql= "UPDATE Usuario SET DNI='".$usuarioNuevo->getDni()."' WHERE Usuario='".$this->usuario."';";
 					if($this->mysqli->query($sql) === TRUE) {
 						return "modificacion exito";
 					}else
@@ -174,6 +180,19 @@ function verUsuarios(){
 			if($row['DNI'] == null) $row['DNI'] = "-";
 			echo "<tr> <td>".$row['Usuario']."</td> <td>".$row['Nombre_Grupo']."</td> <td>".$row['DNI']."</td> </tr>";
 		}
+	}
+}
+
+//Recupera los datos de un usuario en un array.
+function mostrarUsuario($user){
+		
+	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	
+	$sql = "SELECT * FROM Usuario WHERE Usuario='".$user."' AND Borrado='0';";
+	$resultado = $db->query($sql);
+	if ($resultado->num_rows == 1){
+		$row = $resultado->fetch_assoc();
+		return $row;
 	}
 }
 

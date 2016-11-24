@@ -88,6 +88,10 @@
 							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaControlador']; ?></a>
 							</li>
 							<li>
+							  <a href="../controllers/CONTROLADOR_Controller.php?id=altaAccion">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaAccion']; ?></a>
+							</li>
+							<li>
 							  <a href="../controllers/CONTROLADOR_Controller.php?id=bajaControlador">
 							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span></span><?php echo $strings['bajaControlador']; ?></a>
 							</li>

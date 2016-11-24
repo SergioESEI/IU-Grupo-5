@@ -9,22 +9,52 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 //Crea la clase e instancia la función render en el constructor. 
 class Usuario_Editar{
-
-	function __construct(){
-		$this->render();
+	
+	//Si se le pasa, crea un array con los datos del usuario.
+	function __construct($datos=null){
+		$this->render($datos);
 	}
 
-	function render(){
+	function render($datos){
 		require_once('../header.php'); 
 ?>
 		<!-- Título de la página -->	
 		<title><?php echo $strings['titulo editar usuario']; ?></title>
+		
+		<script>
+		//Compruba que el formato del DNI sea válido.
+		function nif(dni) {
+		  var numero
+		  var letr
+		  var letra
+		  var expresion_regular_dni
+		 
+		  expresion_regular_dni = /^\d{8}[a-zA-Z]$/;
+		 
+		  if(expresion_regular_dni.test (dni) == true){
+			 numero = dni.substr(0,dni.length-1);
+			 letr = dni.substr(dni.length-1,1);
+			 numero = numero % 23;
+			 letra='TRWAGMYFPDXBNJZSQVHLCKET';
+			 letra=letra.substring(numero,numero+1);
+			if (letra!=letr.toUpperCase()) {
+			   alert('<?php echo $strings['error letra dni']; ?>');
+			 }
+		  }else{ 
+			if (dni != "")
+				alert('<?php echo $strings['error dni']; ?>');
+		   }
+		}
 
-		<script> 
 		//Confirman la edición.
 		function pregunta(){
-				if (confirm('<?php echo $strings['confirmar modificacion']; ?>')){
-				   document.formulario.submit();
+			var dni = document.getElementById("dni").value;
+			var grupo = document.getElementById("grupoN").value;
+			
+			if (confirm('<?php echo $strings['confirmar modificacion']; ?>'+
+				'\n\n<?php echo $strings['dni']; ?>: '+dni +
+				'\n<?php echo $strings['grupo']; ?>: '+grupo)){
+			   document.formulario.submit();
 			} else return false;
 		}
 		</script>
@@ -86,7 +116,7 @@ class Usuario_Editar{
 							<input type="hidden" name="usuarioN" value="<?php echo $_POST['usuario']; ?>">
 							<div class="form-group">
 								<div class="col-sm-4">
-								<label for="nombre" class="control-label"><?php echo $strings['nuevos datos']; ?>:</label>
+								<label for="nombre" class="control-label"><?php echo $strings['nuevos datos']; ?> <?php echo $strings['campos modificar']; ?>:</label>
 								</div>
 							</div>
 						</div>
@@ -97,7 +127,7 @@ class Usuario_Editar{
 							  <label for="nombre" class="control-label"><?php echo $strings['password']; ?>:</label>
 							</div>
 							<div class="col-sm-4">
-							  <input type="password" class="form-control" name="passwordN" pattern="[A-Za-z0-9]{4,16}" title="<?php echo $strings['error password']; ?>" required>
+							  <input type="password" class="form-control" name="passwordN" pattern="[A-Za-z0-9]{4,16}" title="<?php echo $strings['error password']; ?>">
 							</div>
 						</div>
 						
@@ -107,22 +137,26 @@ class Usuario_Editar{
 							<label for="nombre" class="control-label"><?php echo $strings['grupo']; ?>:</label>
 							</div><div class="col-sm-4">
 							<?php if(strcmp($_SESSION['user'],$_POST['usuario'])!= 0){
-								echo "<select name='grupoN' required>";
+								echo "<select id='grupoN' name='grupoN'>";
 								listarGrupos(); 
 								echo "</select>";
 							}else{ 
 								echo $_SESSION['grupo'];
-								echo "<input type='hidden' name='grupoN' value='".$_SESSION['grupo']."'>";
+								echo "<input type='hidden' id='grupoN' name='grupoN' value='".$_SESSION['grupo']."'>";
 							} ?>
 						</div></div>
 						
-						<!-- Campo DNI, opcional -->
+						<!-- Campo DNI, opcional (recupera del array el DNI si ya tenía uno asignado y lo muestra) -->
 						<div class="form-group">
 							<div class="col-sm-4">
 							  <label for="nombre" class="control-label"><?php echo $strings['dni opcional']; ?>:</label>
 							</div>
 							<div class="col-sm-4">
-							  <input type="text" class="form-control" name="dniN" pattern="[0-9]{8}[A-Z]{1}" title="<?php echo $strings['error dni']; ?>">
+							  <?php if($datos['DNI'] != null){ ?>
+								<input type="text" id="dni" class="form-control" name="dniN" value="<?php echo $datos['DNI']; ?>" onblur="nif(this.value)">
+							  <?php }else{ ?>
+								<input type="text" id="dni" class="form-control" name="dniN" onblur="nif(this.value)">
+							  <?php } ?>
 							</div>
 						</div>
 						

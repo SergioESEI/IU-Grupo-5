@@ -66,7 +66,7 @@ class grupo{
 			$sql = "SELECT * FROM Usuario WHERE Nombre_Grupo='".$this->grupo."';";
 			$resultado = $this->mysqli->query($sql);
 			if ($resultado->num_rows > 0){
-				$sql = "UPDATE Usuario SET Borrado='1' WHERE Nombre_Grupo='".$this->grupo."';";
+				$sql = "UPDATE Usuario SET Nombre_Grupo=NULL WHERE Nombre_Grupo='".$this->grupo."';";
 				$this->mysqli->query($sql);
 			}
 			return "borrado exito";
@@ -112,6 +112,7 @@ function listarGrupos(){
 	$sql = "SELECT * FROM Grupo WHERE Borrado='0' ORDER BY Nombre_Grupo;";
 	$resultado = $db->query($sql);
 	if ($resultado->num_rows > 0){
+		echo "<option value=''></option>";
 		while($row = $resultado->fetch_array()) {
 			if(strcmp($row['Nombre_Grupo'],'Admin')!= 0 )
 				echo "<option value='".$row['Nombre_Grupo']."'>".$row['Nombre_Grupo']."</option>";
