@@ -18,13 +18,14 @@
 				<a class="navbar-brand"><?php echo $strings['menu'] ?></a>
 			</div>
 			
-			<!-- Menú del Admin: -->
-			<?php if(strcmp($_SESSION['grupo'],'Admin')== 0){ ?>
 			<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li class="dropdown">
 					
-						<!-- Gestión de usuarios -->
+				<!-- Menú del Admin: -->
+				<?php if(strcmp($_SESSION['grupo'],'Admin')== 0){ ?>
+				
+					<!-- Gestión de usuarios -->
+					<li class="dropdown">	
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarUsuario']; ?> 
 						<span class="caret"></span>
 						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
@@ -137,11 +138,12 @@
 							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarPermiso']; ?></a>
 							</li>
 						</ul>
-					</li>		
+					</li>	
+				
+				<?php } ?>
 				</ul>
 			</div>
 		</div>
 	</nav>
-	<?php } ?>
 	</div>
 </html>
