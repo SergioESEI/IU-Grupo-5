@@ -56,7 +56,14 @@ function cargarPermisos($user){
 	$sql = "SELECT Nombre_Controlador,Accion FROM Permisos P, Usuario U WHERE U.Usuario='".$user."' AND P.Nombre_Grupo=U.Nombre_Grupo;";
 	$result=$db->query($sql);
 	if ($result->num_rows > 0){
-		return $result->fetch_array();
+		$permisos = array();
+		while($row = $result->fetch_array()) {
+			if(!in_array($row['Nombre_Controlador'],$permisos)){
+				array_push($permisos,$row['Nombre_Controlador']);
+			}
+			array_push($permisos,$row['Nombre_Controlador']."_".$row['Accion']);
+		}
+		return $permisos;
 	}else{
 		return null;
 	}
@@ -85,7 +92,6 @@ if(isset($_POST['usuario'])){
 			$array = $result->fetch_array();
 			$_SESSION['grupo'] = $array['Nombre_Grupo'];
 			$_SESSION['permisos'] = cargarPermisos($user);
-
 			header("location: index.php");
 		}else{
 			echo "<div class='col-sm-4 text-left'></div><div class='col-sm-4 text-left'><div class='alert alert-danger'>¡ERROR! Usuario no encontrado.</div></div>";
