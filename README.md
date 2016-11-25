@@ -1,5 +1,4 @@
 # IU-Grupo-5
-Proyecto IU Grupo 5 - ET1
 
 INSTRUCCIONES DE INSTALACIÓN
 
