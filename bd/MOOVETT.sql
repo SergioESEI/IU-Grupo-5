@@ -15,9 +15,14 @@ DROP DATABASE IF EXISTS `MOOVETT`;
 SET SQL_MODE=`NO_AUTO_VALUE_ON_ZERO`;
 CREATE DATABASE `MOOVETT` DEFAULT CHARACTER SET UTF8 COLLATE utf8_general_ci;
 USE `MOOVETT`;
-GRANT USAGE ON * . * TO  'root'@'localhost' IDENTIFIED BY  'iu'
-WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0;
-GRANT ALL PRIVILEGES ON  `MOOVETT` . * TO  'root'@'localhost' WITH GRANT OPTION ;
+GRANT USAGE ON *.* TO 'moovett'@'localhost';
+   DROP USER 'moovett'@'localhost';
+
+CREATE USER 'moovett'@'localhost' IDENTIFIED BY  'moovett2016';
+
+GRANT USAGE ON * . * TO  'moovett'@'localhost' IDENTIFIED BY  'moovett2016' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
+
+GRANT ALL PRIVILEGES ON  `MOOVETT` . * TO  'moovett'@'localhost' WITH GRANT OPTION ;
 
 
 -- --------------------------------------------------------
@@ -146,7 +151,7 @@ INSERT INTO `Calendario` (`Id_Calendario`, `Fecha_Inicio`, `Fecha_Fin`, `Hora_In
 
 CREATE TABLE IF NOT EXISTS `Cliente_Externo` (
   `Id_Cliente` varchar(10) NOT NULL,
-  `Nombre` varchar(20) NOT NULL,
+  `Nombre` varchar(50) NOT NULL,
   `DNI` varchar(9) NOT NULL,
   `Tlf` smallint(10) NOT NULL,
   `Email` varchar(30) NOT NULL,
@@ -202,9 +207,16 @@ CREATE TABLE IF NOT EXISTS `Controlador` (
 --
 
 INSERT INTO `Controlador` (`Nombre_Controlador`, `Accion`, `Borrado`) VALUES
-('Actividades', 'Consultar', 0),
-('Actividades', 'Borrar', 0),
-('Alumnos', 'Añadir', 0);
+('Factura', 'Add', 0),
+('Factura', 'Delete', 0),
+('Factura', 'Edit', 0),
+('Factura', 'List', 0),
+('Factura', 'Show', 0),
+('Linea_Factura', 'Add', 0),
+('Linea_Factura', 'Delete', 0),
+('Linea_Factura', 'Edit', 0),
+('Linea_Factura', 'List', 0),
+('Linea_Factura', 'Show', 0);
 
 -- --------------------------------------------------------
 
@@ -293,19 +305,19 @@ INSERT INTO `Evento` (`Id_Evento`, `Descripcion`, `Nombre`, `Borrado`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Factura` (
-  `Id_Factura` varchar(10) NOT NULL,
+`Id_Factura` mediumint(9) PRIMARY KEY AUTO_INCREMENT,
   `Id_Cliente` varchar(10) NOT NULL,
-  `Fecha` date,
-  `Total` float,
+  `Fecha` date DEFAULT NULL,
+  `Total` float DEFAULT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `Factura`
 --
 
-INSERT INTO `Factura` (`Id_Factura`, `Id_Cliente`, `Borrado`) VALUES
-('5656565656', '48484848K',0);
+INSERT INTO `Factura` (`Id_Factura`, `Id_Cliente`, `Fecha`, `Total`, `Borrado`) VALUES
+(1, '48484848K', NULL, NULL, 0);
 
 
 -- --------------------------------------------------------
@@ -420,20 +432,20 @@ INSERT INTO `Lesion` (`DNI`, `Id_Lesion`, `Tipo`, `Curada`, `Descripcion`, `Borr
 --
 
 CREATE TABLE IF NOT EXISTS `Linea_Factura` (
-  `Id_Linea_Factura` varchar(10) NOT NULL,
-  `Id_Factura` varchar(10) NOT NULL,
+`Id_Linea_Factura` mediumint(9) PRIMARY KEY AUTO_INCREMENT,
+  `Id_Factura` mediumint(9) NOT NULL,
   `Id_Servicio` varchar(10) NOT NULL,
-  `Descripcion` varchar(500) NOT NULL,
+  `Descripcion` varchar(500) DEFAULT NULL,
   `Importe` float NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `Linea_Factura`
 --
 
 INSERT INTO `Linea_Factura` (`Id_Linea_Factura`, `Id_Factura`, `Id_Servicio`, `Descripcion`, `Importe`, `Borrado`) VALUES
-('1111111111', '5656565656', '963852741', 'La descripcion de la linea', 10.5, 0);
+(1, 1, '963852741', 'La descripcion de la linea', 10.5, 0);
 
 -- --------------------------------------------------------
 
@@ -494,10 +506,16 @@ CREATE TABLE IF NOT EXISTS `Permisos` (
 --
 
 INSERT INTO `Permisos` (`Nombre_Grupo`, `Nombre_Controlador`, `Accion`, `Borrado`) VALUES
-('Monitor','Actividades', 'Consultar', 0),
-('Monitor','Actividades', 'Borrar', 0),
-('Secretario','Gestionar actividades', 'Borrar', 0),
-('Secretario','Alumnos', 'Añadir', 0);
+('Secretario','Factura', 'Add', 0),
+('Secretario','Factura', 'Delete', 0),
+('Secretario','Factura', 'Edit', 0),
+('Secretario','Factura', 'List', 0),
+('Secretario','Factura', 'Show', 0),
+('Secretario','Linea_Factura', 'Add', 0),
+('Secretario','Linea_Factura', 'Delete', 0),
+('Secretario','Linea_Factura', 'Edit', 0),
+('Secretario','Linea_Factura', 'List', 0),
+('Secretario','Linea_Factura', 'Show', 0);
 
 -- --------------------------------------------------------
 
@@ -577,6 +595,7 @@ CREATE TABLE IF NOT EXISTS `Servicio` (
   `Id_Servicio` varchar(10) NOT NULL,
   `Id_Trabajador` varchar(10) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
+  `Precio` float NOT NULL,
   `Descripcion` varchar(500) NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -585,8 +604,8 @@ CREATE TABLE IF NOT EXISTS `Servicio` (
 -- Volcado de datos para la tabla `Servicio`
 --
 
-INSERT INTO `Servicio` (`Id_Servicio`, `Id_Trabajador`, `Nombre`, `Descripcion`, `Borrado`) VALUES
-('963852741', '22222222J', 'Cena de empresa', 'Preparación de cena para 50 personas', 0);
+INSERT INTO `Servicio` (`Id_Servicio`, `Id_Trabajador`, `Nombre`, `Precio`, `Descripcion`, `Borrado`) VALUES
+('963852741', '22222222J', 'Cena de empresa', 30, 'Preparación de cena para 50 personas', 0);
 
 -- --------------------------------------------------------
 
@@ -696,7 +715,7 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 
 INSERT INTO `Usuario` (`DNI`, `Nombre_Grupo`, `Password`, `Usuario`, `Borrado`) VALUES
 ('11111111H', 'Monitor', '2fb6c8d2f3842a5ceaa9bf320e649ff0', 'usuario2', 0),
-('22222222J', 'Secretario', '5a54c609c08a0ab3f7f8eef1365bfda6', 'usuario3', 0);
+('22222222J', 'Secretario', '09ca0d5095609fe35bb7c9c7246e3cae', 'secretario', 0);
 INSERT INTO `Usuario` (`Nombre_Grupo`, `Password`, `Usuario`, `Borrado`) VALUES
 ('Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 0);
 
@@ -780,7 +799,7 @@ ALTER TABLE `Evento`
 -- Indices de la tabla `Factura`
 --
 ALTER TABLE `Factura`
- ADD PRIMARY KEY (`Id_Factura`);
+ ADD KEY `Factura_ibfk_1` (`Id_Cliente`);
 
 --
 -- Indices de la tabla `Grupo`
@@ -812,11 +831,6 @@ ALTER TABLE `Jornada`
 ALTER TABLE `Lesion`
  ADD PRIMARY KEY (`DNI`,`Id_Lesion`);
 
---
--- Indices de la tabla `Linea_Factura`
---
-ALTER TABLE `Linea_Factura`
- ADD PRIMARY KEY (`Id_Linea_Factura`);
 
 --
 -- Indices de la tabla `Log_Lesion`

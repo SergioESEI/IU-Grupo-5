@@ -2,6 +2,9 @@
 //Comprueba si el usuario inició sesión y si es admin antes de cargar la página.
 if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){ 
 
+//Include de la función de conexión a la base de datos.
+include_once('conectarBD.php');
+
 class controlador{
 	
 	var $accion;
@@ -23,21 +26,12 @@ class controlador{
 		return $this->accion;
 	}
 	
-	//Crea una conexión con la BD.
-	function conectarBD(){
-		
-		$this->mysqli = new mysqli("localhost", "root", "iu", "MOOVETT");
-		if (mysqli_connect_errno()){
-			echo "Fallo al conectar MySQL: " . $this->mysqli->connect_error();
-		}
-	}
-	
 	//Añade un controlador a la BD en base al controlador recibido del controller. Controla que no exista el controlador.
 	//Añade las acciones por defecto: add, delete, edit, show y list.
 	//Si se había realizado un borrado lógico recupera el controlador.
 	function crearControlador(){
 		
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "SELECT * FROM Controlador WHERE Nombre_Controlador='".$this->controlador."';";
 		$resultado = $this->mysqli->query($sql);
@@ -72,9 +66,10 @@ class controlador{
 		}
 	}
 	
+	//Añade una acción al controlador. Si estaba con borrado lógico se recupera.
 	function crearAccion(){
 		
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "SELECT * FROM Controlador WHERE Nombre_Controlador='".$this->controlador."' AND Accion='".$this->accion."';";
 		$resultado = $this->mysqli->query($sql);
@@ -97,7 +92,7 @@ class controlador{
 	//Borra las tuplas de permisos sobre el controlador.
 	function borrar(){
 
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		if($this->accion != null){
 			$sql = "UPDATE Controlador SET Borrado='1' WHERE Nombre_Controlador='".$this->controlador."' AND Accion='".$this->accion."';";
@@ -130,7 +125,7 @@ class controlador{
 	//Si tenía borrado lógico lo sobreescribe y borra el viejo.
 	function modificar($controladorNuevo){
 
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "SELECT * FROM Controlador WHERE Nombre_Controlador='".$controladorNuevo->getControlador()."' AND Accion='".$controladorNuevo->getAccion()."';";
 		$resultado = $this->mysqli->query($sql);
@@ -158,7 +153,7 @@ class controlador{
 //Lista en un select todos los controladores registrados.
 function listarControlador(){
 	
-		$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+		$db = conectarBD();
 		
 		$sql = "SELECT DISTINCT Nombre_Controlador FROM Controlador WHERE Borrado='0' ORDER BY Nombre_Controlador;";
 		$resultado = $db->query($sql);
@@ -174,7 +169,7 @@ function listarControlador(){
 //Lista en un select todas las acciones del controlador pasado como parámetro.	
 function listarAccion($contr){
 	
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT Accion FROM Controlador WHERE Borrado='0' AND Nombre_Controlador='".$contr."' ORDER BY Accion;";
 	$resultado = $db->query($sql);
@@ -190,7 +185,7 @@ function listarAccion($contr){
 //Lista todos los controladores con sus acciones con formato tabla.
 function listarFuncionalidades(){
 	
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT * FROM Controlador WHERE Borrado='0' ORDER BY Nombre_Controlador,Accion;";
 	$resultado = $db->query($sql);
@@ -204,7 +199,7 @@ function listarFuncionalidades(){
 //Muestra las acciones de un controlador concreto pasado por parámetro en formato tabla.
 function consultarControlador($controlador){
 		
-		$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+		$db = conectarBD();
 	
 	$sql = "SELECT * FROM Controlador WHERE Borrado='0' AND Nombre_Controlador='".$controlador."' ORDER BY Nombre_Controlador,Accion;";
 	$resultado = $db->query($sql);

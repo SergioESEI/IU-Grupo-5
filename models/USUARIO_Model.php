@@ -2,6 +2,9 @@
 //Comprueba si el usuario inició sesión y si es admin antes de cargar la página.
 if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){ 
 
+//Include de la función de conexión a la base de datos.
+include_once('conectarBD.php');
+
 class usuario{
 	
 	var $id;
@@ -32,20 +35,11 @@ class usuario{
 		return $this->usuario;
 	}
 	
-	//Crea una conexión con la BD.
-	function conectarBD(){
-		
-		$this->mysqli = new mysqli("localhost", "root", "iu", "MOOVETT");
-		if (mysqli_connect_errno()){
-			echo "Fallo al conectar MySQL: " . $this->mysqli->connect_error();
-		}
-	}
-	
 	//Añade un usuario a la BD. Controla que no exista ya el usuario. Si se introduce dni del trabajador se comprueba que exista o que el dni esté asignado.
 	//Si se había realizado un borrado lógico recupera el usuario.
 	function crear(){
 		
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "SELECT * FROM Usuario WHERE DNI='".$this->dni."';";
 		$resultado = $this->mysqli->query($sql);
@@ -88,7 +82,7 @@ class usuario{
 	//Realiza el borrado lógico de un usuario.
 	function borrar(){
 
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "UPDATE Usuario SET Borrado='1' WHERE Usuario='".$this->usuario."';";
 		if($this->mysqli->query($sql) === TRUE) {
@@ -101,7 +95,7 @@ class usuario{
 	//Si tenía borrado lógico lo sobreescribe y borra el viejo.
 	function modificar($usuarioNuevo){
 
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "SELECT * FROM Usuario WHERE DNI='".$usuarioNuevo->getDni()."' AND Usuario<>'".$usuarioNuevo->getUsuario()."';";
 		$resultado = $this->mysqli->query($sql);
@@ -137,7 +131,7 @@ class usuario{
 //Lista en un select todos los usuarios para borrar. Controla que no se muestre el usuario logeado o admin para no borrarlo.
 function listarUsuariosBorrar(){
 	
-		$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+		$db = conectarBD();
 		
 		$sql = "SELECT Usuario FROM Usuario WHERE Borrado='0' ORDER BY Usuario;";
 		$resultado = $db->query($sql);
@@ -154,7 +148,7 @@ function listarUsuariosBorrar(){
 //Lista en un select todos los usuarios para modificar. 
 function listarUsuariosModificar(){
 	
-		$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+		$db = conectarBD();
 		
 		$sql = "SELECT Usuario FROM Usuario WHERE Borrado='0' ORDER BY Usuario;";
 		$resultado = $db->query($sql);
@@ -170,7 +164,7 @@ function listarUsuariosModificar(){
 //Lista todos los usuarios en una tabla.
 function verUsuarios(){
 	
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 		
 	$sql = "SELECT * FROM Usuario WHERE Borrado='0' ORDER BY Usuario;";
 	$resultado = $db->query($sql);
@@ -186,7 +180,7 @@ function verUsuarios(){
 //Recupera los datos de un usuario en un array.
 function mostrarUsuario($user){
 		
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT * FROM Usuario WHERE Usuario='".$user."' AND Borrado='0';";
 	$resultado = $db->query($sql);
@@ -199,7 +193,7 @@ function mostrarUsuario($user){
 //Muestra los datos de un usuario concreto pasado por parámetro en formato tabla.
 function consultarUsuario($user){
 		
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT * FROM Usuario WHERE Usuario='".$user."' AND Borrado='0';";
 	$resultado = $db->query($sql);

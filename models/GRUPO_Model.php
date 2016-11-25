@@ -2,6 +2,9 @@
 //Comprueba si el usuario inició sesión y si es admin antes de cargar la página.
 if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){ 
 
+//Include de la función de conexión a la base de datos.
+include_once('conectarBD.php');
+
 class grupo{
 	
 	var $grupo;
@@ -18,20 +21,11 @@ class grupo{
 		return $this->grupo;
 	}
 	
-	//Crea una conexión con la BD.
-	function conectarBD(){
-		
-		$this->mysqli = new mysqli("localhost", "root", "iu", "MOOVETT");
-		if (mysqli_connect_errno()){
-			echo "Fallo al conectar MySQL: " . $this->mysqli->connect_error();
-		}
-	}
-	
 	//Añade un grupo a la BD en base al grupo recibidos del controller. Controla que no exista ya.
 	//Si se había realizado un borrado lógico recupera el grupo.
 	function crear(){
 		
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "SELECT * FROM Grupo WHERE Nombre_Grupo='".$this->grupo."';";
 		$resultado = $this->mysqli->query($sql);
@@ -53,7 +47,7 @@ class grupo{
 	//Borrado lógico del grupo seleccionado en el controller. Si hay permisos sobre ese grupo se borran.
 	function borrar(){
 
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "UPDATE Grupo SET Borrado='1' WHERE Nombre_Grupo='".$this->grupo."';";
 		if($this->mysqli->query($sql) === TRUE) {
@@ -78,7 +72,7 @@ class grupo{
 	//Si tenía borrado lógico lo sobreescribe y borra el viejo.
 	function modificar($grupoNuevo){
 
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "SELECT * FROM Grupo WHERE Nombre_Grupo='".$grupoNuevo->getGrupo()."';";
 		$resultado = $this->mysqli->query($sql);
@@ -107,7 +101,7 @@ class grupo{
 //Lista todos los grupos registrados en un select. Oculta el grupo admin.
 function listarGrupos(){
 	
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT * FROM Grupo WHERE Borrado='0' ORDER BY Nombre_Grupo;";
 	$resultado = $db->query($sql);
@@ -123,7 +117,7 @@ function listarGrupos(){
 //Lista todos los grupos registrados en formato tabla.
 function verGrupos(){
 	
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT * FROM Grupo WHERE Borrado='0' ORDER BY Nombre_Grupo;";
 	$resultado = $db->query($sql);

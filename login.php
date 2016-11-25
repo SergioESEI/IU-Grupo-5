@@ -5,14 +5,7 @@
 		<link href="bootstrap/login.css" rel="stylesheet">
 	</head>	
 	
-    <body>	 
-	
-	<!-- Botón para crear la BD -->	
-	<form class="form-horizontal" method="POST" type="button" action="login.php">
-		<input type="hidden" name="crearBD" value="crear">
-		<input class='btn btn-primary' type="submit" value="Crear BD">
-	</form>
-	
+    <body>	 	
 	<!-- Formulario que recoge los datos de login -->
 	<div class="container">
         <div class="card card-container">
@@ -43,15 +36,12 @@
 
 <?php
 
-//Crea la BD.
-if(isset($_POST['crearBD'])){	
-	shell_exec("mysql -u root -piu < bd/MOOVETT.sql");
-}
+include_once('models/conectarBD.php');
 
 //Carga en una variable de sesión los permisos del usuario.
 function cargarPermisos($user){
 	
-	$db = new mysqli('localhost','root','iu','MOOVETT');
+	$db = conectarBD();
 	
 	$sql = "SELECT Nombre_Controlador,Accion FROM Permisos P, Usuario U WHERE U.Usuario='".$user."' AND P.Nombre_Grupo=U.Nombre_Grupo;";
 	$result=$db->query($sql);
@@ -73,29 +63,24 @@ function cargarPermisos($user){
 //Busca al usuario en la BD y vuelve al index si existe, si no muestra un error.
 if(isset($_POST['usuario'])){
 	
-	$db = new mysqli('localhost','root','iu');	
-	$load= "USE MOOVETT;";
-	$resultado=$db->query($load);
-	if(!$resultado) echo "<div class='col-sm-4 text-left'></div><div class='col-sm-4 text-left'><div class='alert alert-danger'>¡ERROR! La base de datos no existe.</div></div>";
+	$db = conectarBD();	
+
+	$user=$_POST['usuario'];
+	$password=$_POST['password'];
+	$password=md5($password); // Encriptamos el password
+	$sql= "SELECT Nombre_Grupo FROM Usuario WHERE Usuario='$user' and Password='$password'";
+	$result=$db->query($sql);	
 	
-	else{
-		$user=$_POST['usuario'];
-		$password=$_POST['password'];
-		$password=md5($password); // Encriptamos el password
-		$sql= "SELECT Nombre_Grupo FROM Usuario WHERE Usuario='$user' and Password='$password'";
-		$result=$db->query($sql);	
-		
-		//Se crean variables de sesión para el usuario (user), grupo al que pertenece y permisos.
-		if($result->num_rows == 1){
-			session_start();
-			$_SESSION['user'] = $user;
-			$array = $result->fetch_array();
-			$_SESSION['grupo'] = $array['Nombre_Grupo'];
-			$_SESSION['permisos'] = cargarPermisos($user);
-			header("location: index.php");
-		}else{
-			echo "<div class='col-sm-4 text-left'></div><div class='col-sm-4 text-left'><div class='alert alert-danger'>¡ERROR! Usuario no encontrado.</div></div>";
-		}
+	//Se crean variables de sesión para el usuario (user), grupo al que pertenece y permisos.
+	if($result->num_rows == 1){
+		session_start();
+		$_SESSION['user'] = $user;
+		$array = $result->fetch_array();
+		$_SESSION['grupo'] = $array['Nombre_Grupo'];
+		$_SESSION['permisos'] = cargarPermisos($user);
+		header("location: index.php");
+	}else{
+		echo "<div class='col-sm-4 text-left'></div><div class='col-sm-4 text-left'><div class='alert alert-danger'>¡ERROR! Usuario no encontrado.</div></div>";
 	}
 }
 ?>

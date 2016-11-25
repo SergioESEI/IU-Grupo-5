@@ -2,6 +2,9 @@
 //Comprueba si el usuario inició sesión y si es admin antes de cargar la página.
 if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){ 
 
+//Include de la función de conexión a la base de datos.
+include_once('conectarBD.php');
+
 class permiso{
 	
 	var $grupo;
@@ -30,19 +33,11 @@ class permiso{
 		return $this->grupo;
 	}
 	
-	//Crea una conexión con la BD.
-	function conectarBD(){
-		
-		$this->mysqli = new mysqli("localhost", "root", "iu", "MOOVETT");
-		if (mysqli_connect_errno()){
-			echo "Fallo al conectar MySQL: " . $this->mysqli->connect_error();
-		}
-	}
-	
 	//Añade un permiso a la BD en base al grupo, controlador y acción recibidos del controller. Controla que no exista el permiso.
 	function crear(){
 		
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
+		
 		//Añade al grupo acción y controlador.
 		if($this->accion != null){
 			$sql = "SELECT * FROM Permisos WHERE Nombre_Grupo='".$this->grupo."' AND Nombre_Controlador='".$this->controlador."' AND Accion='".$this->accion."';";
@@ -80,7 +75,7 @@ class permiso{
 	//No es borrado lógico dado que es una tabla derivada de otras y no perdemos datos.
 	function borrar(){
 
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		if($this->accion != null){
 			$sql = "DELETE FROM Permisos WHERE Nombre_Grupo='".$this->grupo."' AND Nombre_Controlador='".$this->controlador."' AND Accion='".$this->accion."';";				$this->mysqli->query($sql);		
@@ -103,7 +98,7 @@ class permiso{
 	//Modifica el grupo-controlador-acción recibido del controller. Controla que no exista ya el nuevo permiso y si no existe lo crea en controladores.
 	function modificar($permisoNuevo){
 
-		$this->conectarBD();
+		$this->mysqli = conectarBD();
 		
 		$sql = "SELECT * FROM Permisos WHERE Nombre_Grupo='".$permisoNuevo->getGrupo()."' AND Nombre_Controlador='".$permisoNuevo->getControlador()."' AND Accion='".$permisoNuevo->getAccion()."';";
 		$resultado = $this->mysqli->query($sql);
@@ -122,23 +117,23 @@ class permiso{
 //Lista en un select todos los controladores registrados del grupo seleccionado.
 function listarControladorGrupo($grupo){
 	
-		$db = new mysqli("localhost", "root", "iu", "MOOVETT");
-		
-		$sql = "SELECT DISTINCT Nombre_Controlador FROM Permisos WHERE Borrado='0' AND Nombre_Grupo='".$grupo."' ORDER BY Nombre_Controlador;";
-		$resultado = $db->query($sql);
-		$db->close();
-		if ($resultado->num_rows > 0){
-			while($row = $resultado->fetch_array()) {
-				echo "<option value='".$row['Nombre_Controlador']."'>".$row['Nombre_Controlador']."</option><tr>";
-			}
+	$db = conectarBD();
+	
+	$sql = "SELECT DISTINCT Nombre_Controlador FROM Permisos WHERE Borrado='0' AND Nombre_Grupo='".$grupo."' ORDER BY Nombre_Controlador;";
+	$resultado = $db->query($sql);
+	$db->close();
+	if ($resultado->num_rows > 0){
+		while($row = $resultado->fetch_array()) {
+			echo "<option value='".$row['Nombre_Controlador']."'>".$row['Nombre_Controlador']."</option><tr>";
 		}
-		$db->close();
+	}
+	$db->close();
 }
 
 //Lista en un select todas las acciones del controlador y grupo pasados como parámetro.	
 function listarAccionGrupo($grupo,$contr){
 	
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT Accion FROM Permisos WHERE Borrado='0' AND Nombre_Controlador='".$contr."' AND Nombre_Grupo='".$grupo."' ORDER BY Accion;";
 	$resultado = $db->query($sql);
@@ -154,7 +149,7 @@ function listarAccionGrupo($grupo,$contr){
 //Lista todos los permisos por grupo en formato tabla.
 function listarPermisos(){
 	
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT * FROM Permisos ORDER BY Nombre_Grupo,Nombre_Controlador,Accion;";
 	$resultado = $db->query($sql);
@@ -169,7 +164,7 @@ function listarPermisos(){
 //Muestra los permisos de un grupo concreto pasado por parámetro en formato tabla.
 function consultarPermisos($grupo){
 		
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT * FROM Permisos WHERE Nombre_Grupo='".$grupo."' ORDER BY Nombre_Grupo,Nombre_Controlador,Accion;";
 	$resultado = $db->query($sql);
@@ -183,7 +178,7 @@ function consultarPermisos($grupo){
 //Lista todos los grupos con permisos en un select. Oculta el grupo admin.
 function listarGruposPermisos(){
 	
-	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	$db = conectarBD();
 	
 	$sql = "SELECT DISTINCT Nombre_Grupo FROM Permisos WHERE Borrado='0' ORDER BY Nombre_Grupo;";
 	$resultado = $db->query($sql);
