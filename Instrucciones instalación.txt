@@ -1,9 +1,0 @@
-INSTRUCCIONES DE INSTALACIÓN
-1.	Copiar los ficheros de ‘Código’ a la carpeta /var/www/html de la máquina virtual.
-2.	Pulsar el botón “Crear BD” para crear la base de datos antes de loguearse.
-
-Anotaciones:
--El fichero sql con las tablas y los datos insertados se encuentra en Código/bd.
--El usuario de la aplicación con permisos de Admin es:
-Usuario: admin
-Password: admin
