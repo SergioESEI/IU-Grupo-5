@@ -10,7 +10,7 @@ $strings = array(
 	
 	//Titulos
 	'principal' => 'Principal',
-	'titulo añadir controlador' => 'Engadirfuncionalidade',
+	'titulo añadir controlador' => 'Engadir funcionalidade',
 	'titulo borrar controlador' => 'Eliminar funcionalidade',
 	'titulo editar controlador' => 'Modificar funcionalidade',
 	'titulo listar controlador' => 'Ver funcionalidades',
@@ -30,8 +30,8 @@ $strings = array(
 	//Menu
 	'menu' => 'Menu',
 	'gestionarControladores' => 'FUNCIONALIDADES',
-	'altaControlador' => 'Añadir controlador',
-	'altaAccion' => 'Añadir acción',
+	'altaControlador' => 'Engadir controlador',
+	'altaAccion' => 'Engadir acción',
 	'bajaControlador' => 'Eliminar funcionalidade',
 	'modificarControlador' => 'Modificar funcionalidade',
 	'consultarControlador' => 'Ver funcionalidades',
@@ -39,12 +39,12 @@ $strings = array(
 	'altaPermiso' => 'Engadir permiso perfil',
 	'bajaPermiso' => 'Eliminar permiso perfil',
 	'modificarPermiso' => 'Modificar permiso perfil',
-	'consultarPermiso' => 'Ver permisos perfiles',
-	'gestionarGrupos' => 'PERFILES',
+	'consultarPermiso' => 'Ver permisos perfís',
+	'gestionarGrupos' => 'PERFÍS',
 	'altaGrupo' => 'Engadir perfil',
 	'bajaGrupo' => 'Eliminar perfil',
 	'modificarGrupo' => 'Modificar perfil',
-	'consultarGrupo' => 'Ver perfiles',
+	'consultarGrupo' => 'Ver perfís',
 	'gestionarUsuario' => 'USUARIOS',
 	'altaUsuario' => 'Engadir usuario',
 	'bajaUsuario' => 'Eliminar usuario',
@@ -56,7 +56,7 @@ $strings = array(
 	
 	//Ventanas y botones comunes
 	'confirmar borrado' => '¿Confirmar borrado?',
-	'confirmar modificacion' => '¿Confrimar modificacion?',
+	'confirmar modificacion' => '¿Confirmar modificacion?',
 	'añadir permisos' => '¿Engadir todos os permisos do controlador?',
 	'crear' => 'Engadir',
 	'modificar' => 'Modificar',
@@ -93,7 +93,7 @@ $strings = array(
 	'nuevo grupo' => 'NOVO PERFIL',
 	'borrar grupo' => 'ELIMINAR PERFIL',
 	'editar grupo' => 'MODIFICAR PERFIL',
-	'ver grupo' => 'VER PERFILES',
+	'ver grupo' => 'VER PERFÍS',
 	'grupo' => 'Perfil',
 	
 	//Opciones vistas permisos

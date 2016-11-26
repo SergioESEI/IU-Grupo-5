@@ -56,7 +56,7 @@ $strings = array(
 	
 	//Ventanas y botones comunes
 	'confirmar borrado' => '¿Confirmar borrado?',
-	'confirmar modificacion' => '¿Confrimar modificación?',
+	'confirmar modificacion' => '¿Confirmar modificación?',
 	'añadir permisos' => '¿Añadir todos los permisos del controlador?',
 	'crear' => 'Añadir',
 	'modificar' => 'Modificar',
