@@ -153,7 +153,7 @@ CREATE TABLE IF NOT EXISTS `Cliente_Externo` (
   `Id_Cliente` varchar(10) NOT NULL,
   `Nombre` varchar(50) NOT NULL,
   `DNI` varchar(9) NOT NULL,
-  `Tlf` smallint(10) NOT NULL,
+  `Tlf` int(9) NOT NULL,
   `Email` varchar(30) NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0',
   `Direccion` varchar(50) NOT NULL
@@ -164,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `Cliente_Externo` (
 --
 
 INSERT INTO `Cliente_Externo` (`Id_Cliente`, `Nombre`, `DNI`, `Tlf`, `Email`, `Borrado`, `Direccion`) VALUES
-('48484848K', 'Fulanito', '48484848K', 32767, 'fulanito@gmail.com', 0, 'Progeso 24, 3A');
+('48484848K', 'Fulanito', '48484848K', 327676543, 'fulanito@gmail.com', 0, 'Progeso 24, 3A');
 
 -- --------------------------------------------------------
 
