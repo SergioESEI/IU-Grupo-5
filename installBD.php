@@ -37,15 +37,20 @@
 
 <?php
 
-
-
 //Crea la BD.
 if(isset($_POST['usuario'])){
 	
 	$user=$_POST['usuario'];
 	$password=$_POST['password'];
-	//$password=md5($password); // Encriptamos el password
-	shell_exec("mysql -u ".$_POST['usuario']." -p".$_POST['password']." < bd/MOOVETT.sql");
+
+	$command = "mysql -u ".$_POST['usuario']." -p".$_POST['password']." < bd/MOOVETT.sql";
+	$last_line = exec($command, $output, $return_var);
+ 
+	if ($return_var === 0) {
+	  echo "<div class='col-sm-4 text-left'></div><div class='col-sm-4 text-left'><div class='alert alert-success'>ÉXITO al crear la base de datos.</div></div>";
+	}else{
+	  echo "<div class='col-sm-4 text-left'></div><div class='col-sm-4 text-left'><div class='alert alert-danger'>¡ERROR! El usuario no existe.</div></div>";
+	}
 
 }
 ?>
