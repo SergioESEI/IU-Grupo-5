@@ -1,10 +1,10 @@
-<html> 
+<html>
 	<head>
 		<link href="../bootstrap/menu.css" rel="stylesheet">
 	</head>
 
 	<div class="col-sm-2">
-	
+
 	<!-- Muestra distintas opciones en el menú lateral en función del grupo de usuarios al que pertenece el usuario -->
 	<nav class="navbar navbar-inverse sidebar" role="navigation">
 		<div class="container-fluid">
@@ -17,16 +17,16 @@
 				</button>
 				<a class="navbar-brand"><?php echo $strings['menu'] ?></a>
 			</div>
-			
+
 			<div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					
+
 				<!-- Menú del Admin: -->
 				<?php if(strcmp($_SESSION['grupo'],'Admin')== 0){ ?>
-				
+
 					<!-- Gestión de usuarios -->
-					<li class="dropdown">	
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarUsuario']; ?> 
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarUsuario']; ?>
 						<span class="caret"></span>
 						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
 						<ul class="dropdown-menu forAnimate" role="menu">
@@ -52,10 +52,10 @@
 							</li>
 						</ul>
 					</li>
-					
+
 					<!-- Gestión de grupos/perfiles -->
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarGrupos']; ?> 
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarGrupos']; ?>
 						<span class="caret"></span>
 						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-briefcase"></span></a>
 						<ul class="dropdown-menu forAnimate" role="menu">
@@ -77,10 +77,10 @@
 							</li>
 						</ul>
 					</li>
-					
+
 					<!-- Gestión de funcionalidades/controladores -->
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarControladores']; ?> 
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarControladores']; ?>
 						<span class="caret"></span>
 						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-list-alt"></span></a>
 						<ul class="dropdown-menu forAnimate" role="menu">
@@ -110,36 +110,37 @@
 							</li>
 						</ul>
 					</li>
-					
+
 					<!-- Gestión de clientes -->
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarGrupos']; ?>
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarCliente']; ?>
 						<span class="caret"></span>
-						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-briefcase"></span></a>
 						<ul class="dropdown-menu forAnimate" role="menu">
-							<li>
-							  <a href="../controllers/GRUPO_Controller.php?id=altaGrupo">
-							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaGrupo']; ?></a>
-							</li>
-							<li>
-							  <a href="../controllers/GRUPO_Controller.php?id=bajaGrupo">
-							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaGrupo']; ?></a>
-							</li>
-							<li>
-							  <a href="../controllers/GRUPO_Controller.php?id=modificarGrupo">
-							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarGrupo']; ?></a>
-							</li>
-							<li>
-							  <a href="../controllers/GRUPO_Controller.php?id=consultarGrupo">
-							 <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarGrupo']; ?></a>
-							</li>
-						</ul>
+								<li>
+									<a href="../controllers/CLIENTEEXTERNO_Controller.php?id=altaCliente">
+										<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaCliente']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/CLIENTEEXTERNO_Controller.php?id=bajaCliente">
+										<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaCliente']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/CLIENTEEXTERNO_Controller.php?id=modificarCliente">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarCliente']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/CLIENTEEXTERNO_Controller.php?id=consultarCliente">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarClientes']; ?></a>
+									</li>
+							</ul>
 					</li>
+
 
 
 					<!-- Gestión de permisos -->
 					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarPermisos']; ?> 
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarPermisos']; ?>
 						<span class="caret"></span>
 						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-lock"></span></a>
 						<ul class="dropdown-menu forAnimate" role="menu">
@@ -164,7 +165,7 @@
 							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarPermiso']; ?></a>
 							</li>
 						</ul>
-					</li>	
+					</li>
 				<?php } ?>
 				</ul>
 			</div>
