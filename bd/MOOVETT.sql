@@ -107,10 +107,11 @@ INSERT INTO `Asistencia` (`DNI`, `Fecha_Asistencia`, `Asistencia`, `Id_Actividad
 --
 
 CREATE TABLE IF NOT EXISTS `Caja` (
-  `Id_Caja` varchar(10) NOT NULL,
+  `Id_Caja` mediumint(9) PRIMARY KEY AUTO_INCREMENT,
   `Fecha` date NOT NULL,
   `Tipo` enum('Ingreso','Pago') NOT NULL,
   `Importe` float NOT NULL,
+  `Comentario` varchar(300) DEFAULT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -118,8 +119,8 @@ CREATE TABLE IF NOT EXISTS `Caja` (
 -- Volcado de datos para la tabla `Caja`
 --
 
-INSERT INTO `Caja` (`Id_Caja`, `Fecha`, `Tipo`, `Importe`, `Borrado`) VALUES
-('0231989898', '2017-02-15', 'Ingreso', 500.5, 0);
+INSERT INTO `Caja` (`Id_Caja`,`Fecha`, `Tipo`, `Importe`, `Borrado`) VALUES
+(1,'2016-11-15', 'Ingreso', 50.5, 0);
 
 -- --------------------------------------------------------
 
@@ -164,6 +165,7 @@ CREATE TABLE IF NOT EXISTS `Cliente_Externo` (
 --
 
 INSERT INTO `Cliente_Externo` (`Id_Cliente`, `Nombre`, `DNI`, `Tlf`, `Email`, `Borrado`, `Direccion`) VALUES
+('34281271R', 'Iago Fernandez', '34281271R', 214748347, 'iago@gmail.com', 0, 'Progeso 24, 3C'),
 ('48484848K', 'Fulanito', '48484848K', 327673456, 'fulanito@gmail.com', 0, 'Progeso 24, 3A');
 
 -- --------------------------------------------------------
@@ -216,7 +218,12 @@ INSERT INTO `Controlador` (`Nombre_Controlador`, `Accion`, `Borrado`) VALUES
 ('Linea_Factura', 'Delete', 0),
 ('Linea_Factura', 'Edit', 0),
 ('Linea_Factura', 'List', 0),
-('Linea_Factura', 'Show', 0);
+('Linea_Factura', 'Show', 0),
+('Caja', 'Add', 0),
+('Caja', 'Delete', 0),
+('Caja', 'Edit', 0),
+('Caja', 'List', 0),
+('Caja', 'Show', 0);
 
 -- --------------------------------------------------------
 
@@ -305,10 +312,12 @@ INSERT INTO `Evento` (`Id_Evento`, `Descripcion`, `Nombre`, `Borrado`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `Factura` (
-`Id_Factura` mediumint(9) PRIMARY KEY AUTO_INCREMENT,
+  `Id_Factura` mediumint(9) PRIMARY KEY AUTO_INCREMENT,
   `Id_Cliente` varchar(10) NOT NULL,
   `Fecha` date DEFAULT NULL,
+  `Fecha_Cobro` date DEFAULT NULL,
   `Total` float DEFAULT NULL,
+  `Pagada` enum('No','Efectivo','Domiciliacion','TPV') NOT NULL DEFAULT 'No',
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
@@ -316,8 +325,10 @@ CREATE TABLE IF NOT EXISTS `Factura` (
 -- Volcado de datos para la tabla `Factura`
 --
 
-INSERT INTO `Factura` (`Id_Factura`, `Id_Cliente`, `Fecha`, `Total`, `Borrado`) VALUES
-(1, '48484848K', NULL, NULL, 0);
+INSERT INTO `Factura` (`Id_Factura`, `Id_Cliente`, `Fecha`, `Fecha_Cobro`, `Total`, `Pagada`, `Borrado`) VALUES
+(1, '48484848K', NULL, NULL, 0, 'No', 0),
+(2, '34281271R', '2016-11-25', '2016-11-29', 30, 'Efectivo', 0),
+(3, '34281271R', '2016-11-29', NULL, 85, 'NO', 0);
 
 
 -- --------------------------------------------------------
@@ -445,7 +456,10 @@ CREATE TABLE IF NOT EXISTS `Linea_Factura` (
 --
 
 INSERT INTO `Linea_Factura` (`Id_Linea_Factura`, `Id_Factura`, `Id_Servicio`, `Descripcion`, `Importe`, `Borrado`) VALUES
-(1, 1, '963852741', 'La descripcion de la linea', 10.5, 0);
+(1, 1, '963852741', 'La descripcion de la linea', 100.99, 0),
+(2, 2, '963852741', 'La descripcion de la linea', 30, 0),
+(3, 3, '963852741', 'La descripcion', 45, 0),
+(4, 3, '963852742', '', 40, 0);
 
 -- --------------------------------------------------------
 
@@ -515,7 +529,12 @@ INSERT INTO `Permisos` (`Nombre_Grupo`, `Nombre_Controlador`, `Accion`, `Borrado
 ('Secretario','Linea_Factura', 'Delete', 0),
 ('Secretario','Linea_Factura', 'Edit', 0),
 ('Secretario','Linea_Factura', 'List', 0),
-('Secretario','Linea_Factura', 'Show', 0);
+('Secretario','Linea_Factura', 'Show', 0),
+('Secretario','Caja', 'Add', 0),
+('Secretario','Caja', 'Delete', 0),
+('Secretario','Caja', 'Edit', 0),
+('Secretario','Caja', 'List', 0),
+('Secretario','Caja', 'Show', 0);
 
 -- --------------------------------------------------------
 
@@ -605,7 +624,8 @@ CREATE TABLE IF NOT EXISTS `Servicio` (
 --
 
 INSERT INTO `Servicio` (`Id_Servicio`, `Id_Trabajador`, `Nombre`, `Precio`, `Descripcion`, `Borrado`) VALUES
-('963852741', '22222222J', 'Cena de empresa', 30, 'Preparación de cena para 50 personas', 0);
+('963852741', '22222222J', 'Cena de empresa', 30, 'PreparaciÃ³n de cena para 50 personas', 0),
+('963852742', '22222222J', 'Actividad externa', 40, 'Act externas', 0);
 
 -- --------------------------------------------------------
 
@@ -742,12 +762,6 @@ ALTER TABLE `Asistencia`
  ADD PRIMARY KEY (`DNI`,`Fecha_Asistencia`,`Id_Actividad`), ADD KEY `Id_Actividad` (`Id_Actividad`);
 
 --
--- Indices de la tabla `Caja`
---
-ALTER TABLE `Caja`
- ADD PRIMARY KEY (`Id_Caja`);
-
---
 -- Indices de la tabla `Calendario`
 --
 ALTER TABLE `Calendario`
@@ -758,7 +772,7 @@ ALTER TABLE `Calendario`
 --
 ALTER TABLE `Cliente_Externo`
  ADD PRIMARY KEY (`Id_Cliente`), ADD UNIQUE KEY `DNI` (`DNI`);
-
+ 
 --
 -- Indices de la tabla `Cobro`
 --
