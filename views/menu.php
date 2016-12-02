@@ -111,6 +111,32 @@
 						</ul>
 					</li>
 					
+					<!-- Gestión de clientes -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarGrupos']; ?>
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li>
+							  <a href="../controllers/GRUPO_Controller.php?id=altaGrupo">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaGrupo']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/GRUPO_Controller.php?id=bajaGrupo">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaGrupo']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/GRUPO_Controller.php?id=modificarGrupo">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarGrupo']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/GRUPO_Controller.php?id=consultarGrupo">
+							 <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarGrupo']; ?></a>
+							</li>
+						</ul>
+					</li>
+
+
 					<!-- Gestión de permisos -->
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarPermisos']; ?> 
