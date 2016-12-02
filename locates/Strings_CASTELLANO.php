@@ -1,13 +1,13 @@
 <?php
 $strings = array(
 
-	//Cabecera 
+	//Cabecera
 	'logueado' => 'Conectado como',
 	'principal' => 'Principal',
 	'desconectarse' => 'Desconectarse',
 	'español' => 'Español',
 	'gallego' => 'Gallego',
-	
+
 	//Titulos
 	'principal' => 'Principal',
 	'titulo añadir controlador' => 'Añadir funcionalidad',
@@ -26,7 +26,8 @@ $strings = array(
 	'titulo borrar usuario' => 'Borrar usuario',
 	'titulo editar usuario' => 'Editar usuario',
 	'titulo listar usuario' => 'Ver usuarios',
-	
+	'titulo añadir cliente' => 'Añadir cliente',
+
 	//Menu
 	'menu' => 'Menú',
 	'gestionarControladores' => 'FUNCIONALIDADES',
@@ -53,7 +54,12 @@ $strings = array(
 	'buscarUsuario' => 'Buscar usuario',
 	'buscarFuncionalidad' => 'Buscar funcionalidad',
 	'buscarPermiso' => 'Buscar permiso',
-	
+	'gestionarCliente' => 'CLIENTE',
+	'altaCliente' => 'Añadir cliente perfil',
+	'bajaCliente' => 'Borrar cliente perfil',
+	'modificarCliente' => 'Modificar cliente perfil',
+	'consultarClientes' => 'Ver clientes perfil',
+
 	//Ventanas y botones comunes
 	'confirmar borrado' => '¿Confirmar borrado?',
 	'confirmar modificacion' => '¿Confirmar modificación?',
@@ -64,7 +70,7 @@ $strings = array(
 	'borrar' => 'Borrar',
 	'nuevos datos' => 'Nuevos datos',
 	'buscar' => 'Buscar',
-	
+
 	//Errores formularios
 	'error accion' => '>3-30 letras, una palabra',
 	'error controlador' => '4-30 letras, una palabra',
@@ -77,7 +83,10 @@ $strings = array(
 	'error apellidos' => '2-30 letras',
 	'error telefono' => '999999999',
 	'error email' => 'abc@abc.com',
-	
+	'error id_cliente' => '4-16 alfanuméricos',
+	'error tlf' => '9 números',
+	'error direccion' => '4-50 alfanuméricos',
+
 	//Opciones vistas controlador
 	'nuevo controlador' => 'NUEVA FUNCIONALIDAD',
 	'buscar controlador' => 'BUSCAR FUNCIONALIDAD',
@@ -95,7 +104,7 @@ $strings = array(
 	'editar grupo' => 'MODIFICAR PERFIL',
 	'ver grupo' => 'VER PERFILES',
 	'grupo' => 'Perfil',
-	
+
 	//Opciones vistas permisos
 	'nuevo permiso' => 'NUEVO PERMISO',
 	'buscar permiso' => 'BUSCAR PERMISOS',
@@ -107,7 +116,7 @@ $strings = array(
 	'accion seleccionada' => 'Acción seleccionada',
 	'borrar todos permisos' => 'Borrar permisos sobre controlador',
 	'siguiente' => 'Siguiente',
-	
+
 	//Opciones vistas usuarios
 	'nuevo usuario' => 'NUEVO USUARIO',
 	'buscar usuario' => 'BUSCAR USUARIO',
@@ -123,7 +132,13 @@ $strings = array(
 	'telefono' => 'Teléfono',
 	'email' => 'Email',
 	'dni opcional' => 'DNI trabajador (opcional)',
-	
+
+	//Opciones vistas clientes
+	'nuevo cliente' => 'NUEVO CLIENTE',
+	'id_cliente' => 'Id Cliente',
+	'tlf' => 'Tlf',
+	'direccion' => 'Direccion',
+
 	//Modelos
 	'añadido exito' => 'Elemento añadido con éxito.',
 	'borrado exito' => 'Elemento eliminado con éxito.',
@@ -131,7 +146,8 @@ $strings = array(
 	'ya existe' => '¡El elemento ya existe!',
 	'error borrado' => 'ERROR al eliminar.',
 	'error modificacion' => 'ERROR al modificar.',
-	'dni invalido' => 'El DNI del trabajador no existe.',	
-	'dni asignado' => 'El DNI del trabajador ya está asignado.',	
+	'dni invalido' => 'El DNI del trabajador no existe.',
+	'dni asignado' => 'El DNI del trabajador ya está asignado.',
+	'IdC asignado' => 'El id del cliente ya está asignado'
 )
 ?>
