@@ -135,7 +135,7 @@ $strings = array(
 	'email' => 'Email',
 	'dni opcional' => 'DNI trabajador (opcional)',
 
-	//Opciones vistas clientes
+	//Opciones vistas cliente
 	'nuevo cliente' => 'NUEVO CLIENTE',
 	'borrar cliente' => 'BORRAR CLIENTE',
 	'editar cliente' => 'EDITAR CLIENTE',
