@@ -87,20 +87,45 @@ class clienteExterno{
 
   //Modifica un Cliente
   function modificar($clienteNuevo){
-      $this->mysqli = conectarBD();
 
-      $sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$clienteNuevo->getId()."',Nombre='".$clienteNuevo->getNombre()."',DNI='".$clienteNuevo->getDni()."',Tlf='".$clienteNuevo->getTlf()."',Email='".$clienteNuevo->getEmail()."',Direccion='".$clienteNuevo->getDireccion()."';";
-      $resultado = $this->mysqli->query($sql);
-      if ($resultado->num_rows == 0){
-        $sql= "UPDATE Cliente_Externo SET Id_Cliente='".$this->id."',Nombre='".$this->nombre."',DNI='".$this->dni."',Tlf='".$this->tlf."',Email='".$this->email."',Direccion='".$this->direccion."' WHERE Id_Cliente='".$this->id."';";
-        if($this->mysqli->query($sql) === TRUE) {
-          return "modificacion exito";
-        }else{
-          return "error modificacion";
-        }
-      }else
-        return "ya existe";
-      }
+	  $this->mysqli = conectarBD();
+	  $aux=false;
+		  if($clienteNuevo->getNombre() != null){
+			  $sql= "UPDATE Cliente_Externo SET Nombre='".$clienteNuevo->getNombre()."' WHERE Id_Cliente='".$this->id."';";
+			  $this->mysqli->query($sql);
+			  $aux=true;
+		  }
+		  if($clienteNuevo->getTlf() != null){
+			  $sql= "UPDATE Cliente_Externo SET Tlf='".$clienteNuevo->getTlf()."' WHERE Id_Cliente='".$this->id."';";
+			  $this->mysqli->query($sql);
+			  $aux=true;
+		  }
+		  if($clienteNuevo->getDni() !== null){
+			  $sql= "SELECT * FROM Cliente_Externo WHERE DNI='".$clienteNuevo->getDni()."';";
+			  $resultado = $this->mysqli->query($sql);
+			  if ($resultado->num_rows == 0){
+			  	$sql= "UPDATE Cliente_Externo SET DNI='".$clienteNuevo->getDni()."' WHERE Id_Cliente='".$this->id."';";
+			  	$this->mysqli->query($sql);
+				$aux=true;
+			 }else{
+				return "dni asignado";
+			 }
+		  }
+		  if($clienteNuevo->getEmail() != null){
+			  $sql= "UPDATE Cliente_Externo SET Email='".$clienteNuevo->getEmail()."' WHERE Id_Cliente='".$this->id."';";
+			  $this->mysqli->query($sql);
+			  $aux=true;
+		  }
+		  if($clienteNuevo->getDireccion() != null){
+			  $sql= "UPDATE Cliente_Externo SET Direccion='".$clienteNuevo->getDireccion()."' WHERE Id_Cliente='".$this->id."';";
+			  $this->mysqli->query($sql);
+			  $aux=true;
+		  }
+		  if($aux){
+			  return 'modificacion exito';
+		  }
+  }
+
   }
 
   //Lista en un select todos los clientes para borrar. Controla que no se muestre el cliente logeado o admin para no borrarlo.
@@ -115,6 +140,22 @@ class clienteExterno{
   			while($row = $resultado->fetch_array()) {
   				if(strcmp($row['Id_Cliente'],$_SESSION['client']) != 0 && strcmp($row['Nombre_Grupo'],"Admin") != 0)
   					echo "<option value='".$row['Id_Cliente']."'>".$row['Id_Cliente']."</option><tr>";
+  			}
+  		}
+  		$db->close();
+  }
+
+  //Lista en un select todos los clientes para modificar.
+  function listarClientesModificar(){
+
+  		$db = conectarBD();
+
+  		$sql = "SELECT Id_Cliente FROM Cliente_Externo WHERE Borrado='0' ORDER BY Id_Cliente;";
+  		$resultado = $db->query($sql);
+  		$db->close();
+  		if ($resultado->num_rows > 0){
+  			while($row = $resultado->fetch_array()) {
+  				echo "<option value='".$row['Id_Cliente']."'>".$row['Id_Cliente']."</option><tr>";
   			}
   		}
   		$db->close();
@@ -158,8 +199,7 @@ class clienteExterno{
   		echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
   	}
   }
-
-  }else echo "Permiso denegado.";
+}else echo "Permiso denegado.";
 
 
 ?>

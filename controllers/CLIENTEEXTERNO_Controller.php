@@ -12,7 +12,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 	require_once('../views/CLIENTEEXTERNO_ADD_Vista.php');
 	require_once('../views/CLIENTEEXTERNO_DELETE_Vista.php');
-	//require_once('../views/CLIENTEEXTERNO_EDIT_Vista.php');
+	require_once('../views/CLIENTEEXTERNO_EDIT_Vista.php');
 	//require_once('../views/CLIENTEEXTERNO_LIST_Vista.php');
 	//require_once('../views/CLIENTEEXTERNO_SHOW_Vista.php');
 
@@ -59,31 +59,40 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		return $cliente;
 	}
 
-/*
-	//Recoge del formulario los datos nuevos para modificar un usuario.
-	function datosFormUsuarioModificar(){
 
-		$usuario = $_POST['usuarioN'];
-		if(isset($_POST['passwordN'])){
-			$password = $_POST['passwordN'];
-		}else{
-			$password = null;
-		}
-		if(isset($_POST['grupoN'])){
-			$grupo = $_POST['grupoN'];
-		}else{
-			$grupo = null;
-		}
+	//Recoge del formulario los datos nuevos para modificar un cliente.
+	function datosFormClienteModificar(){
+
+		$id = $_POST['id_clienteN'];
 		if(isset($_POST['dniN'])){
 			$dni = $_POST['dniN'];
 		}else{
 			$dni = null;
 		}
-
-		$usuario = new usuario($password,$grupo,$usuario,$dni);
-		return $usuario;
+		if(isset($_POST['nombreN'])){
+			$nombre = $_POST['nombreN'];
+		}else{
+			$nombre = null;
+		}
+		if(isset($_POST['tlfN'])){
+			$tlf = $_POST['tlfN'];
+		}else{
+			$tlf = null;
+		}
+		if(isset($_POST['emailN'])){
+			$email = $_POST['emailN'];
+		}else{
+			$email = null;
+		}
+    	if(isset($_POST['direccionN'])){
+			$direccion = $_POST['direccionN'];
+		}else{
+			$direccion = null;
+		}
+		$cliente = new clienteExterno($id,$nombre,$dni, $tlf, $email, $direccion);
+		return $cliente;
 	}
-*/
+
 	//Primero invoca a la vista correspondiente según la opción elegida en el menú y pasada por get.
 	//Después invoca un método del modelo con los datos recibidos vía post de la vista.
 	//Finalmente muestra un mensaje de error o confirmación tras acceder a la BD y redirige a la vista.
@@ -118,23 +127,23 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 				}
 				break;
 
-			case 'modificarUsuario':
-				if(!isset($_POST['usuario'])){
-					new Usuario_Editar();
+			case 'modificarCliente':
+				if(!isset($_POST['id_cliente'])){
+					new Cliente_Editar();
 				}
-				else if(!isset($_POST['usuarioN'])){
-					$array = mostrarUsuario($_POST['usuario']);
-					new Usuario_Editar($array);
+				else if(!isset($_POST['id_clienteN'])){
+					$array = mostrarCliente($_POST['id_cliente']);
+					new Cliente_Editar($array);
 				}
 				else{
-					$usuario = datosFormUsuario();
-					$usuario2 = datosFormUsuarioModificar();
-					$mensaje = $usuario->modificar($usuario2); ?>
+					$cliente = datosFormCliente();
+					$cliente2 = datosFormClienteModificar();
+					$mensaje = $cliente->modificar($cliente2); ?>
 					<script>
 						window.alert('<?php echo $strings[$mensaje]; ?>');
 					</script><?php
-					unset($_POST['usuario']);
-					new Usuario_Editar();
+					unset($_POST['id_cliente']);
+					new Cliente_Editar();
 				}
 				break;
 

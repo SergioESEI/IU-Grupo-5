@@ -28,6 +28,7 @@ $strings = array(
 	'titulo listar usuario' => 'Ver usuarios',
 	'titulo añadir cliente' => 'Engadir cliente',
 	'titulo borrar cliente' => 'Eliminar cliente',
+	'titulo editar cliente' => 'Editar cliente',
 
 	//Menu
 	'menu' => 'Menu',
@@ -137,10 +138,13 @@ $strings = array(
 	//Opciones vistas clientes
 	'nuevo cliente' => 'NOVO CLIENTE',
 	'borrar cliente' => 'ELIMINAR CLIENTE',
+	'editar cliente' => 'EDITAR CLIENTE',
+	'ver cliente' => 'VER CLIENTES',
 	'cliente' => 'CLIENTE',
 	'id_cliente' => 'Id Cliente',
 	'tlf' => 'Tlf',
 	'direccion' => 'Direccion',
+	'empty' => 'Campos Baleiros',
 
 
 	//Modelos
