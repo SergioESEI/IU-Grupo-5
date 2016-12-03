@@ -11,7 +11,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 	require_once('../models/CLIENTEEXTERNO_Model.php');
 
 	require_once('../views/CLIENTEEXTERNO_ADD_Vista.php');
-	//require_once('../views/CLIENTEEXTERNO_DELETE_Vista.php');
+	require_once('../views/CLIENTEEXTERNO_DELETE_Vista.php');
 	//require_once('../views/CLIENTEEXTERNO_EDIT_Vista.php');
 	//require_once('../views/CLIENTEEXTERNO_LIST_Vista.php');
 	//require_once('../views/CLIENTEEXTERNO_SHOW_Vista.php');
@@ -30,7 +30,11 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 	function datosFormCliente(){
 
 		$id = $_POST['id_cliente'];
-    	$dni = $_POST['dni'];
+		if(isset($_POST['dni'])){
+			$dni = $_POST['dni'];
+		}else{
+			$dni = null;
+		}
 		if(isset($_POST['nombre'])){
 			$nombre = $_POST['nombre'];
 		}else{
@@ -100,17 +104,17 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 				}
 				break;
 
-			case 'bajaUsuario':
-				if(!isset($_POST['usuario'])){
-					new Usuario_Borrar();
+			case 'bajaCliente':
+				if(!isset($_POST['id_cliente'])){
+					new Cliente_Borrar();
 				}else{
-					$usuario = datosFormUsuario();
-					$mensaje = $usuario->borrar(); ?>
+					$cliente = datosFormCliente();
+					$mensaje = $cliente->borrar(); ?>
 					<script>
 						window.alert('<?php echo $strings[$mensaje]; ?>');
 					</script><?php
-					unset($_POST['user']);
-					new Usuario_Borrar();
+					unset($_POST['client']);
+					new Cliente_Borrar();
 				}
 				break;
 

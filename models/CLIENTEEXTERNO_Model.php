@@ -1,5 +1,5 @@
 <?php
-//Comprueba si el usuario inició sesión y si es admin antes de cargar la página.
+//Comprueba si el cliente inició sesión y si es admin antes de cargar la página.
 if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 //Include de la función de conexión a la base de datos.
@@ -47,7 +47,7 @@ class clienteExterno{
 		return $this->direccion;
 	}
 
-  /*Añade un cliente a la BD. Controla que no exista ya el cliente. Si se había realizado un borrado lógico recupera el usuario.*/
+  /*Añade un cliente a la BD. Controla que no exista ya el cliente. Si se había realizado un borrado lógico recupera el cliente.*/
 	function crear(){
 
 		$this->mysqli = conectarBD();
@@ -78,7 +78,7 @@ class clienteExterno{
 
 		$this->mysqli = conectarBD();
 
-		$sql = "UPDATE Cliente_Externo SET Borrado='1' WHERE Cliente_Externo='".$this->clienteExterno."';";
+		$sql = "UPDATE Cliente_Externo SET Borrado='1' WHERE Id_Cliente='".$this->id."';";
 		if($this->mysqli->query($sql) === TRUE) {
 			return "borrado exito";
 		}else
@@ -101,6 +101,23 @@ class clienteExterno{
       }else
         return "ya existe";
       }
+  }
+
+  //Lista en un select todos los clientes para borrar. Controla que no se muestre el cliente logeado o admin para no borrarlo.
+  function listarClientesBorrar(){
+
+  		$db = conectarBD();
+
+  		$sql = "SELECT Id_Cliente FROM Cliente_Externo WHERE Borrado='0' ORDER BY Id_Cliente;";
+  		$resultado = $db->query($sql);
+  		$db->close();
+  		if ($resultado->num_rows > 0){
+  			while($row = $resultado->fetch_array()) {
+  				if(strcmp($row['Id_Cliente'],$_SESSION['client']) != 0 && strcmp($row['Nombre_Grupo'],"Admin") != 0)
+  					echo "<option value='".$row['Id_Cliente']."'>".$row['Id_Cliente']."</option><tr>";
+  			}
+  		}
+  		$db->close();
   }
 
   //Lista todos los clientes en una tabla.
@@ -134,11 +151,11 @@ class clienteExterno{
 
   	$db = conectarBD();
 
-  	$sql = "SELECT * FROM Usuario WHERE Usuario='".$client."' AND Borrado='0';";
+  	$sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$client."' AND Borrado='0';";
   	$resultado = $db->query($sql);
   	if ($resultado->num_rows > 0){
   		$row = $resultado->fetch_array();
-  		echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> </tr>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+  		echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
   	}
   }
 

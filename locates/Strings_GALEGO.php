@@ -27,6 +27,7 @@ $strings = array(
 	'titulo editar usuario' => 'Editar usuario',
 	'titulo listar usuario' => 'Ver usuarios',
 	'titulo añadir cliente' => 'Engadir cliente',
+	'titulo borrar cliente' => 'Eliminar cliente',
 
 	//Menu
 	'menu' => 'Menu',
@@ -135,6 +136,8 @@ $strings = array(
 
 	//Opciones vistas clientes
 	'nuevo cliente' => 'NOVO CLIENTE',
+	'borrar cliente' => 'ELIMINAR CLIENTE',
+	'cliente' => 'CLIENTE',
 	'id_cliente' => 'Id Cliente',
 	'tlf' => 'Tlf',
 	'direccion' => 'Direccion',
