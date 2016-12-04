@@ -13,8 +13,8 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 	require_once('../views/CLIENTEEXTERNO_ADD_Vista.php');
 	require_once('../views/CLIENTEEXTERNO_DELETE_Vista.php');
 	require_once('../views/CLIENTEEXTERNO_EDIT_Vista.php');
-	//require_once('../views/CLIENTEEXTERNO_LIST_Vista.php');
-	//require_once('../views/CLIENTEEXTERNO_SHOW_Vista.php');
+	require_once('../views/CLIENTEEXTERNO_LIST_Vista.php');
+	require_once('../views/CLIENTEEXTERNO_SHOW_Vista.php');
 
 	//Include del idioma elegido, o español por defecto.
 	if(isset($_SESSION['lang'])){
@@ -147,12 +147,12 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 				}
 				break;
 
-			case 'consultarUsuario':
-				new Usuario_Listar();
+			case 'consultarCliente':
+				new Cliente_Listar();
 				break;
 
-			case 'buscarUsuario':
-				new Usuario_Buscar();
+			case 'buscarCliente':
+				new Cliente_Buscar();
 				break;
 		}
 	}

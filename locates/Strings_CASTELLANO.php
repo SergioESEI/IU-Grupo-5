@@ -29,6 +29,7 @@ $strings = array(
 	'titulo añadir cliente' => 'Añadir cliente',
 	'titulo borrar cliente' => 'Borrar cliente',
 	'titulo editar cliente' => 'Editar cliente',
+	'titulo listar cliente' => 'Ver clientes',
 
 	//Menu
 	'menu' => 'Menú',
@@ -56,6 +57,7 @@ $strings = array(
 	'buscarUsuario' => 'Buscar usuario',
 	'buscarFuncionalidad' => 'Buscar funcionalidad',
 	'buscarPermiso' => 'Buscar permiso',
+	'buscarCliente' => 'Buscar cliente',
 	'gestionarCliente' => 'CLIENTE',
 	'altaCliente' => 'Añadir cliente perfil',
 	'bajaCliente' => 'Borrar cliente perfil',
@@ -140,6 +142,7 @@ $strings = array(
 	'borrar cliente' => 'BORRAR CLIENTE',
 	'editar cliente' => 'EDITAR CLIENTE',
 	'ver cliente' => 'VER CLIENTES',
+	'buscar cliente' => 'BUSCAR CLIENTE',
 	'cliente' => 'CLIENTE',
 	'id_cliente' => 'Id Cliente',
 	'tlf' => 'Tlf',
@@ -155,6 +158,7 @@ $strings = array(
 	'error modificacion' => 'ERROR al modificar.',
 	'dni invalido' => 'El DNI del trabajador no existe.',
 	'dni asignado' => 'El DNI del trabajador ya está asignado.',
-	'IdC asignado' => 'El id del cliente ya está asignado'
+	'IdC asignado' => 'El id del cliente ya está asignado',
+	'Id invalido' => 'El id del cliente no existe'
 )
 ?>

@@ -119,11 +119,11 @@
 						<ul class="dropdown-menu forAnimate" role="menu">
 								<li>
 									<a href="../controllers/CLIENTEEXTERNO_Controller.php?id=altaCliente">
-										<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaCliente']; ?></a>
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaCliente']; ?></a>
 								</li>
 								<li>
 									<a href="../controllers/CLIENTEEXTERNO_Controller.php?id=bajaCliente">
-										<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaCliente']; ?></a>
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaCliente']; ?></a>
 								</li>
 								<li>
 									<a href="../controllers/CLIENTEEXTERNO_Controller.php?id=modificarCliente">
@@ -132,7 +132,11 @@
 								<li>
 									<a href="../controllers/CLIENTEEXTERNO_Controller.php?id=consultarCliente">
 									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarClientes']; ?></a>
-									</li>
+								</li>
+								<li>
+								  <a href="../controllers/CLIENTEEXTERNO_Controller.php?id=buscarCliente">
+								  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarCliente']; ?></a>
+								</li>
 							</ul>
 					</li>
 

@@ -54,7 +54,7 @@ class Cliente_Editar{
 			var email = document.getElementById("emailN").value;
 			var direccion = document.getElementById("direccionN").value;
 
-			return empty();
+			empty();
 			if (confirm('<?php echo $strings['confirmar modificacion']; ?>'+
 				'\n\n<?php echo $strings['dni']; ?>: '+dni +
 				'\n<?php echo $strings['tlf']; ?>: '+tlf +

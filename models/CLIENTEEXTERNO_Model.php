@@ -100,16 +100,16 @@ class clienteExterno{
 			  $this->mysqli->query($sql);
 			  $aux=true;
 		  }
-		  if($clienteNuevo->getDni() !== null){
+		  if($clienteNuevo->getDni() != null){
 			  $sql= "SELECT * FROM Cliente_Externo WHERE DNI='".$clienteNuevo->getDni()."';";
 			  $resultado = $this->mysqli->query($sql);
 			  if ($resultado->num_rows == 0){
 			  	$sql= "UPDATE Cliente_Externo SET DNI='".$clienteNuevo->getDni()."' WHERE Id_Cliente='".$this->id."';";
 			  	$this->mysqli->query($sql);
 				$aux=true;
-			 }else{
+			}else{
 				return "dni asignado";
-			 }
+			}
 		  }
 		  if($clienteNuevo->getEmail() != null){
 			  $sql= "UPDATE Cliente_Externo SET Email='".$clienteNuevo->getEmail()."' WHERE Id_Cliente='".$this->id."';";
@@ -171,7 +171,7 @@ class clienteExterno{
   	$db->close();
   	if ($resultado->num_rows > 0){
   		while($row = $resultado->fetch_array()) {
-  			echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> </tr>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+  			echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
   		}
   	}
   }
