@@ -4,8 +4,8 @@
 if(!isset($_SESSION)){
 	session_start();
 }
-//Comprueba si el usuario inició sesión y si es admin antes de cargar la página.
-if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
+//Comprueba si el usuario inició sesión y si es admin o secretario antes de cargar la página.
+if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strcmp($_SESSION['grupo'],"Secretario") == 0) ){
 
 	//Requires del modelo, otros controladores y las vistas.
 	require_once('../models/CLIENTEEXTERNO_Model.php');

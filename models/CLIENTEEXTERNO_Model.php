@@ -1,6 +1,6 @@
 <?php
-//Comprueba si el cliente inició sesión y si es admin antes de cargar la página.
-if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
+//Comprueba si el usuario inició sesión y si es admin o secretario antes de cargar la página.
+if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strcmp($_SESSION['grupo'],"Secretario") == 0) ){
 
 //Include de la función de conexión a la base de datos.
 include_once('conectarBD.php');
