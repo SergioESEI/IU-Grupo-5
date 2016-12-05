@@ -2,7 +2,8 @@
 
 INSTRUCCIONES DE INSTALACIÓN
 
-1. Ejecutar el archivo install.sh para dar permisos al usuario www-data sobre el directorio images.
+1. Ejecutar el archivo install.sh para dar permisos al usuario www-data sobre los directorios images y facturas:
+  chmod u+x script.sh; ./script.sh
 
 2. Ejecutar el archivo installBD.php e introducir el usuario y password de la máquina.<br>
   (Se crea la BD, tablas, inserts y usuario moovett con password moovett2016)<br>
