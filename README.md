@@ -2,7 +2,7 @@
 
 INSTRUCCIONES DE INSTALACIÓN
 
-1. Ejecutar el archivo install.sh para dar permisos al usuario www-data sobre los directorios images y facturas:
+1. Ejecutar el archivo install.sh para dar permisos al usuario www-data sobre los directorios images y facturas:<br>
   chmod u+x script.sh; ./script.sh
 
 2. Ejecutar el archivo installBD.php e introducir el usuario y password de la máquina.<br>
