@@ -191,13 +191,54 @@ class clienteExterno{
   function consultarCliente($client){
 
   	$db = conectarBD();
-
-  	$sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$client."' AND Borrado='0';";
-  	$resultado = $db->query($sql);
-  	if ($resultado->num_rows > 0){
-  		$row = $resultado->fetch_array();
-  		echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
-  	}
+	if($client->getId() !=null){
+	  	$sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$client->getId()."' AND Borrado='0';";
+	  	$resultado = $db->query($sql);
+	  	if ($resultado->num_rows > 0){
+	  		$row = $resultado->fetch_array();
+	  		echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+	  	}
+	}
+	if($client->getNombre() != null){
+		$sql = "SELECT * FROM Cliente_Externo WHERE Nombre='".$client->getNombre()."' AND Borrado='0';";
+		$resultado = $db->query($sql);
+		if ($resultado->num_rows > 0){
+			$row = $resultado->fetch_array();
+			echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+		}
+	}
+	if($client->getTlf() != null){
+		$sql = "SELECT * FROM Cliente_Externo WHERE Tlf='".$client->getTlf()."' AND Borrado='0';";
+		$resultado = $db->query($sql);
+		if ($resultado->num_rows > 0){
+			$row = $resultado->fetch_array();
+			echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+		}
+	}
+	if($client->getDni() != null){
+		$sql = "SELECT * FROM Cliente_Externo WHERE DNI='".$client->getDni()."' AND Borrado='0';";
+		$resultado = $db->query($sql);
+		if ($resultado->num_rows > 0){
+			$row = $resultado->fetch_array();
+			echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+		}
+	}
+	if($client->getEmail() != null){
+		$sql = "SELECT * FROM Cliente_Externo WHERE Email='".$client->getEmail()."' AND Borrado='0';";
+		$resultado = $db->query($sql);
+		if ($resultado->num_rows > 0){
+			$row = $resultado->fetch_array();
+			echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+		}
+	}
+	if($client->getDireccion() != null){
+		$sql = "SELECT * FROM Cliente_Externo WHERE Direccion='".$client->getDireccion()."' AND Borrado='0';";
+		$resultado = $db->query($sql);
+		if ($resultado->num_rows > 0){
+			$row = $resultado->fetch_array();
+			echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+		}
+	}
   }
 }else echo "Permiso denegado.";
 
