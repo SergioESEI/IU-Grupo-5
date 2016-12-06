@@ -51,21 +51,20 @@ class clienteExterno{
 	function crear(){
 
 		$this->mysqli = conectarBD();
-
-		$sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$this->id."';";
+		$sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$this->id."' AND BORRADO='0';";
 		$resultado = $this->mysqli->query($sql);
 		if ($resultado->num_rows == 0){
-			$sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$this->id."';";
+			$sql = "SELECT * FROM Cliente_Externo WHERE DNI='".$this->dni."';";
 			$resultado = $this->mysqli->query($sql);
 			if ($resultado->num_rows == 0){
-				  $sql = "INSERT INTO Cliente_Externo (Id_Cliente, Nombre, DNI, Tlf, Email, Direccion) VALUES ('".$this->id."','".$this->nombre."','".$this->dni."','".$this->tlf."','".$this->email."','".$this->direccion."');";
-					$this->mysqli->query($sql);
-					return "añadido exito";
-		  }else{
+				$sql = "INSERT INTO Cliente_Externo (Id_Cliente, Nombre, DNI, Tlf, Email, Direccion) VALUES ('".$this->id."','".$this->nombre."','".$this->dni."','".$this->tlf."','".$this->email."','".$this->direccion."');";
+				$this->mysqli->query($sql);
+				return "añadido exito";
+		  	}else{
 				$sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$this->id."' AND Borrado='1';";
 				$resultado = $this->mysqli->query($sql);
 				if ($resultado->num_rows == 1){
-						$sql = "UPDATE Cliente_Externo SET Borrado='0',Id_Cliente='".$this->id."',Nombre='".$this->nombre."',DNI='".$this->dni."',Tlf='".$this->tlf."',Email='".$this->email."',Direccion='".$this->direccion."' WHERE Cliente_Externo='".$this->clienteExterno."';";
+						$sql = "UPDATE Cliente_Externo SET Borrado='0',Id_Cliente='".$this->id."',Nombre='".$this->nombre."',DNI='".$this->dni."',Tlf='".$this->tlf."',Email='".$this->email."',Direccion='".$this->direccion."' WHERE Id_Cliente='".$this->id."';";
 						$this->mysqli->query($sql);
 					  return "añadido exito";
 			  }else return "ya existe";
@@ -187,8 +186,20 @@ class clienteExterno{
   		return $row;
   	}
   }
-  //Muestra los datos de un cliente concreto pasado por parámetro en formato tabla
+   //Muestra los datos de un cliente concreto pasado por parámetro en formato tabla
   function consultarCliente($client){
+
+	  $db = conectarBD();
+
+	  $sql = "SELECT * FROM Cliente_Externo WHERE Id_Cliente='".$client."' AND Borrado='0';";
+	  $resultado = $db->query($sql);
+	  if ($resultado->num_rows > 0){
+		  $row = $resultado->fetch_array();
+		  echo "<tr> <td>".$row['Id_Cliente']."</td> <td>".$row['Nombre']."</td> <td>".$row['DNI']."</td> <td>".$row['Tlf']."</td> <td>".$row['Email']."</td> <td>".$row['Direccion']."</td> <td>";
+	  }
+  }
+  //Muestra los datos de un cliente concreto pasado por parámetro en formato tabla para borrar
+  function consultarClienteBorrar($cliente1){
 
   	$db = conectarBD();
 	if($client->getId() !=null){

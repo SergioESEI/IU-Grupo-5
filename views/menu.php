@@ -140,6 +140,35 @@
 							</ul>
 					</li>
 
+					<!-- Gestión de servicios -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarServicio']; ?>
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-briefcase"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+								<li>
+									<a href="../controllers/SERVICIO_Controller.php?id=altaServicio">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaServicio']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/SERVICIO_Controller.php?id=bajaServicio">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaServicio']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/SERVICIO_Controller.php?id=modificarServicio">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarServicio']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/SERVICIO_Controller.php?id=consultarServicio">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarServicio']; ?></a>
+								</li>
+								<li>
+								  <a href="../controllers/SERVICIO_Controller.php?id=buscarServicio">
+								  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarServicio']; ?></a>
+								</li>
+							</ul>
+					</li>
+
 
 
 					<!-- Gestión de permisos -->

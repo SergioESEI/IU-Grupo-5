@@ -30,6 +30,10 @@ $strings = array(
 	'titulo borrar cliente' => 'Eliminar cliente',
 	'titulo editar cliente' => 'Editar cliente',
 	'titulo listar cliente' => 'Ver clientes',
+	'titulo añadir servicio' => 'Engadir servicio',
+	'titulo borrar servicio' => 'Borrar servicio',
+	'titulo editar servicio' => 'Editar servicio',
+	'titulo listar servicio' => 'Ver servicio',
 
 	//Menu
 	'menu' => 'Menu',
@@ -63,6 +67,12 @@ $strings = array(
 	'bajaCliente' => 'Borrar cliente perfil',
 	'modificarCliente' => 'Modificar cliente perfil',
 	'consultarClientes' => 'Ver clientes perfil',
+	'gestionarServicio' => 'SERVICIO',
+	'altaServicio' => 'Engadir servicio perfil',
+	'bajaServicio' => 'Borrar servicio perfil',
+	'modificarServicio' => 'Modificar servicio perfil',
+	'consultarServicio' => 'Ver servicios perfil',
+	'buscarServicio' => 'Buscar Servicio',
 
 	//Ventanas y botones comunes
 	'confirmar borrado' => '¿Confirmar borrado?',
@@ -108,6 +118,15 @@ $strings = array(
 	'editar grupo' => 'MODIFICAR PERFIL',
 	'ver grupo' => 'VER PERFÍS',
 	'grupo' => 'Perfil',
+
+	//Opciones vistas servicio
+	'nuevo servicio' => 'NOVO SERVICIO',
+	'borrar servicio' => 'BORRAR SERVICIO',
+	'editar servicio' => 'EDITAR SERVICIO',
+	'ver servicio' => 'VER SERVICIOS',
+	'buscar servicio' => 'BUSCAR SERVICIO',
+	'servicioservicio' => 'SERVICIO',
+	'id_servicio' => 'Id Servicio',
 
 	//Opciones vistas permisos
 	'nuevo permiso' => 'NOVO PERMISO',

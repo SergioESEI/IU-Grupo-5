@@ -130,7 +130,7 @@ class Cliente_Buscar{
 							<th><?php echo $strings['direccion']; ?></th>
 						</thead><tbody>
 							<?php $cliente1=new clienteExterno($_POST['id_cliente'],$_POST['nombre'],$_POST['dni'],$_POST['tlf'],$_POST['email'],$_POST['direccion']);
-							 		consultarCliente($cliente1);?>
+							 		consultarClienteBorrar($cliente1);?>
 						</tbody>
 					</table>
 					<?php } ?>
