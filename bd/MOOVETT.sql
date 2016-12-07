@@ -316,7 +316,7 @@ CREATE TABLE IF NOT EXISTS `Factura` (
   `Id_Cliente` varchar(10) NOT NULL,
   `Fecha` date DEFAULT NULL,
   `Fecha_Cobro` date DEFAULT NULL,
-  `Total` float DEFAULT NULL,
+  `Total` float NOT NULL DEFAULT 0,
   `Pagada` enum('No','Efectivo','Domiciliacion','TPV') NOT NULL DEFAULT 'No',
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
