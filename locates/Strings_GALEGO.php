@@ -167,6 +167,7 @@ $strings = array(
 	'tlf' => 'Tlf',
 	'direccion' => 'Direccion',
 	'empty' => 'Campos Baleiros',
+	'precio' => 'Prezo',
 
 
 	//Modelos

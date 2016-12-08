@@ -9,8 +9,8 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strc
 
 	//Requires del modelo, otros controladores y las vistas.
 	require_once('../models/SERVICIO_Model.php');
-	//Añadir rquire de trabajador cuando lo tenga adri para la FK
-	//require_once('../views/SERVICIO_ADD_Vista.php');
+	require_once('../TRABJADOR_Controller.php')
+	require_once('../views/SERVICIO_ADD_Vista.php');
 	//require_once('../views/SERVICIO_DELETE_Vista.php');
 	//require_once('../views/SERVICIO_EDIT_Vista.php');
 	//require_once('../views/SERVICIO_LIST_Vista.php');

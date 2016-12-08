@@ -168,6 +168,7 @@ $strings = array(
 	'buscar servicio' => 'BUSCAR SERVICIO',
 	'servicioservicio' => 'SERVICIO',
 	'id_servicio' => 'Id Servicio',
+	'precio' => 'Precio',
 
 
 	//Modelos
