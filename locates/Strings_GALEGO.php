@@ -129,6 +129,7 @@ $strings = array(
 	'servicioservicio' => 'SERVICIO',
 	'id_servicio' => 'Id Servicio',
 	'descripcion' => 'Descripcion',
+	'id_trabajador' => 'Dni Trabajador',
 
 	//Opciones vistas permisos
 	'nuevo permiso' => 'NOVO PERMISO',

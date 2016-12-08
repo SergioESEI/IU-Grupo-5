@@ -106,7 +106,7 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strc
 					<script>
 						window.alert('<?php echo $strings[$mensaje]; ?>');
 					</script><?php
-					unset($_POST['id_servicio']);
+					unset($_POST['serv']);
 					new Servicio_Borrar();
 				}
 				break;
