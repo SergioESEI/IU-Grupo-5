@@ -163,7 +163,7 @@ function mostrarServicio($idServicio){
 
 	$db = conectarBD();
 
-	$sql = "SELECT * FROM Servicio WHERE Id_Servicio='".$idServico."' AND Borrado='0';";
+	$sql = "SELECT * FROM Servicio WHERE Id_Servicio='".$idServicio."' AND Borrado='0';";
 	$resultado = $db->query($sql);
 	if ($resultado->num_rows == 1){
 		$row = $resultado->fetch_assoc();

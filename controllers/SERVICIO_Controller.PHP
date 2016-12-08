@@ -9,12 +9,11 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strc
 
 	//Requires del modelo, otros controladores y las vistas.
 	require_once('../models/SERVICIO_Model.php');
-	require_once('../TRABJADOR_Controller.php')
 	require_once('../views/SERVICIO_ADD_Vista.php');
-	//require_once('../views/SERVICIO_DELETE_Vista.php');
-	//require_once('../views/SERVICIO_EDIT_Vista.php');
-	//require_once('../views/SERVICIO_LIST_Vista.php');
-	//require_once('../views/SERVICIO_SHOW_Vista.php');
+	require_once('../views/SERVICIO_DELETE_Vista.php');
+	require_once('../views/SERVICIO_EDIT_Vista.php');
+	require_once('../views/SERVICIO_LIST_Vista.php');
+	require_once('../views/SERVICIO_SHOW_Vista.php');
 
 	//Include del idioma elegido, o español por defecto.
 	if(isset($_SESSION['lang'])){

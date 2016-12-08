@@ -173,6 +173,7 @@ $strings = array(
 	'precio' => 'Precio',
 	'descripcion' => 'Descripcion',
 	'id_trabajador' => 'Dni Trabajador',
+	'servicio' => 'Servicio',
 
 
 	//Modelos

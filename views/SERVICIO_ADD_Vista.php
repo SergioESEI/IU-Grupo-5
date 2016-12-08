@@ -47,7 +47,7 @@ class Servicio_Crear{
 								<!-- Campo id trabajador-->
 								<div class="form-group">
 									<div class="col-sm-4">
-									  <label for="nombre" class="control-label"><?php echo $strings['trabajador']; ?>:</label>
+									  <label for="nombre" class="control-label"><?php echo $strings['id_trabajador']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
 									  <select name="trabajador" required>

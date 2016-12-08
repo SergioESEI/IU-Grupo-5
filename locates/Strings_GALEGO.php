@@ -121,15 +121,16 @@ $strings = array(
 	'grupo' => 'Perfil',
 
 	//Opciones vistas servicio
-	'nuevo servicio' => 'NOVO SERVICIO',
-	'borrar servicio' => 'BORRAR SERVICIO',
-	'editar servicio' => 'EDITAR SERVICIO',
-	'ver servicio' => 'VER SERVICIOS',
-	'buscar servicio' => 'BUSCAR SERVICIO',
-	'servicioservicio' => 'SERVICIO',
+	'nuevo servicio' => 'NOVO SERVIZO',
+	'borrar servicio' => 'BORRAR SERVIZO',
+	'editar servicio' => 'EDITAR SERVIZO',
+	'ver servicio' => 'VER SERVIZOS',
+	'buscar servicio' => 'BUSCAR SERVIZO',
+	'servicioservicio' => 'SERVIZO',
 	'id_servicio' => 'Id Servicio',
 	'descripcion' => 'Descripcion',
 	'id_trabajador' => 'Dni Trabajador',
+	'servicio' => 'Servizo',
 
 	//Opciones vistas permisos
 	'nuevo permiso' => 'NOVO PERMISO',
