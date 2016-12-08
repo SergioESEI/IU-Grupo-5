@@ -140,6 +140,38 @@
 							</ul>
 					</li>
 
+			
+					<!-- Gestión de trabajadores -->
+					<li class="dropdown">	
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarTrabajadores']; ?> 
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li>
+							  <a href="../controllers/TRABAJADOR_Controller.php?id=altaTrabajador">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaTrabajador']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/TRABAJADOR_Controller.php?id=bajaTrabajador">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaTrabajador']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/TRABAJADOR_Controller.php?id=modificarTrabajador">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarTrabajador']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/TRABAJADOR_Controller.php?id=consultarTrabajador">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarTrabajador']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/TRABAJADOR_Controller.php?id=buscarTrabajador">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarTrabajador']; ?></a>
+							</li>
+						</ul>
+					</li>
+
+			
+			
 					<!-- Gestión de servicios -->
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarServicio']; ?>
