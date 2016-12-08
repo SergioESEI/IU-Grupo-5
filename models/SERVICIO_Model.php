@@ -82,22 +82,22 @@ class servicio{
 
 			  $this->mysqli = conectarBD();
 			  $aux=false;
-				  if($clienteNuevo->getIdTrabajador() != null){
+				  if($servicioNuevo->getIdTrabajador() != null){
 					  $sql= "UPDATE Servicio SET Id_Trabajador='".$servicioNuevo->getIdTrabajador()."' WHERE Id_Servicio='".$this->idServicio."';";
 					  $this->mysqli->query($sql);
 					  $aux=true;
 				  }
-				  if($clienteNuevo->getPrecio() != null){
+				  if($servicioNuevo->getPrecio() != null){
 					  $sql= "UPDATE Servicio SET Precio='".$servicioNuevo->getPrecio()."' WHERE Id_Servicio='".$this->idServicio."';";
 					  $this->mysqli->query($sql);
 					  $aux=true;
 				  }
-				  if($clienteNuevo->getNombre() != null){
+				  if($servicioNuevo->getNombre() != null){
 					  $sql= "UPDATE Servicio SET Nombre='".$servicioNuevo->getNombre()."' WHERE Id_Servicio='".$this->idServicio."';";
 					  $this->mysqli->query($sql);
 					  $aux=true;
 				  }
-				  if($clienteNuevo->getDescripcion() != null){
+				  if($servicioNuevo->getDescripcion() != null){
 					  $sql= "UPDATE Servicio SET Descripcion='".$servicioNuevo->getDescripcion()."' WHERE Id_Servicio='".$this->idServicio."';";
 					  $this->mysqli->query($sql);
 					  $aux=true;
@@ -182,6 +182,52 @@ function consultarServicio($idServicio){
 		$row = $resultado->fetch_array();
 		echo "<tr> <td>".$row['Id_Servicio']."</td> <td>".$row['Id_Trabajador']."</td> <td>".$row['Nombre']."</td> <td>".$row['Precio']."</td> <td>".$row['Descripcion']."</td> <td>";
 	}
+}
+
+//Muestra los datos de un servicio concreto pasado por parámetro en formato tabla
+function consultarServicioBorrar($serv){
+
+  $db = conectarBD();
+  if($serv->getIdServicio() !=null){
+	  $sql = "SELECT * FROM Servicio WHERE Id_Servicio='".$serv->getIdServicio()."' AND Borrado='0';";
+	  $resultado = $db->query($sql);
+	  if ($resultado->num_rows > 0){
+		  $row = $resultado->fetch_array();
+		  echo "<tr> <td>".$row['Id_Servicio']."</td> <td>".$row['Id_Trabajador']."</td> <td>".$row['Nombre']."</td> <td>".$row['Precio']."</td> <td>".$row['Descripcion']."</td> <td>";
+	  }
+  }
+  if($servt->getIdTrabajador() != null){
+	  $sql = "SELECT * FROM Servicio WHERE Id_Trabajador='".$serv->getIdTrabajador()."' AND Borrado='0';";
+	  $resultado = $db->query($sql);
+	  if ($resultado->num_rows > 0){
+		  $row = $resultado->fetch_array();
+		  echo "<tr> <td>".$row['Id_Servicio']."</td> <td>".$row['Id_Trabajador']."</td> <td>".$row['Nombre']."</td> <td>".$row['Precio']."</td> <td>".$row['Descripcion']."</td> <td>";
+	  }
+  }
+  if($serv->getNombre() != null){
+	  $sql = "SELECT * FROM Servicio WHERE Nombre='".$serv->getNombre()."' AND Borrado='0';";
+	  $resultado = $db->query($sql);
+	  if ($resultado->num_rows > 0){
+		  $row = $resultado->fetch_array();
+		  echo "<tr> <td>".$row['Id_Servicio']."</td> <td>".$row['Id_Trabajador']."</td> <td>".$row['Nombre']."</td> <td>".$row['Precio']."</td> <td>".$row['Descripcion']."</td> <td>";
+	  }
+  }
+  if($serv->getPrecio() != null){
+	  $sql = "SELECT * FROM Servicio WHERE DNI='".$serv->getPrecio()."' AND Borrado='0';";
+	  $resultado = $db->query($sql);
+	  if ($resultado->num_rows > 0){
+		  $row = $resultado->fetch_array();
+		  echo "<tr> <td>".$row['Id_Servicio']."</td> <td>".$row['Id_Trabajador']."</td> <td>".$row['Nombre']."</td> <td>".$row['Precio']."</td> <td>".$row['Descripcion']."</td> <td>";
+	  }
+  }
+  if($serv->getDescripcion() != null){
+	  $sql = "SELECT * FROM Servicio WHERE Email='".$serv->getDescripcion()."' AND Borrado='0';";
+	  $resultado = $db->query($sql);
+	  if ($resultado->num_rows > 0){
+		  $row = $resultado->fetch_array();
+		  echo "<tr> <td>".$row['Id_Servicio']."</td> <td>".$row['Id_trabajador']."</td> <td>".$row['Nombre']."</td> <td>".$row['Precio']."</td> <td>".$row['Descripcion']."</td> <td>";
+	  }
+  }
 }
 
 }else echo "Permiso denegado.";

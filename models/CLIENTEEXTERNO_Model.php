@@ -199,7 +199,7 @@ class clienteExterno{
 	  }
   }
   //Muestra los datos de un cliente concreto pasado por parámetro en formato tabla para borrar
-  function consultarClienteBorrar($cliente1){
+  function consultarClienteBorrar($client){
 
   	$db = conectarBD();
 	if($client->getId() !=null){
