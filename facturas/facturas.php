@@ -14,10 +14,10 @@ $codigo_postal_tienda = "32003";
 $telefono_tienda = "988 61 62 99";
 
 //Recibir los datos del cliente
-$nombre_cliente = $arrayF['Nombre'];
-$email_cliente = $arrayF['Email'];
-$direccion_cliente = $arrayF['Direccion'];
-$telefono = $arrayF['Tlf'];
+$nombre_cliente = iconv("UTF-8", "WINDOWS-1252", strval($arrayF['Nombre']));
+$email_cliente = iconv("UTF-8", "WINDOWS-1252", strval($arrayF['Email']));
+$direccion_cliente = iconv("UTF-8", "WINDOWS-1252", strval($arrayF['Direccion']));
+$telefono = iconv("UTF-8", "WINDOWS-1252", strval($arrayF['Tlf']));
 
 //variable que guarda el nombre del archivo PDF
 $archivo="../facturas/factura-$id_factura.pdf";
@@ -95,11 +95,11 @@ while($x <= count($arrayL) - 1){
 $pdf->SetFont('Arial','',8);
        
    $pdf->SetXY(45, $y);
-    $pdf->Cell(40, 5, $arrayL[$x]['Nombre'], 0, 1, 'C');
+    $pdf->Cell(40, 5, iconv("UTF-8", "WINDOWS-1252", strval($arrayL[$x]['Nombre'])), 0, 1, 'C');
 	$pdf->SetXY(115, $y);
-    $pdf->Cell(40, 5, $arrayL[$x]['Importe']." €", 0, 1, 'C');
+    $pdf->Cell(40, 5, iconv("UTF-8", "WINDOWS-1252", strval($arrayL[$x]['Importe']))." €", 0, 1, 'C');
     $pdf->SetXY(80, $y);
-    $pdf->Cell(40, 5, $arrayL[$x]['Descripcion'], 0, 1, 'C');
+    $pdf->Cell(40, 5, iconv("UTF-8", "WINDOWS-1252", strval($arrayL[$x]['Descripcion'])), 0, 1, 'C');
 
 	$x++;
 	// aumento del top 5 cm
