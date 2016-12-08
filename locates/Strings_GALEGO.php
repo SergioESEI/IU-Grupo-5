@@ -100,6 +100,7 @@ $strings = array(
 	'error id_cliente' => '4-16 alfanuméricos',
 	'error tlf' => '9 números',
 	'error direccion' => '4-50 alfanuméricos',
+	'error precio' => '19,99',
 
 	//Opciones vistas controlador
 	'nuevo controlador' => 'NOVA FUNCIONALIDADE',
@@ -127,6 +128,7 @@ $strings = array(
 	'buscar servicio' => 'BUSCAR SERVICIO',
 	'servicioservicio' => 'SERVICIO',
 	'id_servicio' => 'Id Servicio',
+	'descripcion' => 'Descripcion',
 
 	//Opciones vistas permisos
 	'nuevo permiso' => 'NOVO PERMISO',

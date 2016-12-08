@@ -72,27 +72,17 @@ class Servicio_Crear{
 									  <label for="nombre" class="control-label"><?php echo $strings['precio']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-									  <input type="text" class="form-control" name="tlf" pattern="[0-9]{9}" title="<?php echo $strings['error tlf']; ?>" required>
+									  <input type="text" class="form-control" name="precio" pattern="[0-9]+(\.[0-9]+)" title="<?php echo $strings['error precio']; ?>" required>
 									</div>
 								</div>
 
-				                <!-- Campo Email-->
+				                <!-- Campo Descripcion-->
 				                <div class="form-group">
 				                  <div class="col-sm-4">
-				                    <label for="email" class="control-label"><?php echo $strings['email']; ?>:</label>
+				                    <label for="nombre" class="control-label"><?php echo $strings['descripcion']; ?>:</label>
 				                  </div>
 				                  <div class="col-sm-4">
-				                    <input type="text" class="form-control" name="email" pattern="[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})" title="<?php echo $strings['error email']; ?>" required>
-				                  </div>
-				                </div>
-
-				                <!-- Campo Direccion-->
-				                <div class="form-group">
-				                  <div class="col-sm-4">
-				                    <label for="nombre" class="control-label"><?php echo $strings['direccion']; ?>:</label>
-				                  </div>
-				                  <div class="col-sm-4">
-				                    <input type="text" class="form-control" name="direccion" pattern="[0-9A-Za-z\d_]{4,50}" title="<?php echo $strings['error direccion']; ?>" required>
+				                    <input type="text" class="form-control" name="descripcion" pattern="[0-9A-Za-z\d_]{4,50}" title="<?php echo $strings['error direccion']; ?>" required>
 				                  </div>
 				                </div>
 
