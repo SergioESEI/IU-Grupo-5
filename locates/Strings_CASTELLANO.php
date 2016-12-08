@@ -34,6 +34,17 @@ $strings = array(
 	'titulo borrar servicio' => 'Borrar servicio',
 	'titulo editar servicio' => 'Editar servicio',
 	'titulo listar servicio' => 'Ver servicio',
+	'titulo añadir trabajador' => 'Añadir trabajador',
+	'titulo borrar trabajador' => 'Borrar trabajador',
+	'titulo editar trabajador' => 'Editar trabajador',
+	'titulo listar trabajador' => 'Ver trabajador',
+	'gestionarTrabajadores' => 'TRABAJADORES',
+	'altaTrabajador' => 'Añadir trabajador',
+	'bajaTrabajador' => 'Borrar trabajador',
+	'modificarTrabajador' => 'Modificar trabajador',
+	'consultarTrabajador' => 'Ver trabajadores',
+	'buscarTrabajador' => 'Buscar trabajador',
+	
 
 
 	//Menu
@@ -150,6 +161,40 @@ $strings = array(
 	'email' => 'Email',
 	'dni opcional' => 'DNI trabajador (opcional)',
 
+	
+	//Opciones vistas trabajadores
+	'buscar trabajador' => 'BUSCAR TRABAJADOR',
+	'dni trabajador' => 'DNI del trabajador',
+	'nombre' => 'Nombre',
+	'apellidos' => 'Apellidos',
+	'nuevo trabajador' => 'NUEVO TRABAJADOR',
+	'buscar trabajador' => 'BUSCAR TRABAJADOR',
+	'borrar trabajador' => 'BORRAR TRABAJADOR',
+	'editar trabajador' => 'MODIFICAR TRABAJADOR',
+	'ver trabajadores' => 'VER TRABAJADORES',
+	'fotoperfil' => 'Foto de perfil',
+	'direccion' => 'Dirección',
+	'email' => 'Email',
+	'fechanac' => 'Fecha de nacimiento',
+	'dni' => 'DNI',
+	'tipoemp' => 'Tipo de empleado',
+	'observaciones' => 'Observaciones',
+	'numerocuenta' => 'Número de cuenta',
+	'horasextra' => 'Horas extra',
+	'externo' => 'Externo',
+	'trabajador' => 'Trabajador',
+	'administrador' => 'Administrador',
+	'monitor' => 'Monitor',
+	'secretario' => 'Secretaría',
+	'cafeteria' => 'Cafetería',
+	'limpieza' => 'Limpieza',
+	'otros' => 'Otros',
+	'fisioterapeuta' => 'Fisioterapeuta',
+	'telefono' => 'Teléfono',
+	
+	
+	
+	
 	//Opciones vistas cliente
 	'nuevo cliente' => 'NUEVO CLIENTE',
 	'borrar cliente' => 'BORRAR CLIENTE',
