@@ -120,7 +120,16 @@ CREATE TABLE IF NOT EXISTS `Caja` (
 --
 
 INSERT INTO `Caja` (`Id_Caja`,`Fecha`, `Tipo`, `Importe`, `Borrado`) VALUES
-(1,'2016-11-15', 'Ingreso', 50.5, 0);
+(5,'2016-11-15', 'Ingreso', 50.5,'', 0),
+(2,'2016-11-15', 'Pago', 30,'', 0),
+(3,'2016-11-15', 'Ingreso', 20,'', 0),
+(4,'2016-11-29', 'Ingreso', 30,'Factura cobrada con fecha 2016-11-29', 0),
+(1,'2016-11-01', 'Ingreso', 50.5,'Factura cobrada con fecha 2016-11-01', 0),
+(10,'2016-12-10', 'Pago', 60,'', 0),
+(9,'2016-12-09', 'Pago', 20,'', 0),
+(7,'2016-11-30', 'Pago', 10,'', 0),
+(8,'2016-11-30', 'Ingreso', 30,'', 0),
+(6,'2016-11-29', 'Ingreso', 20,'', 0);
 
 -- --------------------------------------------------------
 
@@ -165,8 +174,9 @@ CREATE TABLE IF NOT EXISTS `Cliente_Externo` (
 --
 
 INSERT INTO `Cliente_Externo` (`Id_Cliente`, `Nombre`, `DNI`, `Tlf`, `Email`, `Borrado`, `Direccion`) VALUES
-('34281271R', 'Iago Fernandez', '34281271R', 214748347, 'iago@gmail.com', 0, 'Progeso 24, 3C'),
-('48484848K', 'Fulanito', '48484848K', 327673456, 'fulanito@gmail.com', 0, 'Progeso 24, 3A');
+('12341234D', 'Iago Fernandez', '12341234D', 614748347, 'iago@gmail.com', 0, 'Progeso 24, 3C'),
+('34567889Q', 'Jorge González', '34567889Q', 627673456, 'jorge@gmail.com', 0, 'Progeso 26, 2A'),
+('98765432M', 'Pedro Vázquez', '98765432M', 689234675, 'pedro@gmail.com', 0, 'Rúa Nova 2, 1A');
 
 -- --------------------------------------------------------
 
@@ -326,9 +336,15 @@ CREATE TABLE IF NOT EXISTS `Factura` (
 --
 
 INSERT INTO `Factura` (`Id_Factura`, `Id_Cliente`, `Fecha`, `Fecha_Cobro`, `Total`, `Pagada`, `Borrado`) VALUES
-(1, '48484848K', NULL, NULL, 0, 'No', 0),
-(2, '34281271R', '2016-11-25', '2016-11-29', 30, 'Efectivo', 0),
-(3, '34281271R', '2016-11-29', NULL, 85, 'NO', 0);
+(3, '12341234D', NULL, NULL, 20, 'No', 0),
+(4, '34567889Q', '2016-11-25', '2016-11-29', 30, 'Efectivo', 0),
+(5, '12341234D', '2016-11-29', NULL, 90, 'No', 0),
+(6, '12341234D', NULL, NULL, 20, 'No', 0),
+(8, '34567889Q', '2016-12-22', '2016-12-27', 80.5, 'Domiciliacion', 0),
+(7, '12341234D', '2016-12-02', '2016-12-05', 30, 'TPV', 0),
+(9, '98765432M', NULL, NULL, 20, 'No', 0),
+(2, '34567889Q', '2016-11-15', NULL, 120.5, 'No', 0),
+(1, '98765432M', '2016-10-28', '2016-11-01', 50.5, 'Efectivo', 0);
 
 
 -- --------------------------------------------------------
@@ -456,10 +472,21 @@ CREATE TABLE IF NOT EXISTS `Linea_Factura` (
 --
 
 INSERT INTO `Linea_Factura` (`Id_Linea_Factura`, `Id_Factura`, `Id_Servicio`, `Descripcion`, `Importe`, `Borrado`) VALUES
-(1, 1, '963852741', 'La descripcion de la linea', 100.99, 0),
-(2, 2, '963852741', 'La descripcion de la linea', 30, 0),
-(3, 3, '963852741', 'La descripcion', 45, 0),
-(4, 3, '963852742', '', 40, 0);
+(1, 1, '963852741', 'Descuento por cliente habitual', 20, 0),
+(2, 2, '963852741', '', 30, 0),
+(3, 3, '963232742', '', 40, 0),
+(4, 3, '963852741', '', 30, 0),
+(5, 3, '963852442', '', 20, 0),
+(14, 3, '963852372', '', 35, 0),
+(6, 4, '963852442', '', 20, 0),
+(7, 5, '925852742', '', 50.5, 0),
+(8, 5, '963852372', 'Descuento especial', 30, 0),
+(9, 6, '963852741', '', 30, 0),
+(10, 7, '963852442', '', 20, 0),
+(11, 8, '963852741', '', 30, 0),
+(12, 8, '963232742', '', 40, 0),
+(13, 8, '925852742', '', 50.5, 0),
+(15, 9, '925852742', '', 50.5, 0);
 
 -- --------------------------------------------------------
 
@@ -624,8 +651,11 @@ CREATE TABLE IF NOT EXISTS `Servicio` (
 --
 
 INSERT INTO `Servicio` (`Id_Servicio`, `Id_Trabajador`, `Nombre`, `Precio`, `Descripcion`, `Borrado`) VALUES
-('963852741', '22222222J', 'Cena de empresa', 30, 'PreparaciÃ³n de cena para 50 personas', 0),
-('963852742', '22222222J', 'Actividad externa', 40, 'Act externas', 0);
+('963852741', '22222222J', 'Actividades para niños', 30, 'Actividades externas', 0),
+('963232742', '22222222J', 'Actividades tercera edad', 40, 'Actividades externas', 0),
+('963852442', '11111111H', 'Carrera solidaria', 20, '', 0),
+('925852742', '12345678Z', 'Step', 50.5, '', 0),
+('963852372', '11111111H', 'Ejercicios aeróbicos', 35, '', 0);
 
 -- --------------------------------------------------------
 
