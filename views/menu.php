@@ -232,6 +232,51 @@
 						</ul>
 					</li>
 				<?php } ?>
+				
+				<!-- Gestión de facturas -->				
+				<?php }if((isset($_SESSION['permisos']) && in_array('Factura',$_SESSION['permisos'])) || strcmp($_SESSION['grupo'],'Admin')== 0){ ?>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['facturas']; ?>
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li>
+							  <a href="../controllers/FACTURA_Controller.php?id=altaFactura">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['titulo crear factura']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/FACTURA_Controller.php?id=buscarFactura">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span><?php echo $strings['titulo gestionar factura']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/FACTURA_Controller.php?id=listarFacturas">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-duplicate"></span><?php echo $strings['titulo ver facturas']; ?></a>
+							</li>
+						</ul>
+					</li>	
+					
+					<!-- Gestión de caja -->
+					<?php }if((isset($_SESSION['permisos']) && in_array('Caja',$_SESSION['permisos'])) || strcmp($_SESSION['grupo'],'Admin')== 0){ ?>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['caja']; ?>
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-euro"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li>
+							  <a href="../controllers/CAJA_Controller.php?id=altaCaja">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['menu añadir movimiento']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/CAJA_Controller.php?id=consultarCaja">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span><?php echo $strings['gestionar caja']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/CAJA_Controller.php?id=verCaja">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-duplicate"></span><?php echo $strings['ver movimientos']; ?></a>
+							</li>
+						</ul>
+					</li>
+					<?php } ?>
 				</ul>
 			</div>
 		</div>
