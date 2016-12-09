@@ -184,6 +184,103 @@ $strings = array(
 	'dni invalido' => 'O DNI do traballador non existe.',
 	'dni asignado' => 'O DNI do traballador xa está asignado.',
 	'IdC asignado' => 'O id do cliente xa está asignado',
-	'Id invalido' => 'El id del cliente no existe'
+	'Id invalido' => 'El id del cliente no existe',
+	
+	///////////////// ET2 Iago /////////////////////////////
+	
+	//Modelos
+	'factura sin cerrar' => 'Xa hai unha factura sen cerrar deste cliente.',
+	'error insertar pago' => 'Non hai suficientes ingresos.',
+	'no hay' => 'Non hai elementos a mostrar.',
+	'error caja' => 'ERRO: Balance de caixa negativo.',
+	
+	//Menu
+	'caja' => 'CAIXA',
+	'añadir movimiento' => 'Engador movemento',
+	'gestionar caja' => 'Xestionar caixa',
+	'ver movimientos' => 'Ver movementos',
+	
+	//Titulos
+	'facturas' => 'FACTURAS',
+	'titulo crear factura' => 'Crear factura',
+	'titulo modificar factura' => 'Modificar factura',
+	'titulo gestionar factura' => 'Xestionar facturas<br>cliente',
+	'titulo gestionar factura2' => 'Xestionar facturas cliente',
+	'titulo buscar facturas' => 'Buscar facturas',
+	'titulo ver facturas' => 'Ver facturas cobradas',
+	'titulo crear linea' => 'Crear liña',
+	'titulo editar linea' => 'Editar liña',
+	'titulo añadir movimiento' => 'Crear movemento caixa',
+	'titulo editar movimiento' => 'Editar movemento caixa',
+	'titulo consultar movimiento' => 'Consultar movementos caixa',
+	'titulo listar movimiento' => 'Ver movementos caixa',
+	
+	//Cabecera
+	'menu añadir movimiento' => 'Crear movemento<br>caixa',
+	'crear factura' => 'NOVA FACTURA',
+	'modificar factura' => 'EDITAR FACTURA',
+	'gestionar factura' => 'XESTIONAR FACTURA',
+	'buscar facturas' => 'BUSCAR FACTURAS DO CLIENTE',
+	'ver facturas' => 'VER FACTURAS',
+	'crear linea' => 'NOVA LIÑA DE FACTURA',
+	'editar linea' => 'EDITAR LIÑA DE FACTURA',
+	'gestionar linea' => 'XESTIONAR LIÑAS DE FACTURA',
+	'añadir movimiento' => 'ENGADIR MOVEMENTO',
+	'editar movimiento' => 'EDITAR MOVEMENTO',
+	'consultar movimiento' => 'CONSULTAR MOVEMENTOS',
+	'listar movimiento' => 'VER MOVEMENTOS',
+	'buscar movimiento' => 'BUSCAR MOVEMENTOS',
+	
+	//Error formularios
+	'error importe caja' => '3 cifras max con decimales',
+	'error nombre servicio' => '2-30 letras',
+	'error importe linea' => '3 cifras max con decimales',
+	'error nombre cliente' => '2-30 letras',
+	'error total factura' => '3 cifras max con decimales',
+	
+	//Vistas caja
+	'tipo movimiento' => 'Tipo de movemento',
+	'comentario opcional' => 'Comentario (opcional)',
+	'comentario' => 'Comentario',
+	'importe caja' => 'Importe en euros',
+	'fecha caja' => 'Data',
+	'todos' => 'Todos',
+	'mes' => '<b>Mes</b>',
+	'ingreso caja' => 'Ingreso',
+	'pago caja' => 'Pago',
+	'total caja' => 'Efectivo en caixa',
+	
+	//Vistas factura
+	'id factura' => 'ID Factura',
+	'nombre cliente' => 'Nome cliente',
+	'cliente' => 'Cliente',
+	'fecha cierre' => 'Data de peche',
+	'fecha cobro' => 'Data cobro',
+	'factura cobrada' => 'Cobrada',
+	'total factura' => 'Total',
+	'todas' => 'Todas',
+	'no cobrada' => 'Non',
+	'cobrada' => 'Si',
+	'formato fecha invalido' => 'Formato de data incorrecto',
+	'fecha invalida' => 'Data incorrecta',
+	'consultar' => 'Consultar',
+	'tipo cobro factura' => 'Tipo de cobro',
+	'efectivo' => 'Efectivo',
+	'domiciliacion' => 'Domiciliación',
+	'tpv' => 'TPV',
+	'confirmar cobro' => 'Confirmar cobro?',
+	'cobrar' => 'Cobrar',
+	'consultar' => 'Consultar',
+	'generar factura' => 'Xerar PDF',
+	
+	//Vistas linea factura
+	'numero linea' => 'Nº liña',
+	'servicio' => 'Servicio',
+	'nombre servicio' => 'Nome servicio',
+	'importe' => 'Importe',
+	'descripcion' => 'Descripción (opcional)',
+	'descripcion2' => 'Descripción',
+	
+	///////////////////////////////
 )
 ?>
