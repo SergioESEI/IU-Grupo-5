@@ -233,7 +233,16 @@ INSERT INTO `Controlador` (`Nombre_Controlador`, `Accion`, `Borrado`) VALUES
 ('Caja', 'Delete', 0),
 ('Caja', 'Edit', 0),
 ('Caja', 'List', 0),
-('Caja', 'Show', 0);
+('Caja', 'Show', 0),('Espacio', 'Add', 0),
+('Espacio', 'Delete', 0),
+('Espacio', 'Edit', 0),
+('Espacio', 'List', 0),
+('Espacio', 'Show', 0),
+('Reserva_Espacio', 'Add', 0),
+('Reserva_Espacio', 'Delete', 0),
+('Reserva_Espacio', 'Edit', 0),
+('Reserva_Espacio', 'List', 0),
+('Reserva_Espacio', 'Show', 0);
 
 -- --------------------------------------------------------
 
@@ -292,8 +301,12 @@ CREATE TABLE IF NOT EXISTS `Espacio` (
 -- Volcado de datos para la tabla `Espacio`
 --
 
-INSERT INTO `Espacio` (`Id_Espacio`, `Nombre`, `Borrado`) VALUES
-('9874563210', 'Aula 1', 0);
+
+INSERT INTO `Espacio` (`Id_Espacio`, `Nombre`, `Borrado`) VALUES ('9874563210', 'Aula 1', 0); 
+INSERT INTO `Espacio` (`Id_Espacio`, `Nombre`, `Borrado`) VALUES ('1766371728', 'Aula A', 0);
+INSERT INTO `Espacio` (`Id_Espacio`, `Nombre`, `Borrado`) VALUES ('hdsj123781', 'Aula B', 0);
+INSERT INTO `Espacio` (`Id_Espacio`, `Nombre`, `Borrado`) VALUES ('098djsjjjj', 'Aula C', 0);
+INSERT INTO `Espacio` (`Id_Espacio`, `Nombre`, `Borrado`) VALUES ('owuwqjdsns', 'Aula D', 0);
 
 -- --------------------------------------------------------
 
@@ -561,7 +574,17 @@ INSERT INTO `Permisos` (`Nombre_Grupo`, `Nombre_Controlador`, `Accion`, `Borrado
 ('Secretario','Caja', 'Delete', 0),
 ('Secretario','Caja', 'Edit', 0),
 ('Secretario','Caja', 'List', 0),
-('Secretario','Caja', 'Show', 0);
+('Secretario','Caja', 'Show', 0),
+('Secretario','Espacio', 'Add', 0),
+('Secretario','Espacio', 'Delete', 0),
+('Secretario','Espacio', 'Edit', 0),
+('Secretario','Espacio', 'List', 0),
+('Secretario','Espacio', 'Show', 0),
+('Secretario','Reserva_Espacio', 'Add', 0),
+('Secretario','Reserva_Espacio', 'Delete', 0),
+('Secretario','Reserva_Espacio', 'Edit', 0),
+('Secretario','Reserva_Espacio', 'List', 0),
+('Secretario','Reserva_Espacio', 'Show', 0);
 
 -- --------------------------------------------------------
 
@@ -570,14 +593,15 @@ INSERT INTO `Permisos` (`Nombre_Grupo`, `Nombre_Controlador`, `Accion`, `Borrado
 --
 
 CREATE TABLE IF NOT EXISTS `Reserva_Espacio` (
-  `Id_Reserva` varchar(10) NOT NULL,
+  `Id_Reserva` INT NOT NULL AUTO_INCREMENT,
   `Id_Espacio` varchar(10) NOT NULL,
   `Hora_Inicio` time NOT NULL,
   `Hora_Fin` time NOT NULL,
   `Fecha` date NOT NULL,
   `Descripción` varchar(50) NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0',
-  `DNI_Reserva` varchar(9) NOT NULL
+  `DNI_Reserva` varchar(9) NOT NULL,
+    PRIMARY KEY(Id_Reserva)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -585,7 +609,16 @@ CREATE TABLE IF NOT EXISTS `Reserva_Espacio` (
 --
 
 INSERT INTO `Reserva_Espacio` (`Id_Reserva`, `Id_Espacio`, `Hora_Inicio`, `Hora_Fin`, `Fecha`, `Descripción`, `Borrado`, `DNI_Reserva`) VALUES
-('3232323232', '9874563210', '12:00:00', '13:00:00', '2017-02-15', 'Descripcion reserva', 0, '22222222J');
+('1', '9874563210', '12:00:00', '13:00:00', '2017-02-15', 'Descripcion reserva 1', 0, '22222222J');
+
+INSERT INTO `Reserva_Espacio` (`Id_Reserva`, `Id_Espacio`, `Hora_Inicio`, `Hora_Fin`, `Fecha`, `Descripción`, `Borrado`, `DNI_Reserva`) VALUES
+('2', 'hdsj123781', '22:00:00', '23:00:00', '2017-02-15', 'Descripcion reserva 2', 0, '12345678Y');
+
+INSERT INTO `Reserva_Espacio` (`Id_Reserva`, `Id_Espacio`, `Hora_Inicio`, `Hora_Fin`, `Fecha`, `Descripción`, `Borrado`, `DNI_Reserva`) VALUES
+('3', '098djsjjjj', '10:00:00', '12:00:00', '2017-02-15', 'Descripcion reserva 3', 0, '87612347A');
+
+INSERT INTO `Reserva_Espacio` (`Id_Reserva`, `Id_Espacio`, `Hora_Inicio`, `Hora_Fin`, `Fecha`, `Descripción`, `Borrado`, `DNI_Reserva`) VALUES
+('4', 'owuwqjdsns', '12:00:00', '13:00:00', '2017-02-15', 'Descripcion reserva 4', 0, '09867812Z');
 
 -- --------------------------------------------------------
 
@@ -873,12 +906,6 @@ ALTER TABLE `Masaje`
 --
 ALTER TABLE `Permisos`
  ADD PRIMARY KEY (`Nombre_Grupo`,`Nombre_Controlador`,`Accion`), ADD KEY `Nombre_Controlador` (`Nombre_Controlador`);
-
---
--- Indices de la tabla `Reserva_Espacio`
---
-ALTER TABLE `Reserva_Espacio`
- ADD PRIMARY KEY (`Id_Reserva`), ADD KEY `Id_Espacio` (`Id_Espacio`);
 
 --
 -- Indices de la tabla `Reserva_Evento`
