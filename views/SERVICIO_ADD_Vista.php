@@ -82,7 +82,7 @@ class Servicio_Crear{
 				                    <label for="nombre" class="control-label"><?php echo $strings['descripcion']; ?>:</label>
 				                  </div>
 				                  <div class="col-sm-4">
-				                    <input type="text" class="form-control" name="descripcion" pattern="[0-9A-Za-z\d_]{4,50}" title="<?php echo $strings['error direccion']; ?>" required>
+				                    <input type="text" class="form-control" name="descripcion" pattern="[0-9A-Za-z\d_]{4,50}" title="<?php echo $strings['error direccion']; ?>">
 				                  </div>
 				                </div>
 
