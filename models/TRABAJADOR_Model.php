@@ -16,7 +16,6 @@ class Trabajador{
 	var $tipoEmp;
 	var $externo;
 	var $telefono;
-
 	var $mysqli;
 	
 	//Constructor.
@@ -65,9 +64,6 @@ class Trabajador{
 	}
 	function getNumeroCuenta(){
 		return $this->numeroCuenta;
-	}
-	function getHorasExtra(){
-		return $this->horasExtra;
 	}
 	function getTipoEmp(){
 		return $this->tipoEmp;
@@ -139,13 +135,14 @@ class Trabajador{
 			if ($resultado->num_rows == 1){
 				return "dni asignado";
 			}else{
-
-				$sql= "UPDATE Trabajador SET DNI='" . $TrabajadorNuevo->getDni() . "',Apellidos='" . $TrabajadorNuevo->getApellidos() . "',Nombre='" . $TrabajadorNuevo->getNombre() . "',Fecha_Nacimiento='" . $TrabajadorNuevo->getFechaNac() . "',Email='".  $TrabajadorNuevo->getEmail() . "',Direccion='" .  $TrabajadorNuevo->getDireccion() . "',Tipo_Empleado='" . $TrabajadorNuevo->getTipoEmp() . "',Url_Foto='". $TrabajadorNuevo->getUrl_Foto() . "',Telefono='" . $TrabajadorNuevo->getTelefono() . "'Observaciones='" . $TrabajadorNuevo->getObservaciones() . "',Numero_Cuenta='" . $TrabajadorNuevo->getNumeroCuenta() . "',Horas_Extra='" . $TrabajadorNuevo->getHorasExtra() . "',Externo='" . $TrabajadorNuevo->getExterno() . "'  WHERE Dni='".$this->dni."';";
+				
+				$sql= "UPDATE Trabajador SET DNI='" . $TrabajadorNuevo->getDni() . "',Apellidos='" . $TrabajadorNuevo->getApellidos() . "',Nombre='" . $TrabajadorNuevo->getNombre() . "',Fecha_Nacimiento='" . $TrabajadorNuevo->getFechaNac() . "',Email='".  $TrabajadorNuevo->getEmail() . "',Direccion='" .  $TrabajadorNuevo->getDireccion() . "',Tipo_Empleado='" . $TrabajadorNuevo->getTipoEmp() . "',Url_Foto='". $TrabajadorNuevo->getUrl_Foto() . "',Telefono='" . $TrabajadorNuevo->getTelefono() . "',Observaciones='" . $TrabajadorNuevo->getObservaciones() . "',Numero_Cuenta='" . $TrabajadorNuevo->getNumeroCuenta() . "',Externo='" . $TrabajadorNuevo->getExterno() . "'  WHERE Dni='".$this->dni."';";
 					echo $sql;
 
 					$resultado2 = $this->mysqli->query($sql);
-				
 			}
+				
+			
 
 			if($resultado2){
 				return "modificacion exito";
@@ -225,9 +222,9 @@ function verTrabajadoresBorrar(){
 		while($row = $resultado->fetch_array()) {
 			if($row['DNI'] == null) $row['DNI'] = "-";
 			if($row['Tipo_Empleado'] == 'monitor'){
-			echo "<tr> <td>".$row['DNI']."</td> <td>".$row['Nombre']."</td> <td>".$row['Apellidos'] . "</td> <td>".$row['Tipo_Empleado'] . "</td> <td> <a href='../controllers/TRABAJADOR_Controller.php?id=bajaTrabajador&id2=" . $row['DNI'] . "'  class='btn btn-primary' >Modificar</a></td><td> <a href='../controllers/LESION_Controller.php?id=verLesiones&id2=" . $row['DNI'] . "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
+			echo "<tr> <td>".$row['DNI']."</td> <td>".$row['Nombre']."</td> <td>".$row['Apellidos'] . "</td> <td>".$row['Tipo_Empleado'] . "</td> <td> <a href='../controllers/TRABAJADOR_Controller.php?id=bajaTrabajador&id2=" . $row['DNI'] . "'  class='btn btn-primary' >Borrar</a></td></tr>";
 		}else{
-			echo "<tr> <td>".$row['DNI']."</td> <td>".$row['Nombre']."</td> <td>".$row['Apellidos'] . "</td> <td>".$row['Tipo_Empleado'] . "</td> <td> <a href='../controllers/TRABAJADOR_Controller.php?id=bajaTrabajador&id2=" . $row['DNI'] . "'  class='btn btn-primary' >Modificar</a></td><td> <td></td></tr>";
+			echo "<tr> <td>".$row['DNI']."</td> <td>".$row['Nombre']."</td> <td>".$row['Apellidos'] . "</td> <td>".$row['Tipo_Empleado'] . "</td> <td> <a href='../controllers/TRABAJADOR_Controller.php?id=bajaTrabajador&id2=" . $row['DNI'] . "'  class='btn btn-primary' >Borrar</a></td></tr>";
 		}
 		}
 	}
