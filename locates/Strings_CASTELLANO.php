@@ -320,11 +320,11 @@ $strings = array(
 	'buscar movimiento' => 'BUSCAR MOVIMIENTOS',
 	
 	//Error formularios
-	'error importe caja' => '3 cifras max con decimales',
+	'error importe caja' => '3 cifras max con 2 decimales',
 	'error nombre servicio' => '2-30 letras',
-	'error importe linea' => '3 cifras max con decimales',
+	'error importe linea' => '3 cifras max con 2 decimales',
 	'error nombre cliente' => '2-30 letras',
-	'error total factura' => '3 cifras max con decimales',
+	'error total factura' => '3 cifras max con 2 decimales',
 	
 	//Vistas caja
 	'tipo movimiento' => 'Tipo de movimiento',
