@@ -170,7 +170,30 @@
 						</ul>
 					</li>
 
-			
+					<!-- Gestión de lesiones -->
+					<li class="dropdown">	
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarLesiones']; ?> 
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li>
+							  <a href="../controllers/LESION_Controller.php?id=listarTrabajadores">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['trabajadores']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/LESION_Controller.php?id=listarAlumnos">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['alumnos']; ?></a>
+							</li>
+
+							
+							<li>
+							  <a href="../controllers/LESION_Controller.php?id=buscarLesion">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarLesion']; ?></a>
+							</li>
+						</ul>
+					</li>
+
+					
 			
 					<!-- Gestión de servicios -->
 					<li class="dropdown">
