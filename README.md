@@ -14,6 +14,10 @@ Para el Admin:<br>
   Usuario: admin <br>
   Password: admin<br>
   
-Para el secretario:<br>
+Para secretario:<br>
   Usuario: secretario<br>
   Password: secretario<br>
+
+Para monitor:<br>
+  Usuario: monitor<br>
+  Password: monitor<br>
