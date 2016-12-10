@@ -17,7 +17,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		function render($datos){
 			include_once('../header.php'); 
 			?>
-			<title><?php echo $strings['buscarTrabajador']; ?></title>
+			<title><?php echo $strings['titulo mostrar trabajador']; ?></title>
 			
 
 
@@ -36,7 +36,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 								<?php if(!isset($_GET['buscar'])){ ?>
 
 								<div class="form-group">
-									<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['editar trabajador']; ?></h2></div>
+									<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['buscar trabajador']; ?></h2></div>
 									<div class="col-md-12"><hr></div>
 									<form class="form-horizontal" role="form" action="../controllers/TRABAJADOR_Controller.php?id=buscarTrabajador&buscar=ok" method="POST">
 										
@@ -193,8 +193,8 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 										
 										<?php }else{ ?>
 										
-										<form class="form-horizontal" role="form" 
-										<div class="form-group">
+										<form class="form-horizontal" role="form">
+										<div class="form-group"></div>
 											<div class="col-md-20"> <h2 class="text-info "><?php echo $strings['buscar trabajador']; ?></h2></div>
 											<div class="col-md-20"><hr></div>
 											
@@ -204,7 +204,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 
 											<!-- Campo Nombre -->
-											<div class="form-horizontal">
+											<div class="form-group">
 												<div class="col-sm-4">
 													<label for="nombre" class="control-label"><?php echo $strings['nombre']; ?>:</label>
 												</div>
@@ -357,21 +357,21 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 												<div class="col-sm-4">
 													<?php if($datos['Externo'] != null){ 
 														if($datos['Externo'] == 0){?>
-														<input type="radio" readonly name="externo" value="0" disabled checked>Externo
+														<input type="radio" readonly name="externo" value="0" disabled checked><?php echo $strings['externo']; ?>
 														<br>
-														<input type="radio" readonly name="externo" value="1" disabled>No externo
+														<input type="radio" readonly name="externo" value="1" disabled><?php echo $strings['interno']; ?>
 														<?php }else{?>
-														<input type="radio" readonly name="externo" value="0" disabled>Externo
+														<input type="radio" readonly name="externo" value="0" disabled><?php echo $strings['externo']; ?>
 														<br>
-														<input type="radio" readonly name="externo" value="1" disabled checked>No externo
-														<?php }
+														<input type="radio" readonly name="externo" value="1" disabled checked><?php echo $strings['interno']; ?>
 													}else{?>
-													<input type="radio" readonly name="externo" value="0" disabled>Externo
+													<input type="radio" readonly name="externo" value="0" disabled><?php echo $strings['externo']; ?>
 													<br>
-													<input type="radio" readonly name="externo" value="1" disabled>No externo
+													<input type="radio" readonly name="externo" value="1" disabled><?php echo $strings['interno']; ?>
 													<?php 	} ?>
 												</div>
 											</div>
+
 											<?php } ?>
 										</div>
 									</div>
@@ -379,6 +379,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 							</div>
 						</body>
 						<?php 
+					}
 					}
 				}
 			}else

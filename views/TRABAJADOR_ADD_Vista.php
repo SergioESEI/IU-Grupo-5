@@ -65,7 +65,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 						<!-- Formulario para añadir usuario -->
 						<form class="form-horizontal" role="form" action="../controllers/TRABAJADOR_Controller.php?id=altaTrabajador" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
 							<div class="form-group"  >
-								<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['nuevo trabajador']; ?></h2></div>
+								<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['añadir trabajador']; ?></h2></div>
 								<div class="col-md-12"><hr></div>
 
 								<!-- Campo DNI-->
@@ -206,9 +206,9 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 										<label for="nombre" class="control-label"><?php echo $strings['externo']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-										<input type="radio" name="externo" value="0" autofocus required="required">Externo
+										<input type="radio" name="externo" value="0" autofocus required="required"><?php echo $strings['externo'];?>
 										<br>
-										<input type="radio" name="externo" value="1">No externo
+										<input type="radio" name="externo" value="1"><?php echo $strings['interno'];?>
 									</div>
 								</div>
 								

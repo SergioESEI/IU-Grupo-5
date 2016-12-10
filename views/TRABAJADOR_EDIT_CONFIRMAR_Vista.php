@@ -17,7 +17,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		function render($trabajador,$id2){
 			include_once('../header.php'); 
 			?>
-			<title><?php echo $strings['Confirmar trabajador']; ?></title>
+			<title><?php echo $strings['titulo modificar trabajador']; ?></title>
 
 			<body>
 
@@ -28,7 +28,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 						<div class="section-fluid">
 							<div class="container-fluid">
 										
-										<form class="form-horizontal" role="form" action="../controllers/TRABAJADOR_Controller.php?id=modificarTrabajador&id2=<?php echo $id2;?>&confirm=ok" method="POST" enctype="multipart/form-data" >
+										<form class="form-horizontal" role="form" name="formulario" action="../controllers/TRABAJADOR_Controller.php?id=modificarTrabajador&id2=<?php echo $id2;?>&confirm=ok" method="POST" >
 										<div class="form-group">
 
 											<div class="col-md-20"> <h2 class="text-info "><?php echo $strings['buscar trabajador']; ?></h2></div>
@@ -181,14 +181,15 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 												</div>
 												<div class="col-sm-4">
 													<?php 
+
 														if($trabajador->externo == 0){?>
-														<input type="radio" readonly name="externoN" value="0" disabled checked>Externo
+														<input type="radio" readonly name="externoN" value="0" disabled checked><?php echo $strings['externo'];?>
 														<br>
-														<input type="radio" readonly name="externoN" value="1" disabled>No externo
+														<input type="radio" readonly name="externoN" value="1" disabled><?php echo $strings['interno'];?>
 														<?php }else{?>
-														<input type="radio" readonly name="externoN" value="0" disabled>Externo
+														<input type="radio" readonly name="externoN" value="0" disabled><?php echo $strings['externo'];?>
 														<br>
-														<input type="radio" readonly name="externoN" value="1" disabled checked>No externo
+														<input type="radio" readonly name="externoN" value="1" disabled checked><?php echo $strings['interno'];?>
 														<?php }?>
 													
 												</div>
@@ -199,8 +200,8 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 											<div class="form-group">
 												<div class="col-sm-4"></div>
 												<div class="col-sm-4">
-													<input class="btn btn-primary" value="<?php echo $strings['modificar']; ?>" type="submit">
-													<input type="button" class="btn btn-default" onclick="history.back()" name="volver atrás" value="volver atrás">
+													<input class="btn btn-primary" value="<?php echo $strings['confirmar']; ?>" type="submit">
+													<input type="button" class="btn btn-default" onclick="history.back()" name="volver atras" value="<?php echo $strings['volver atras'];?>">
 												</div>
 											</div>
 										</div>

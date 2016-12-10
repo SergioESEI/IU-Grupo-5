@@ -18,7 +18,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 			require_once('../header.php'); 
 			?>
 			<!-- Título de la página -->	
-			<title><?php echo $strings['titulo mostrar trabajador']; ?></title>
+			<title><?php echo $strings['titulo modificar trabajador']; ?></title>
 
 
 			<script>
@@ -87,20 +87,6 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 						
 						<!-- Formulario para seleccionar el trabajador a editar -->
 						<?php if(!isset($_GET['id2'])){ ?>
-						<!-- <div class="form-group">
-							<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['editar trabajador']; ?></h2></div>
-								<div class="col-md-12"><hr></div>
-							
-							 Lista los trabajadores registrados 					
-							<div class="form-group">
-								<div class="col-sm-4">
-								<label for="nombre" class="control-label"><?php echo $strings['dni']; ?>:</label>
-								</div><div class="col-sm-4">
-								<select name="dni" required>
-									<?php listarTrabajadoresModificar(); ?>
-								</select>
-							</div></div>
-						</div> -->	
 						<!-- Lista los trabajadores -->
 						<div class="form-group">
 							<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['editar trabajador']; ?></h2></div>
@@ -331,9 +317,9 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 									</div>
 									<div class="col-sm-4">
 									<?php if($datos['Telefono'] != null){ ?>
-									<input type="text" class="form-control" name="telefono" value="<?php echo $datos['Telefono']; ?>"  title="<?php echo $strings['error telefono']; ?>">
+									<input type="text" class="form-control" name="telefonoN" value="<?php echo $datos['Telefono']; ?>"  title="<?php echo $strings['error telefono']; ?>">
 									<?php }else{ ?>
-										<input type="text" class="form-control" name="telefono"  title="<?php echo $strings['error telefono']; ?>">
+										<input type="text" class="form-control" name="telefonoN"  title="<?php echo $strings['error telefono']; ?>">
 										<?php } ?>
 									</div>
 								</div>
@@ -362,13 +348,13 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 					</div>
 					<div class="col-sm-4">
 						<?php if($datos['Externo'] == 0){?>
-						<input type="radio" id="externoN" name="externoN" value="0" checked>Externo
+						<input type="radio" id="externoN" name="externoN" value="0" checked><?php echo $strings['externo'];?>
 						<br>
-						<input type="radio" id="externoN" name="externoN" value="1">No externo
+						<input type="radio" id="externoN" name="externoN" value="1"><?php echo $strings['interno'];?>
 						<?php }else{?>
-						<input type="radio" id="externoN" name="externoN" value="0">Externo
+						<input type="radio" id="externoN" name="externoN" value="0"><?php echo $strings['externo'];?>
 						<br>
-						<input type="radio" id="externoN" name="externoN" value="1" checked>No externo
+						<input type="radio" id="externoN" name="externoN" value="1" checked><?php echo $strings['interno'];?>
 						<?php 	} ?>
 					</div>
 				</div>

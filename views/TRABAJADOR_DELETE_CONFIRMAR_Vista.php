@@ -17,7 +17,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		function render($datos){
 			include_once('../header.php'); 
 			?>
-			<title><?php echo $strings['Confirmar trabajador']; ?></title>
+			<title><?php echo $strings['titulo borrar trabajador']; ?></title>
 
 			<body>
 
@@ -31,9 +31,9 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 										<form class="form-horizontal" role="form" action="../controllers/TRABAJADOR_Controller.php?id=bajaTrabajador&id2=<?php echo $datos['DNI'];?> &confirm=ok" method="POST" enctype="multipart/form-data" >
 										<div class="form-group">
 
-											<div class="col-md-20"> <h2 class="text-info "><?php echo $strings['buscar trabajador']; ?></h2></div>
+											<div class="col-md-20"> <h2 class="text-info "><?php echo $strings['confirmar datos']; ?></h2></div>
 											<div class="col-md-20"><hr></div>
-											<br>
+											
 
 											<!-- Campo DNI-->
 											<div class="form-group">
@@ -48,17 +48,15 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 											</div>
 
 											<!-- Campo Nombre -->
-											<div class="form-horizontal">
+											<div class="form-group">
 												<div class="col-sm-4">
 													<label for="nombre" class="control-label"><?php echo $strings['nombre']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<input type="text" class="form-control" name="nombre" value="<?php echo $datos['Nombre']; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="nombre" value="<?php echo $datos['Nombre']; ?>" title="<?php echo $strings['error nombre']; ?>" readonly>
 												</div>
 											</div>
-											<br>
-											<br>
-											<br>
+											
 
 											<!-- Campo Apellidos -->
 											<div class="form-group">
@@ -66,7 +64,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 													<label for="nombre" class="control-label"><?php echo $strings['apellidos']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<input type="text" class="form-control" name="apellidos" value="<?php echo $datos['Apellidos']; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="apellidos" value="<?php echo $datos['Apellidos']; ?>" title="<?php echo $strings['error apellidos']; ?>" readonly>
 												
 												</div>
 											</div>
@@ -90,7 +88,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 												</div>
 												<div class="col-sm-4">
 
-													<input type="text" class="form-control" name="direccion" value="<?php echo $datos['Direccion'];?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="direccion" value="<?php echo $datos['Direccion'];?>" title="<?php echo $strings['error direccion']; ?>" readonly>
 								
 												</div>
 											</div>
@@ -101,7 +99,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 													<label for="nombre" class="control-label"><?php echo $strings['email']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<input type="text" class="form-control" name="email" value="<?php echo $datos['Email'];?>"  title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="email" value="<?php echo $datos['Email'];?>"  title="<?php echo $strings['error email']; ?>" readonly>
 												</div>
 											</div>
 
@@ -111,7 +109,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 													<label for="nombre" class="control-label"><?php echo $strings['fechanac']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<input type="text" class="form-control" name="fechanac" value="<?php echo $datos['Fecha_Nacimiento'];?>"  title="<?php echo $strings['error trabajador']; ?>" readonly>	
+													<input type="text" class="form-control" name="fechanac" value="<?php echo $datos['Fecha_Nacimiento'];?>"  title="<?php echo $strings['error fecha nacimiento']; ?>" readonly>	
 												</div>
 											</div>
 
@@ -124,7 +122,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 												</div>
 												<div class="col-sm-4">
 												
-													<input type="text" class="form-control" name="tipoemp" value="<?php echo $datos['Tipo_Empleado']; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="tipoemp" value="<?php echo $datos['Tipo_Empleado']; ?>" title="<?php echo $strings['error tipo empleado']; ?>" readonly>
 												
 												</div>
 											</div>
@@ -153,7 +151,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 												</div>
 												<div class="col-sm-4">
 										
-													<input type="text" class="form-control" name="numerocuenta"  value="<?php echo $datos['Numero_Cuenta']; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="numerocuenta"  value="<?php echo $datos['Numero_Cuenta']; ?>" title="<?php echo $strings['error numero cuenta']; ?>" readonly>
 												
 												</div>
 											</div>
@@ -166,7 +164,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 												</div>
 												<div class="col-sm-4">
 										
-													<input type="text" class="form-control" name="telefono"  value="<?php echo $datos['Telefono']; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="telefono"  value="<?php echo $datos['Telefono']; ?>" title="<?php echo $strings['error telefono']; ?>" readonly>
 												
 												</div>
 											</div>
@@ -180,13 +178,13 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 												<div class="col-sm-4">
 													<?php 
 														if($datos['Externo'] == 0){?>
-														<input type="radio" readonly name="externo" value="0" disabled checked>Externo
+														<input type="radio" readonly name="externo" value="0" disabled checked><?php echo $strings['externo'];?>
 														<br>
-														<input type="radio" readonly name="externo" value="1" disabled>No externo
+														<input type="radio" readonly name="externo" value="1" disabled><?php echo $strings['interno'];?>
 														<?php }else{?>
-														<input type="radio" readonly name="externo" value="0" disabled>Externo
+														<input type="radio" readonly name="externo" value="0" disabled><?php echo $strings['externo'];?>
 														<br>
-														<input type="radio" readonly name="externo" value="1" disabled checked>No externo
+														<input type="radio" readonly name="externo" value="1" disabled checked><?php echo $strings['interno'];?>
 														<?php }?>
 													
 												</div>
@@ -197,8 +195,8 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 											<div class="form-group">
 												<div class="col-sm-4"></div>
 												<div class="col-sm-4">
-													<input class="btn btn-primary" value="<?php echo $strings['borrar']; ?>" type="submit">
-													<input type="button" class="btn btn-default" onclick="history.back()" name="volver atrás" value="volver atrás">
+													<input class="btn btn-primary" value="<?php echo $strings['confirmar']; ?>" type="submit">
+													<input type="button" class="btn btn-default" onclick="history.back()" value="<?php echo $strings['volver atras'];?>" name="volver atrás">
 												</div>
 											</div>
 										</div>
