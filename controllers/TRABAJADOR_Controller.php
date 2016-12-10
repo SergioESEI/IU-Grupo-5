@@ -125,18 +125,6 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		$trabajador = new Trabajador($apellidos,$nombre,$ruta,$direccion,$email,$fechaNac,$observaciones,$numeroCuenta,$dni,$tipoEmp,$telefono,$externo);
 		return $trabajador;
 	}
-	
-	function datosFormLesion(){
-
-		$dni=$_POST['dni'];
-		$tipo=$_POST['tipo'];
-		$descripcion=$_POST['descripcion'];
-		$curada=$_POST['curada'];
-
-		$lesion= new Lesion($id,$dni,$tipo,$descripcion,$curada);
-
-		return $lesion;
-	}
 
 	
 
@@ -151,8 +139,15 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		$tipoEmp = $_POST['tipoempN'];
 		$observaciones = $_POST['observacionesN'];
 		$numeroCuenta = $_POST['numerocuentaN'];
-		$telefono = $_POST['telefono'];
-		$externo= $_POST['externoN'];
+		$telefono = $_POST['telefonoN'];
+	
+
+
+       	if(isset($_POST['externoN'])){
+			$externo= $_POST['externoN'];
+		}else{
+			$externo = null;
+		}
 
 		if(isset($_FILES['fotoperfilN']['name'])){
 			$nombreFoto = $_FILES['fotoperfilN']['name'];
@@ -232,7 +227,6 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 				new Trabajador_Borrar_Confirmar($array);
 			}else{
 				$trabajador = datosFormTrabajador();
-				var_dump($trabajador);
 				$mensaje = $trabajador->borrar(); ?>
 				<script>
 					window.alert('<?php echo $strings[$mensaje]; ?>');
@@ -254,7 +248,9 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 					new Trabajador_Editar_Confirmar($trabajador2,$_GET['id2']);
 				}else{
 					$array = mostrarTrabajadorDni($_GET['id2']);
+					var_dump($array);
 					$trabajador = datosFormTrabajador();
+
 					$trabajador2 = datosFormTrabajadorModificar($array);
 					var_dump($trabajador2);
 					$mensaje = $trabajador->modificar($trabajador2); ?>
