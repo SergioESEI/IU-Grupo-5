@@ -702,9 +702,9 @@ CREATE TABLE IF NOT EXISTS `Trabajador` (
 --
 
 INSERT INTO `Trabajador` (`DNI`, `Apellidos`, `Nombre`, `Url_Foto`, `Direccion`, `Email`, `Fecha_Nacimiento`, `Observaciones`, `Numero_Cuenta`, `Telefono`, `Tipo_Empleado`, `Externo`, `Borrado`) VALUES
-('11111111H', 'ApellidoTr ApellidoTr', 'NombreTr', 'url1', 'Direccion 1, calle 1', 'email1@gmail.com', '1990-12-25', 'Observo que este trabajador se esfuerza', '98532145321564879665', '988254896', 'secretario', 0, 0),
-('12345678Z', 'ApellidoTr3 Apellido2Tr3', 'NobreTr3', 'url', 'Direccion , calle', 'email@gmail.com', '1988-05-07', 'Observaciones', '98532145321564879667', '654723165', 'administrador', 0, 0),
-('22222222J', 'ApellidoTr2 Apellido2Tr', 'Nombre2Tr', 'url2', 'Direccion 2, calle 2', 'email2@gmail.com', '1989-07-21', 'Observo que este trabajador...', '98532145321564349634', '722356498', 'monitor', 0, 0);
+('11111111H', 'ApellidoTr ApellidoTr', 'NombreTr', '/var/www/html/images/11111111H.jpg', 'Direccion 1, calle 1', 'email1@gmail.com', '1990-12-25', 'Observo que este trabajador se esfuerza', '98532145321564879665', '988254896', 'secretario', 0, 0),
+('12345678Z', 'ApellidoTr3 Apellido2Tr3', 'NobreTr3', '/var/www/html/images/12345678Z.jpg', 'Direccion , calle', 'email@gmail.com', '1988-05-07', 'Observaciones', '98532145321564879667', '654723165', 'administrador', 0, 0),
+('22222222J', 'ApellidoTr2 Apellido2Tr', 'Nombre2Tr', '/var/www/html/images/22222222J.png', 'Direccion 2, calle 2', 'email2@gmail.com', '1989-07-21', 'Observo que este trabajador...', '98532145321564349634', '722356498', 'monitor', 0, 0);
 
 -- --------------------------------------------------------
 
