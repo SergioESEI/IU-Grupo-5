@@ -299,6 +299,46 @@
 							</li>
 						</ul>
 					</li>
+			
+					<!--Gestión de reserva de masajes-->
+					<li class="dropdown">
+					<a href="../masajes/DNI.php" target=_blank ><?php echo $strings['gestion reserva masajes']; ?>
+				
+					<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-file"></span></a>
+					</li>
+					
+					
+					
+					<!--Gestión de masajes-->
+					<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestion masajes']; ?>
+					<span class="caret"></span>
+					<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-heart-empty"></span></a>
+					
+					<ul class="dropdown-menu forAnimate" role="menu">
+							<li>
+							  <a href="../masajes/NuevoMasaje.php" target=_blank>
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['alta masaje']; ?></a>
+							</li>
+							<li>
+							  <a href="../masajes/BorrarMasaje.php" target=_blank>
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['baja masaje']; ?></a>
+							</li>
+							<li>
+							  <a href="../masajes/ModificarMasaje.php" target=_blank>
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificar masaje']; ?></a>
+							</li>
+							<li>
+							  <a href="../masajes/ConsultarMasaje.php" target=_blank>
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultar masaje']; ?></a>
+							</li>
+							<li>
+							  <a href="../masajes/ListarMasaje.php" target=_blank>
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['listar masaje']; ?></a>
+							</li>
+						</ul>
+					</li>
+			
 					<?php } ?>
 				</ul>
 			</div>
