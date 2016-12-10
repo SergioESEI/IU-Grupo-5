@@ -65,7 +65,7 @@ class Servicio_Buscar{
 							  <label for="nombre" class="control-label"><?php echo $strings['id_trabajador']; ?>:</label>
 							</div>
 							<div class="col-sm-4">
-							  <select id="id_trabajador" name="trabajador" >
+							  <select id="id_trabajador" name="id_trabajador" >
 								  <?php listarTrabajadores(); ?>
 							  </select>
 							</div>
@@ -77,7 +77,7 @@ class Servicio_Buscar{
 							  <label for="nombre" class="control-label"><?php echo $strings['nombre']; ?>:</label>
 							</div>
 							<div class="col-sm-4">
-							  <input type="text" id="nombre" class="form-control" name="nombre" pattern="/^\s*([\pL\w\s]+)\s*" title="<?php echo $strings['error nombre']; ?>" required>
+							  <input type="text" id="nombre" class="form-control" name="nombre" pattern="/^\s*([\pL\w\s]+)\s*" title="<?php echo $strings['error nombre']; ?>">
 							</div>
 						</div>
 
@@ -87,7 +87,7 @@ class Servicio_Buscar{
 							  <label for="nombre" class="control-label"><?php echo $strings['precio']; ?>:</label>
 							</div>
 							<div class="col-sm-4">
-							  <input type="text" id="precio" class="form-control" name="precio" pattern="[0-9]+(\.[0-9]+)" title="<?php echo $strings['error precio']; ?>" required>
+							  <input type="text" id="precio" class="form-control" name="precio" pattern="[0-9]+(\.[0-9]+)" title="<?php echo $strings['error precio']; ?>">
 							</div>
 						</div>
 
@@ -97,7 +97,7 @@ class Servicio_Buscar{
 							<label for="nombre" class="control-label"><?php echo $strings['descripcion']; ?>:</label>
 						  </div>
 						  <div class="col-sm-4">
-							<input type="text" id="descripcion" class="form-control" name="descripcion" pattern="[0-9A-Za-z\d_]{4,50}" title="<?php echo $strings['error direccion']; ?>" required>
+							<input type="text" id="descripcion" class="form-control" name="descripcion" pattern="[0-9A-Za-z\d_]{4,50}" title="<?php echo $strings['error direccion']; ?>">
 						  </div>
 						</div>
 

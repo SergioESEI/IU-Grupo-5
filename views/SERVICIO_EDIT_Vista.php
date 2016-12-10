@@ -25,12 +25,11 @@ class Servicio_Editar{
 
 		//Confirman la edición.
 		function pregunta(){
-			var dni = document.getElementById("id_trabajadorN").value;
+			var id_trabajador = document.getElementById("id_trabajadorN").value;
 			var nombre = document.getElementById("nombreN").value;
-			var tlf = document.getElementById("precioN").value;
-			var email = document.getElementById("descripcionN").value;
+			var precio = document.getElementById("precioN").value;
+			var descripcion = document.getElementById("descripcionN").value;
 
-			empty();
 			if (confirm('<?php echo $strings['confirmar modificacion']; ?>'+
 				'\n\n<?php echo $strings['id_trabajador']; ?>: '+id_trabajador +
 				'\n<?php echo $strings['nombre']; ?>: '+nombre +
@@ -50,6 +49,8 @@ class Servicio_Editar{
 			if (id_trabjador == "" && nombre == "" && precio == "" && descripcion == "") {
 				alert('<?php echo $strings['empty']; ?>');
 				return false;
+			}else{
+				pregunta();
 			}
 		}
 		</script>
@@ -63,7 +64,7 @@ class Servicio_Editar{
 					<div class="container-fluid">
 
 					<!-- Formulario para seleccionar el servicio a editar -->
-					<?php if(!isset($_POST['id_cliente'])){ ?>
+					<?php if(!isset($_POST['id_servicio'])){ ?>
 					<form class="form-horizontal" role="form" method="POST" action="../controllers/SERVICIO_Controller.php?id=modificarServicio">
 						<div class="form-group">
 							<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['editar servicio']; ?></h2></div>
@@ -90,7 +91,7 @@ class Servicio_Editar{
 
 					<!-- Formulario para mostrar el servicio y confirmar la edición -->
 					<?php }else{ ?>
-					<form class="form-horizontal" role="form" name="formulario" method="POST" action="../controllers/SERVICIO_Controller.php?id=modificarServicio" onsubmit="return pregunta();">
+					<form class="form-horizontal" role="form" name="formulario" method="POST" action="../controllers/SERVICIO_Controller.php?id=modificarServicio" onsubmit="return empty();">
 						<div class="form-group">
 							<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['editar servicio']; ?></h2></div>
 								<div class="col-md-12"><hr></div>
@@ -124,7 +125,7 @@ class Servicio_Editar{
 							  <label for="nombre" class="control-label"><?php echo $strings['id_trabajador']; ?>:</label>
 							</div>
 							<div class="col-sm-4">
-							  <select id="id_trabajadorN" name="trabajador" required>
+							  <select id="id_trabajadorN" name="id_trabajadorN" required>
 								  <?php listarTrabajadores(); ?>
 							  </select>
 							</div>
@@ -136,7 +137,7 @@ class Servicio_Editar{
 							  <label for="nombre" class="control-label"><?php echo $strings['nombre']; ?>:</label>
 							</div>
 							<div class="col-sm-4">
-							  <input type="text" id="nombreN" class="form-control" name="nombre" pattern="/^\s*([\pL\w\s]+)\s*" title="<?php echo $strings['error nombre']; ?>" required>
+							  <input type="text" id="nombreN" class="form-control" name="nombreN" pattern="/^\s*([\pL\w\s]+)\s*" title="<?php echo $strings['error nombre']; ?>">
 							</div>
 						</div>
 
@@ -146,7 +147,7 @@ class Servicio_Editar{
 							  <label for="nombre" class="control-label"><?php echo $strings['precio']; ?>:</label>
 							</div>
 							<div class="col-sm-4">
-							  <input type="text" id="precioN" class="form-control" name="precio" pattern="[0-9]+(\.[0-9]+)" title="<?php echo $strings['error precio']; ?>" required>
+							  <input type="text" id="precioN" class="form-control" name="precioN" pattern="[0-9]+(\.[0-9]+)" title="<?php echo $strings['error precio']; ?>">
 							</div>
 						</div>
 
@@ -156,7 +157,7 @@ class Servicio_Editar{
 							<label for="nombre" class="control-label"><?php echo $strings['descripcion']; ?>:</label>
 						  </div>
 						  <div class="col-sm-4">
-							<input type="text" id="descripcionN" class="form-control" name="descripcion" pattern="[0-9A-Za-z\d_]{4,50}" title="<?php echo $strings['error direccion']; ?>" required>
+							<input type="text" id="descripcionN" class="form-control" name="descripcionN" pattern="[0-9A-Za-z\d_]{4,50}" title="<?php echo $strings['error direccion']; ?>">
 						  </div>
 						</div>
 

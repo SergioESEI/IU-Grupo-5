@@ -38,11 +38,11 @@ class Servicio_Borrar{
 				<div class="section-fluid">
 				  <div class="container-fluid">
 
-					<!-- Formulario para seleccionar el cliente a borrar -->
-					<?php if(!isset($_POST['id_servicio'])){ ?>
-					<form class="form-horizontal" role="form" method="POST" action="../controllers/CLIENTEEXTERNO_Controller.php?id=bajaCliente">
+					<!-- Formulario para seleccionar el servicio a borrar -->
+					<?php if(!isset($_POST['serv'])){ ?>
+					<form class="form-horizontal" role="form" method="POST" action="../controllers/SERVICIO_Controller.php?id=bajaServicio">
 						<div class="form-group">
-							<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['borrar cliente']; ?></h2></div>
+							<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['borrar servicio']; ?></h2></div>
 								<div class="col-md-12"><hr></div>
 
 							<!-- Lista los servicios registrados -->

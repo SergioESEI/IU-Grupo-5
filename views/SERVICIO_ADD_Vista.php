@@ -50,7 +50,7 @@ class Servicio_Crear{
 									  <label for="nombre" class="control-label"><?php echo $strings['id_trabajador']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-									  <select name="trabajador" required>
+									  <select name="id_trabajador" required>
 										  <?php listarTrabajadores(); ?>
 									  </select>
 									</div>

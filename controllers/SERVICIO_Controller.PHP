@@ -9,6 +9,7 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strc
 
 	//Requires del modelo, otros controladores y las vistas.
 	require_once('../models/SERVICIO_Model.php');
+	require_once('TRABAJADOR_Controller.php');
 	require_once('../views/SERVICIO_ADD_Vista.php');
 	require_once('../views/SERVICIO_DELETE_Vista.php');
 	require_once('../views/SERVICIO_EDIT_Vista.php');
@@ -29,7 +30,11 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strc
 	function datosFormServicio(){
 
 		$idS = $_POST['id_servicio'];
-		$idT = $_POST['id_trabajador'];
+		if(isset($_POST['id_trabajador'])){
+			$idT = $_POST['id_trabajador'];
+		}else{
+			$idT = null;
+		}
 		if(isset($_POST['nombre'])){
 			$nombre = $_POST['nombre'];
 		}else{
@@ -46,7 +51,7 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strc
 			$descripcion = null;
 		}
 
-		$servicio = new servicio($id_servicio,$id_trabajdor,$nombre,$precio, $descripcionn);
+		$servicio = new servicio($idS,$idT,$nombre,$precio, $descripcion);
 		return $servicio;
 	}
 
@@ -72,7 +77,7 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 OR strc
 			$descripcion = null;
 		}
 
-		$servicio = new servicio($id_servicio,$id_trabajador,$nombre,$precio, $descripcion);
+		$servicio = new servicio($idS,$idT,$nombre,$precio, $descripcion);
 		return $servicio;
 	}
 
