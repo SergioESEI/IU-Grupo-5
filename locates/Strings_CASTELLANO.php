@@ -36,14 +36,10 @@ $strings = array(
 	'titulo listar servicio' => 'Ver servicio',
 	'titulo añadir trabajador' => 'Añadir trabajador',
 	'titulo borrar trabajador' => 'Borrar trabajador',
-	'titulo editar trabajador' => 'Editar trabajador',
-	'titulo listar trabajador' => 'Ver trabajador',
-	'gestionarTrabajadores' => 'TRABAJADORES',
-	'altaTrabajador' => 'Añadir trabajador',
-	'bajaTrabajador' => 'Borrar trabajador',
-	'modificarTrabajador' => 'Modificar trabajador',
-	'consultarTrabajador' => 'Ver trabajadores',
-	'buscarTrabajador' => 'Buscar trabajador',
+	'titulo modificar trabajador' => 'Editar trabajador',
+	'titulo listar trabajador' => 'Ver trabajadores',
+	'titulo mostrar trabajador' => 'Mostrar trabajador',
+	
 	
 
 
@@ -85,6 +81,18 @@ $strings = array(
 	'modificarServicio' => 'Modificar servicio perfil',
 	'consultarServicio' => 'Ver servicios perfil',
 	'buscarServicio' => 'Buscar Servicio',
+	'gestionarTrabajadores' => 'TRABAJADORES',
+	'altaTrabajador' => 'Añadir trabajador',
+	'bajaTrabajador' => 'Borrar trabajador',
+	'modificarTrabajador' => 'Modificar trabajador',
+	'consultarTrabajador' => 'Ver trabajadores',
+	'buscarTrabajador' => 'Buscar trabajador',
+	'gestionarLesiones' => ' LESIONES',
+	'altaLesion' => 'Añadir lesion',
+	'bajaLesion' => 'Borrar lesion',
+	'modificarLesion' => 'Modificar lesion',
+	'consultarLesion' => 'Ver lesion',
+	'buscar lesion' => 'Buscar lesion',
 
 	//Ventanas y botones comunes
 	'confirmar borrado' => '¿Confirmar borrado?',
@@ -96,6 +104,9 @@ $strings = array(
 	'borrar' => 'Borrar',
 	'nuevos datos' => 'Nuevos datos',
 	'buscar' => 'Buscar',
+	'confirmar' => 'Confirmar',
+	'volver atras' => 'Volver atrás',
+	'confirmar datos' => 'Confirmar datos',
 
 	//Errores formularios
 	'error accion' => '>3-30 letras, una palabra',
@@ -167,7 +178,7 @@ $strings = array(
 	'dni trabajador' => 'DNI del trabajador',
 	'nombre' => 'Nombre',
 	'apellidos' => 'Apellidos',
-	'nuevo trabajador' => 'NUEVO TRABAJADOR',
+	'añadir trabajador' => 'AÑADIR TRABAJADOR',
 	'buscar trabajador' => 'BUSCAR TRABAJADOR',
 	'borrar trabajador' => 'BORRAR TRABAJADOR',
 	'editar trabajador' => 'MODIFICAR TRABAJADOR',
@@ -182,6 +193,7 @@ $strings = array(
 	'numerocuenta' => 'Número de cuenta',
 	'horasextra' => 'Horas extra',
 	'externo' => 'Externo',
+	'interno' => 'Interno',
 	'trabajador' => 'Trabajador',
 	'administrador' => 'Administrador',
 	'monitor' => 'Monitor',
@@ -191,7 +203,36 @@ $strings = array(
 	'otros' => 'Otros',
 	'fisioterapeuta' => 'Fisioterapeuta',
 	'telefono' => 'Teléfono',
+	 
 	
+	//Opciones vistas lesion
+
+	'nueva lesion' => 'NUEVA LESIÓN',
+	'id lesion' => 'ID lesión',
+	'tipo lesion' => 'Tipo de lesión',
+	'descripcion' => 'Descripción',
+	'curada' => 'Curada',
+	'borrar lesion' => 'ELIMINAR LESIÓN',
+	'ver lesiones' => 'VER LESIONES',
+	'buscarLesion' => 'Buscar lesión',
+	'altaLesionAlumno' => 'Añadir Lesión Alumno',
+	'altaLesionTrabajador' => 'Añadir Lesión Trabajador',
+	'bajaLesionTrabajador' => 'Borrar Lesión Trabajador',
+	'bajaLesionAlumno' => 'Borrar Lesión Alumno',
+	'modificarLesionTrabajador' => 'Modificar Lesión Trabajador',
+	'modificarLesionAlumno' => 'Modificar Lesión Alumno',
+	'consultarLesionTrabajador' => 'Consultar Lesión Trabajador',
+	'consultarLesionAlumno' => 'Consultar Lesión Alumno',
+	'buscarLesion' => 'Buscar Lesión',
+	'alumnos' => 'Alumnos',
+	'trabajadores' => 'Trabajadores',
+	'ver lesion' => 'Mostrar lesión',
+	'ver lesiones' => 'Ver lesiones',
+	'seleccionar trabajador' => 'SELECCIONAR TRABAJADOR',
+
+
+
+ 
 	
 	
 	
