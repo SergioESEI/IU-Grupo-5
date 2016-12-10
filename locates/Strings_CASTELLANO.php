@@ -369,6 +369,14 @@ $strings = array(
 	'descripcion' => 'Descripción (opcional)',
 	'descripcion2' => 'Descripción',
 	
-	///////////////////////////////
+	///////////////////////////////ET2 Yago///////////////////////////
+	//Masajes
+	'alta masaje' => 'Añadir masaje.',
+	'baja masaje' => 'Eliminar masaje',
+	'modificar masaje' => 'Modificar masaje',
+	'consultar masaje' => 'Consultar masaje',
+	'listar masaje' => 'Listar masaje',
+	'gestion masajes' => 'MASAJES',
+	'gestion reserva masajes' => 'RESERVAS MASAJES',
 )
 ?>
