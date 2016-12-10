@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `Caja` (
 -- Volcado de datos para la tabla `Caja`
 --
 
-INSERT INTO `Caja` (`Id_Caja`,`Fecha`, `Tipo`, `Importe`, `Borrado`) VALUES
+INSERT INTO `Caja` (`Id_Caja`,`Fecha`, `Tipo`, `Importe`, `Comentario`, `Borrado`) VALUES
 (5,'2016-11-15', 'Ingreso', 50.5,'', 0),
 (2,'2016-11-15', 'Pago', 30,'', 0),
 (3,'2016-11-15', 'Ingreso', 20,'', 0),
