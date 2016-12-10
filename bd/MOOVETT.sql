@@ -777,7 +777,7 @@ CREATE TABLE IF NOT EXISTS `Usuario` (
 --
 
 INSERT INTO `Usuario` (`DNI`, `Nombre_Grupo`, `Password`, `Usuario`, `Borrado`) VALUES
-('11111111H', 'Monitor', '2fb6c8d2f3842a5ceaa9bf320e649ff0', 'usuario2', 0),
+('11111111H', 'Monitor', '08b5411f848a2581a41672a759c87380', 'monitor', 0),
 ('22222222J', 'Secretario', '09ca0d5095609fe35bb7c9c7246e3cae', 'secretario', 0);
 INSERT INTO `Usuario` (`Nombre_Grupo`, `Password`, `Usuario`, `Borrado`) VALUES
 ('Admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 0);
