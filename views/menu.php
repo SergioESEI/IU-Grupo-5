@@ -339,6 +339,57 @@
 					</li>
 			
 					<?php } ?>
+			 <?php if(strcmp($_SESSION['grupo'],'Admin')== 0 || strcmp($_SESSION['grupo'],'Secretario')==0){ ?>
+                    <!-- Gestion de espacios-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarEspacios']; ?>
+                            <span class="caret"></span>
+                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a>
+                        <ul class="dropdown-menu forAnimate" role="menu">
+                            <li>
+                                <a href="../controllers/ESPACIO_Controller.php?id=altaEspacio">
+                                    <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaEspacio']; ?></a>
+                            </li>
+                            <li>
+                                <a href="../controllers/ESPACIO_Controller.php?id=bajaEspacio">
+                                    <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaEspacio']; ?></a>
+                            </li>
+                            <li>
+                                <a href="../controllers/ESPACIO_Controller.php?id=modificarEspacio">
+                                    <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarEspacio']; ?></a>
+                            </li>
+                            <li>
+                                <a href="../controllers/ESPACIO_Controller.php?id=consultarEspacio">
+                                    <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarEspacios']; ?></a>
+                            </li>
+
+
+                        </ul>
+                    </li>
+
+                    <!--Gestión de reservas de espacios-->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarReservas']; ?>
+                            <span class="caret"></span>
+                            <span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-tasks"></span></a>
+                        <ul class="dropdown-menu forAnimate" role="menu">
+                            <li>
+                                <a href="../controllers/ESPACIO_Controller.php?id=reservarEspacio">
+                                    <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['realizarReserva']; ?></a>
+                            </li>
+                            <li>
+                                <a href="../controllers/ESPACIO_Controller.php?id=bajaReserva">
+                                    <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaReserva']; ?></a>
+                            </li>
+                            <li>
+                                <a href="../controllers/ESPACIO_Controller.php?id=consultarReserva">
+                                    <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarReserva']; ?></a>
+                            </li>
+                            <li>
+                                <a href="../controllers/ESPACIO_Controller.php?id=modificarReserva">
+                                    <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarReserva']; ?></a>
+                            </li>
+                            <?php } ?>
 				</ul>
 			</div>
 		</div>
