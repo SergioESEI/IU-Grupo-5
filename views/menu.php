@@ -257,7 +257,7 @@
 				<?php } ?>
 				
 				<!-- Gestión de facturas -->				
-				<?php }if((isset($_SESSION['permisos']) && in_array('Factura',$_SESSION['permisos'])) || strcmp($_SESSION['grupo'],'Admin')== 0){ ?>
+				<?php if((isset($_SESSION['permisos']) && in_array('Factura',$_SESSION['permisos'])) || strcmp($_SESSION['grupo'],'Admin')== 0){ ?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['facturas']; ?>
 						<span class="caret"></span>
