@@ -905,12 +905,6 @@ ALTER TABLE `Telefonos_Alumno`
  ADD PRIMARY KEY (`DNI`,`Telefono`);
 
 --
--- Indices de la tabla `Telefonos_Trabajador`
---
-ALTER TABLE `Telefonos_Trabajador`
- ADD PRIMARY KEY (`DNI`,`Telefono`);
-
---
 -- Indices de la tabla `Trabajador`
 --
 ALTER TABLE `Trabajador`
@@ -1036,12 +1030,6 @@ ADD CONSTRAINT `Servicio_ibfk_1` FOREIGN KEY (`Id_Trabajador`) REFERENCES `Traba
 --
 ALTER TABLE `Telefonos_Alumno`
 ADD CONSTRAINT `Telefonos_Alumno_ibfk_1` FOREIGN KEY (`DNI`) REFERENCES `Alumno` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
-
---
--- Filtros para la tabla `Telefonos_Trabajador`
---
-ALTER TABLE `Telefonos_Trabajador`
-ADD CONSTRAINT `Telefonos_Trabajador_ibfk_1` FOREIGN KEY (`DNI`) REFERENCES `Trabajador` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Filtros para la tabla `Trabajador_Evento`
