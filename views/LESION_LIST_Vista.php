@@ -18,7 +18,9 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		}
 
 		function render($tipo,$dni){
-			require_once('../header.php');  
+			require_once('../header.php'); 
+			$log = new Log_Lesion("logAccesoLesiones","/var/www/html/logs/");
+			$log->insertar('LESION_LIST_Vista.php', $_SESSION['user'],$dni,null, false); 
 			?>
 			<!-- Título de la página -->
 			<title><?php echo $strings['titulo listar lesiones']; ?></title>

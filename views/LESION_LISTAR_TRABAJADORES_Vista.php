@@ -18,6 +18,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 		function render($tipo){
 			require_once('../header.php');  
+			
 			?>
 			<!-- Título de la página -->
 			<title><?php echo $strings['titulo escoger trabajador']; ?></title>

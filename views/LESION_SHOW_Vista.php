@@ -14,8 +14,13 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 			$this->render($datos);
 		}
 
+		
 		function render($datos){
 			include_once('../header.php'); 
+			
+			$log = new Log_Lesion("logAccesoLesiones","/var/www/html/logs/");
+			$log->insertar('LESION_SHOW_Vista.php', $_SESSION['user'],$_GET['id2'],$datos['Id_Lesion'], false);
+
 			?>
 			<title><?php echo $strings['mostrarLesion']; ?></title>
 			
