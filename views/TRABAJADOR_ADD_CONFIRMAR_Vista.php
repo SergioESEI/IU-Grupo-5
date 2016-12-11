@@ -176,17 +176,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 													<label for="nombre" class="control-label"><?php echo $strings['externo']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<?php 
-														if($trabajador->externo == 0){?>
-														<input type="radio" readonly name="externo" value="0" disabled checked><?php echo $strings['externo'];?>
-														<br>
-														<input type="radio" readonly name="externo" value="1" disabled><?php echo $strings['interno'];?>
-														<?php }else{?>
-														<input type="radio" readonly name="externo" value="0" disabled><?php echo $strings['externo'];?>
-														<br>
-														<input type="radio" readonly name="externo" value="1" disabled checked><?php echo $strings['interno'];?>
-														<?php }?>
-													
+													<input type="text" class="form-control" name="externo"  value="<?php echo $trabajador->externo; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
 												</div>
 											</div>
 											

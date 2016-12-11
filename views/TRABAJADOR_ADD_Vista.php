@@ -206,9 +206,10 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 										<label for="nombre" class="control-label"><?php echo $strings['externo']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-										<input type="radio" name="externo" value="0" autofocus required="required"><?php echo $strings['externo'];?>
-										<br>
-										<input type="radio" name="externo" value="1"><?php echo $strings['interno'];?>
+										<select name="externo" >
+											<option value="externo0"><?php echo $strings['externo']; ?></option>  
+											<option value="interno1"><?php echo $strings['interno']; ?></option>  
+										</select>
 									</div>
 								</div>
 								
