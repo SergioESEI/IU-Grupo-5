@@ -211,6 +211,17 @@ $strings = array(
 	'fisioterapeuta' => 'Fisioterapeuta',
 	'telefono' => 'Teléfono',
 	 
+	//Calendario
+	'octubre' => 'OUTUBRO',
+	'diciembre' => 'DECEMBRO',
+	'sala 1' => 'Sala 1',
+	'lunes' => 'Luns',
+	'martes' => 'Martes',
+	'miercoles' => 'Mércores',
+	'jueves' => 'Xoves',
+	'viernes' => 'Venres',
+	'sabado' => 'Sábado',
+	
 	//Opciones vistas lesion
 
 	'nueva lesion' => 'ENGADIR LESIÓN',
