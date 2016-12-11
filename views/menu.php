@@ -297,34 +297,7 @@
 							</ul>
 					</li>
 
-					<!-- Gestión de Reserva de eventos -->
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarReservaEvento']; ?>
-						<span class="caret"></span>
-						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-briefcase"></span></a>
-						<ul class="dropdown-menu forAnimate" role="menu">
-								<li>
-									<a href="../controllers/RESERVAEVEMTO_Controller.php?id=altaReservaEvento">
-									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaReservaEvento']; ?></a>
-								</li>
-								<li>
-									<a href="../controllers/RESERVAEVENTO_Controller.php?id=bajaReservaEvento">
-									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaReservaEvento']; ?></a>
-								</li>
-								<li>
-									<a href="../controllers/RESERVAEVENTO_Controller.php?id=modificarReservaEvento">
-									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarReservaEvento']; ?></a>
-								</li>
-								<li>
-									<a href="../controllers/RESERVAEVENTO_Controller.php?id=consultarEvento">
-									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarReservaEvento']; ?></a>
-								</li>
-								<li>
-								  <a href="../controllers/RESERVAEVENTO_Controller.php?id=buscarEvento">
-								  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarReservaEvento']; ?></a>
-								</li>
-							</ul>
-					</li>
+					
 					<!-- Gestión de permisos -->
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarPermisos']; ?>
