@@ -521,13 +521,13 @@ $strings = array(
     // Varios
         'dni ocupado' => 'Ese alumno ya existe',
         'error dniA' => 'DNI incorrecto',
-        'error nombreA' => 'Nombre incorrecto (3-50 carácteres alfanuméricos)',
-        'error apellidosA' => 'Apellidos incorrectos (3-70 carácteres alfanuméricos)',
-        'error direccionA' => 'Dirección incorrecta (3-100 carácteres alfanuméricos)',
+        'error nombreA' => 'Nombre incorrecto (3-50 caracteres alfanuméricos)',
+        'error apellidosA' => 'Apellidos incorrectos (3-70 caracteres alfanuméricos)',
+        'error direccionA' => 'Dirección incorrecta (3-100 caracteres alfanuméricos)',
         'error emailA' => 'email incorrecto (Ejemplo: abc9@abc.com)',
         'error nacimientoA' => 'Fecha de nacimiento (DD-MM-AAAA)',
-        'error observacionesA' => 'Observaciones incorrectas (3-500 carácteres alfanuméricos)',
-        'error profesionA' => 'Profesión incorrecta (3-50 carácteres alfanuméricos)',
+        'error observacionesA' => 'Observaciones incorrectas (3-500 caracteres alfanuméricos)',
+        'error profesionA' => 'Profesión incorrecta (3-50 caracteres alfanuméricos)',
         'error borrar alumno array' => 'Debe seleccionar un alumno',
  
     
@@ -571,8 +571,8 @@ $strings = array(
         'notificacion exito' => 'Notificación enviada',
         
         //Errores
-        'error asunto' => 'Asunto incorrecto (3-50 carácteres alfanuméricos)',
-        'error cuerpo' => 'Cuerpo incorrecto (3-500 carácteres alfanuméricos)',
+        'error asunto' => 'Asunto incorrecto (3-50 caracteres alfanuméricos, sin Ñ ni tildes )',
+        'error cuerpo' => 'Cuerpo incorrecto (3-500 caracteres alfanuméricos)',
     /*
                                         
     -----------------------------------------------------------------

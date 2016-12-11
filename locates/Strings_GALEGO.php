@@ -567,7 +567,7 @@ $strings = array(
         'notificacion exito' => 'Notificación enviada',
         
         //Errores
-        'error asunto' => 'Asunto incorrecto (3-50 caracteres alfanuméricos)',
+        'error asunto' => 'Asunto incorrecto (3-50 caracteres alfanuméricos, sen Ñ nin tildes )',
         'error cuerpo' => 'Corpo incorrecto (3-500 caracteres alfanuméricos)',
     
     /*
