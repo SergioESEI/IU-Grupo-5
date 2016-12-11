@@ -178,7 +178,7 @@ function calcularTotal(){
 		}
 		
 		$total = $ingresos - $pagos;
-		return $total;
+		return round($total, 2);
 	}
 
 }else echo "Permiso denegado.";
