@@ -61,8 +61,8 @@ class Lesion{
 		
 		$sql = "SELECT * FROM Lesion WHERE DNI='".$this->dni."';";
 		$resultado = $this->mysqli->query($sql);
-		if ($resultado->num_rows == 0){
-					$sql = "INSERT INTO Lesion (DNI,Id_Lesion,Tipo,Curada,Descripcion) VALUES ('".$this->dni."','".$this->id."','".$this->tipo."','".$this->curada."','".$this->descripcion."');";
+		if ($resultado->num_rows >=0){
+					$sql = "INSERT INTO Lesion (DNI,Id_Lesion,Tipo,Curada,Descripcion) VALUES ('".$this->dni."', '" .$this->id. "','".$this->tipo."','".$this->curada."','".$this->descripcion."');";
 					
 					$this->mysqli->query($sql);		
 					return "añadido exito";
@@ -84,7 +84,7 @@ class Lesion{
 		$this->conectarBD();
 		
 		$sql = "UPDATE Lesion SET Borrado='1' WHERE Id_Lesion='".$this->id."';";
-		echo $sql;
+		
 		if($this->mysqli->query($sql) === TRUE) {
 			return "borrado exito";
 		}else{
@@ -98,17 +98,14 @@ class Lesion{
 	function modificar($LesionNueva){
 			$this->conectarBD();
 
-			$sql = "SELECT * FROM Lesion WHERE DNI='" . $LesionNueva->getDni() . "' AND DNI<>'" . $this->getDni() ."';";
+			$sql = "SELECT * FROM Lesion WHERE Id_Lesion='" . $LesionNueva->getId() ."';";
 			$resultado = $this->mysqli->query($sql);
 			if ($resultado->num_rows == 1){
-				return "dni asignado";
-			}else{
-
-				$sql= "UPDATE Lesion SET DNI='" . $TrabajadorNuevo->getDni() . "',Apellidos='" . $TrabajadorNuevo->getApellidos() . "',Nombre='" . $TrabajadorNuevo->getNombre() . "',Fecha_Nacimiento='" . $TrabajadorNuevo->getFechaNac() . "',Email='".  $TrabajadorNuevo->getEmail() . "',Direccion='" .  $TrabajadorNuevo->getDireccion() . "',Tipo_Empleado='" . $TrabajadorNuevo->getTipoEmp() . "',Url_Foto='". $TrabajadorNuevo->getUrl_Foto() . "',Telefono='" . $TrabajadorNuevo->getTelefono() . "'Observaciones='" . $TrabajadorNuevo->getObservaciones() . "',Numero_Cuenta='" . $TrabajadorNuevo->getNumeroCuenta() . "',Horas_Extra='" . $TrabajadorNuevo->getHorasExtra() . "',Externo='" . $TrabajadorNuevo->getExterno() . "'  WHERE Dni='".$this->dni."';";
-					echo $sql;
-
+				$sql= "UPDATE Lesion SET DNI='" . $LesionNueva->getDni() . "',Tipo='" . $LesionNueva->getTipo() . "',Curada='" . $LesionNueva->getCurada() . "',Descripcion='" . $LesionNueva->getDescripcion() ."';";
 					$resultado2 = $this->mysqli->query($sql);
 				
+			}else{
+				return 'error modificacion';
 			}
 
 			if($resultado2){
@@ -246,6 +243,19 @@ function consultarLesion($idlesion){
 	if ($resultado->num_rows > 0){
 		$row = $resultado->fetch_array();
 		echo "<tr> <td>".$row['DNI']."</td> <td>".$row['Id_Lesion']."</td> <td>".$row['Tipo']."</td> <td>".$row['Curada']."</td> </tr>";	
+	}
+}
+
+
+function mostrarDatosLesion($idlesion){
+		
+	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	
+	$sql = "SELECT * FROM Lesion WHERE Id_Lesion='". $idlesion."';";
+	$resultado = $db->query($sql);
+	if ($resultado->num_rows > 0){
+		$row = $resultado->fetch_array();
+		return $row;	
 	}
 }
 

@@ -95,27 +95,19 @@ class Trabajador{
 		$sql = "SELECT * FROM Trabajador WHERE DNI='".$this->dni."';";
 		$resultado = $this->mysqli->query($sql);
 		if ($resultado->num_rows == 0){
-				if($this->externo == 'externo0'){
-					$campoExterno = 0;
-				}else{
-					$campoExterno = 1;
-				}
-					$sql = "INSERT INTO Trabajador (DNI,Apellidos,Nombre,Url_Foto,Direccion,Email,Fecha_Nacimiento,Observaciones,Numero_Cuenta,Telefono,Tipo_Empleado,Externo) VALUES ('".$this->dni."','".$this->apellidos."','".$this->nombre."','".$this->url_Foto."','".$this->direccion."','".$this->email."','".$this->fechaNac."','".$this->observaciones."','".$this->numeroCuenta."','".$this->telefono."','".$this->tipoEmp."','".$campoExterno. "');";
+				
+					$sql = "INSERT INTO Trabajador (DNI,Apellidos,Nombre,Url_Foto,Direccion,Email,Fecha_Nacimiento,Observaciones,Numero_Cuenta,Telefono,Tipo_Empleado,Externo) VALUES ('".$this->dni."','".$this->apellidos."','".$this->nombre."','".$this->url_Foto."','".$this->direccion."','".$this->email."','".$this->fechaNac."','".$this->observaciones."','".$this->numeroCuenta."','".$this->telefono."','".$this->tipoEmp."','".$this->externo. "');";
 					
 					$this->mysqli->query($sql);		
 					return "añadido exito";
 		}else{
-			$sql = "SELECT * FROM Trabajador WHERE DNI='".$this->dni."' AND BORRADO='1' ;";
-			$resultado = $this->mysqli->query($sql);
-			if ($resultado->num_rows == 1){
-				$sql="UPDATE Trabajador SET Borrado='0'  WHERE Dni='".$this->dni."' AND Borrado='1';";
-				return "añadido exito";
-			}else{
-				return 'ya existe';
+				$sql = "UPDATE Trabajador SET Borrado='0' WHERE Dni='" . $this->dni . "' ;";
+				$this->mysqli->query($sql);	
+				return 'añadido existe';
 			}
 					
 		}
-	}
+
 
 	function borrar(){
 
@@ -142,7 +134,7 @@ class Trabajador{
 			}else{
 				
 				$sql= "UPDATE Trabajador SET DNI='" . $TrabajadorNuevo->getDni() . "',Apellidos='" . $TrabajadorNuevo->getApellidos() . "',Nombre='" . $TrabajadorNuevo->getNombre() . "',Fecha_Nacimiento='" . $TrabajadorNuevo->getFechaNac() . "',Email='".  $TrabajadorNuevo->getEmail() . "',Direccion='" .  $TrabajadorNuevo->getDireccion() . "',Tipo_Empleado='" . $TrabajadorNuevo->getTipoEmp() . "',Url_Foto='". $TrabajadorNuevo->getUrl_Foto() . "',Telefono='" . $TrabajadorNuevo->getTelefono() . "',Observaciones='" . $TrabajadorNuevo->getObservaciones() . "',Numero_Cuenta='" . $TrabajadorNuevo->getNumeroCuenta() . "',Externo='" . $TrabajadorNuevo->getExterno() . "'  WHERE Dni='".$this->dni."';";
-					echo $sql;
+					
 
 					$resultado2 = $this->mysqli->query($sql);
 			}
@@ -289,7 +281,7 @@ function consultarTrabajador($dni){
 	$resultado = $db->query($sql);
 	if ($resultado->num_rows > 0){
 		$row = $resultado->fetch_array();
-		echo "<tr> <td>".$row['DNI']."</td> <td>".$row['Nombre']."</td> <td>".$row['Apellidos']."</td> <td>".$row['Email']."</td> </tr>";	
+		return $row;	
 	}
 }
 
