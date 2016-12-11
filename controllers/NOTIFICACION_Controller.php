@@ -36,7 +36,7 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 || strc
 			$asunto = null;
 		}
 		if(isset($_POST['cuerpo'])){
-			$cuerpo = $_POST['cuerpo'];
+			$cuerpo = utf8_encode($_POST['cuerpo']);
 		}else{
 			$cuerpo = null;
 		}
