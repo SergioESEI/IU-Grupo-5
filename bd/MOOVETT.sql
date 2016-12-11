@@ -451,12 +451,13 @@ INSERT INTO `Jornada` (`DNI`, `Hora_Entrada`, `Hora_Salida`, `Observaciones`, `B
 
 CREATE TABLE IF NOT EXISTS `Lesion` (
   `DNI` varchar(9) NOT NULL,
-  `Id_Lesion` varchar(9) NOT NULL,
+`Id_Lesion` int(9) NOT NULL,
   `Tipo` varchar(50) NOT NULL,
   `Curada` tinyint(1) NOT NULL,
   `Descripcion` varchar(500) NOT NULL,
   `Borrado` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=252525253 DEFAULT CHARSET=utf8;
+
 
 --
 -- Volcado de datos para la tabla `Lesion`
@@ -886,8 +887,7 @@ ALTER TABLE `Jornada`
 -- Indices de la tabla `Lesion`
 --
 ALTER TABLE `Lesion`
- ADD PRIMARY KEY (`DNI`,`Id_Lesion`);
-
+ ADD PRIMARY KEY (`Id_Lesion`);
 
 --
 -- Indices de la tabla `Log_Lesion`
@@ -1072,3 +1072,8 @@ ALTER TABLE `Usuario`
 ADD CONSTRAINT `Usuario_ibfk_2` FOREIGN KEY (`Nombre_Grupo`) REFERENCES `Grupo` (`Nombre_Grupo`) ON DELETE CASCADE ON UPDATE CASCADE,
 ADD CONSTRAINT `Usuario_ibfk_3` FOREIGN KEY (`DNI`) REFERENCES `Trabajador` (`DNI`) ON DELETE CASCADE ON UPDATE CASCADE;
 
+-- AUTO_INCREMENT de la tabla `Lesion`
+--
+ALTER TABLE `Lesion`
+MODIFY `Id_Lesion` int(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=252525253;
+--
