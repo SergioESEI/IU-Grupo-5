@@ -43,7 +43,7 @@ class Notificacion_Enviar{
                                                                   <label for="nombre" class="control-label"><?php echo $strings['asunto']; ?>:</label>
                                                                 </div>
                                                                 <div class="col-sm-4">
-                                                                    <input type="text" class="form-control" name="asunto" pattern="[0-9A-Za-zñÑáéíóúÁÉÍÓÚ ]{3,50}" title="<?php echo $strings['error asunto']; ?>" required>
+                                                                    <input type="text" class="form-control" name="asunto" pattern="[0-9A-Za-z ]{3,50}" title="<?php echo $strings['error asunto']; ?>" required>
                                                                 </div>
                                                         </div>
 
