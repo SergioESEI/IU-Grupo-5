@@ -43,6 +43,10 @@ $strings = array(
 	'titulo borrar evento' => 'Borrar evento',
 	'titulo editar evento' => 'Editar evento',
 	'titulo listar evento' => 'Ver evento',
+	'titulo añadir ReservaEvento' => 'Añadir Reserva de evento',
+	'titulo borrar ReservaEvento' => 'Borrar Reserva de evento',
+	'titulo editar ReservaEvento' => 'Editar Reserva de evento',
+	'titulo listar ReservaEvento' => 'Ver Reserva de evento',
 	
 	
 
@@ -103,6 +107,12 @@ $strings = array(
 	'modificarEvento' => 'Modificar evento perfil',
 	'consultarEvento' => 'Ver evento perfil',
 	'buscarEvento' => 'Buscar evento',
+	'gestionarReservaEvento' => 'EVENTO',
+	'altaReservaEvento' => 'Añadir Reserva evento',
+	'bajaReservaEvento' => 'Borrar Reserva evento',
+	'modificarReservaEvento' => 'Modificar Reserva evento',
+	'consultarReservaEvento' => 'Ver Reserva evento',
+	'buscarReservaEvento' => 'Buscar Reserva evento',
 
 	//Ventanas y botones comunes
 	'confirmar borrado' => '¿Confirmar borrado?',
@@ -286,6 +296,17 @@ $strings = array(
 	'id_evento' => 'Id Evento',
 	'nombre' => 'Nombre',
 	'descripcion' => 'Descripcion',
+	
+	//Opciones vistas reserva de evento
+	'nueva  ReservaEvento' => 'NUEVA RESERVA EVENTO',
+	'borrar ReservaEvento' => 'BORRAR RESERVA EVENTO',
+	'editar ReservaEvento' => 'EDITAR RESERVA EVENTO',
+	'ver ReservaEvento' => 'VER RESERVA EVENTO',
+	'buscar ReservaEvento' => 'BUSCAR RESERVA EVENTO',
+	'ReservaEvento' => 'RESERVA EVENTO',
+	'id_evento' => 'Id Evento',
+	'id_reserva' => 'Id reserva',
+	
 	
 
 	//Modelos
