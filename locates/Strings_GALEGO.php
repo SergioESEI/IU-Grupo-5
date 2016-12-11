@@ -517,6 +517,18 @@ $strings = array(
 
 	'titulo escoger trabajador' => 'Escoller traballador',
 	'ver lesiones' => 'Ver lesións',
+	'gestionarTrabajadores' => 'TRABALLADORES',
+	'altaTrabajador' => 'Engadir traballador',
+	'bajaTrabajador' => 'Borrar traballador',
+	'modificarTrabajador' => 'Modificar traballador',
+	'consultarTrabajador' => 'Ver traballadores',
+	'buscarTrabajador' => 'Buscar traballador',
+	'gestionarLesiones' => ' LESIÓNS',
+	'altaLesion' => 'Engadir lesión',
+	'bajaLesion' => 'Borrar lesión',
+	'modificarLesion' => 'Modificar lesión',
+	'consultarLesion' => 'Ver lesión',
+	'buscar lesion' => 'Buscar lesión',
 	//Opciones vistas trabajadores
 	'buscar trabajador' => 'BUSCAR TRABALLADOR',
 	'dni trabajador' => 'DNI do traballador',
