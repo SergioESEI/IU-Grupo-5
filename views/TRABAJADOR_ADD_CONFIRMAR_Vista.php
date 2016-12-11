@@ -35,7 +35,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 											<div class="col-md-20"><hr></div>
 											
 
-
+											<input type="hidden" name="imagen" value="<?php echo $trabajador->url_Foto; ?>">
 											<!-- Campo Nombre -->
 											<div class="form-group">
 												<div class="col-sm-4">
@@ -176,7 +176,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 													<label for="nombre" class="control-label"><?php echo $strings['externo']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<input type="text" class="form-control" name="externo"  value="<?php echo $trabajador->externo; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="externo"  value="<?php if($trabajador->externo == 'externo'){ echo '1'; }else{echo '0';} ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
 												</div>
 											</div>
 											

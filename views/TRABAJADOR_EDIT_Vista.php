@@ -46,35 +46,6 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 			}
 		}
 
-		//Confirman la edición.
-		function pregunta(){
-			var dni = document.getElementById("dniN").value;
-			var nombre = document.getElementById("nombreN").value;
-			var apellidos = document.getElementById("apellidosN").value;
-			var direccion = document.getElementById("direccionN").value;
-			var email = document.getElementById("emailN").value;
-			var fechaNac = document.getElementById("fechanacN").value;
-			var observaciones = document.getElementById("observacionesN").value;
-			var numeroCuenta = document.getElementById("numerocuentaN").value;
-			var horasExtra = document.getElementById("horasextraN").value;
-			var tipoEmp = document.getElementById("tipoempN").value;
-			var externo = document.getElementById("externoN").value;
-			
-			if (confirm('<?php echo $strings['confirmar modificacion']; ?>'+
-				'\n\n<?php echo $strings['dni']; ?>: '+dni +
-				'\n<?php echo $strings['nombre']; ?>: '+nombre+
-				'\n<?php echo $strings['apellidos']; ?>: '+apellidos+
-				'\n<?php echo $strings['direccion']; ?>: '+direccion+
-				'\n<?php echo $strings['email']; ?>: '+email+
-				'\n<?php echo $strings['fechanac']; ?>: '+fechaNac+
-				'\n<?php echo $strings['observaciones']; ?>: '+observaciones+
-				'\n<?php echo $strings['numerocuenta']; ?>: '+numeroCuenta+
-				'\n<?php echo $strings['horasextra']; ?>: '+horasExtra+
-				'\n<?php echo $strings['tipoEmp']; ?>: '+tipoEmp+
-				'\n<?php echo $strings['externo']; ?>: '+externo)){
-				document.formulario.submit();
-			} else return false;
-		}
 	</script>
 
 	<body>
@@ -347,15 +318,14 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 						<label for="nombre" class="control-label"><?php echo $strings['externo']; ?>:</label>
 					</div>
 					<div class="col-sm-4">
-						<?php if($datos['Externo'] == 0){?>
-						<input type="radio" id="externoN" name="externoN" value="0" checked><?php echo $strings['externo'];?>
-						<br>
-						<input type="radio" id="externoN" name="externoN" value="1"><?php echo $strings['interno'];?>
-						<?php }else{?>
-						<input type="radio" id="externoN" name="externoN" value="0"><?php echo $strings['externo'];?>
-						<br>
-						<input type="radio" id="externoN" name="externoN" value="1" checked><?php echo $strings['interno'];?>
-						<?php 	} ?>
+						<select name="externoN" >
+											<?php if($datos['Externo'] == '1'){ ?> 
+											<option selected value="externo"><?php echo $strings['externo']; ?></option>  
+											<option value="interno"><?php echo $strings['interno']; ?></option>  
+											<?php }else{ ?> 
+											<option value="externo"><?php echo $strings['externo']; ?></option>  
+											<option selected value="interno"><?php echo $strings['interno']; ?></option>  
+											<?php } ?>
 					</div>
 				</div>
 				

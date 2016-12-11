@@ -44,13 +44,12 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 		}
 
 
-		function validateForm() {
-		    var nombre = document.forms["form"]["nombre"].value;
-		    if (x == "") {
-		        alert("Name must be filled out");
-        return false;
-    }
-}
+
+
+
+
+
+
 	</script>
 	<body>
 		<!-- Include del menú-->
@@ -63,7 +62,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 						
 						<!-- Formulario para añadir usuario -->
-						<form class="form-horizontal" role="form" action="../controllers/TRABAJADOR_Controller.php?id=altaTrabajador" method="POST" enctype="multipart/form-data" onsubmit="return validateForm()">
+						<form class="form-horizontal" role="form" action="../controllers/TRABAJADOR_Controller.php?id=altaTrabajador" method="POST" enctype="multipart/form-data" >
 							<div class="form-group"  >
 								<div class="col-md-12"> <h2 class="text-info "><?php echo $strings['añadir trabajador']; ?></h2></div>
 								<div class="col-md-12"><hr></div>
@@ -125,7 +124,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 										<label for="nombre" class="control-label"><?php echo $strings['email']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-										<input type="text" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="<?php echo $strings['error trabajador']; ?>" required>
+										<input type="text" class="form-control" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" title="<?php echo $strings['error email']; ?>" required>
 									</div>
 								</div>
 
@@ -207,8 +206,8 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 									</div>
 									<div class="col-sm-4">
 										<select name="externo" >
-											<option value="externo0"><?php echo $strings['externo']; ?></option>  
-											<option value="interno1"><?php echo $strings['interno']; ?></option>  
+											<option value="externo"><?php echo $strings['externo']; ?></option>  
+											<option value="interno"><?php echo $strings['interno']; ?></option>  
 										</select>
 									</div>
 								</div>
