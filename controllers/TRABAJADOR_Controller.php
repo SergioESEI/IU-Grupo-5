@@ -114,7 +114,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 		if($nombreFoto != null){
 
-			$dir_subida = '/var/www/html/images/';
+			$dir_subida = '/var/www/html/images/trabajadores/';
 			$extension = substr($tipoFoto, 6);
 			$ruta = $dir_subida . $dni . ".". $extension;
 			move_uploaded_file($nombreTempFoto, $ruta);
@@ -178,7 +178,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 		if($nombreTempFoto != null){
 
-			$dir_subida = '/var/www/html/images/';
+			$dir_subida = '/var/www/html/images/trabajadores/';
 			$extension = substr($tipoFoto, 6);
 			$ruta = $dir_subida . $dni . ".". $extension;
 			move_uploaded_file($nombreTempFoto, $ruta);
