@@ -52,7 +52,7 @@ if(isset($_SESSION['grupo']) && (strcmp($_SESSION['grupo'],"Admin") == 0 || strc
                 //Definimos el tema del email
                 $mail->Subject = $this->asunto;
                 //Para enviar un correo formateado en HTML lo cargamos con la siguiente función. Si no, puedes meterle directamente una cadena de texto.
-                $mail->MsgHTML($this->cuerpo);
+                $mail->MsgHTML(utf8_decode($this->cuerpo));
                 //Y por si nos bloquean el contenido HTML (algunos correos lo hacen por seguridad) una versión alternativa en texto plano (también será válida para lectores de pantalla)
                 $mail->AltBody = 'This is a plain-text message body';
                 
