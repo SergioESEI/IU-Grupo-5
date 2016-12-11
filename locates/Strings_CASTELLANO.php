@@ -229,12 +229,17 @@ $strings = array(
 	'ver lesion' => 'Mostrar lesión',
 	'ver lesiones' => 'Ver lesiones',
 	'seleccionar trabajador' => 'SELECCIONAR TRABAJADOR',
-
-
-
- 
 	
-	
+	//Calendario
+	'octubre' => 'OCTUBRE',
+	'diciembre' => 'DICIEMBRE',
+	'sala 1' => 'Sala 1',
+	'lunes' => 'Lunes',
+	'martes' => 'Martes',
+	'miercoles' => 'Miércoles',
+	'jueves' => 'Jueves',
+	'viernes' => 'Viernes',
+	'sabado' => 'Sábado',
 	
 	//Opciones vistas cliente
 	'nuevo cliente' => 'NUEVO CLIENTE',
