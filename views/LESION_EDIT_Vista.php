@@ -81,9 +81,9 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 						</div>
 						<div class="col-sm-4">
 							<?php if($datos['DNI'] != null){ ?>
-							<input type="text" id="dni" class="form-control" name="dniN" value="<?php echo $datos['DNI']; ?>" onblur="nif(this.value)">
+							<input type="text" id="dni" readonly class="form-control" name="dniN" value="<?php echo $datos['DNI']; ?>" onblur="nif(this.value)">
 							<?php }else{ ?>
-							<input type="text" id="dni" class="form-control" name="dniN" onblur="nif(this.value)">
+							<input type="text" id="dni" readonly class="form-control" name="dniN" onblur="nif(this.value)">
 							<?php } ?>
 							
 						</div>
@@ -112,7 +112,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 						</div>
 						<div class="col-sm-4">
 							
-							<input type="text" id="idN" class="form-control" name="idN" value="<?php echo $datos['Id_Lesion']; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+							<input type="text" id="idN" class="form-control" name="idLesion" value="<?php echo $datos['Id_Lesion']; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
 							
 						</div>
 					</div>
@@ -142,15 +142,14 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 						<label for="nombre" class="control-label"><?php echo $strings['curada']; ?>:</label>
 					</div>
 					<div class="col-sm-4">
-						<?php if($datos['Curada'] == 0){?>
-						<input type="radio" id="curadaN" name="curadaN" value="0" checked><?php echo $strings['no curada'];?>
-						<br>
-						<input type="radio" id="curadaN" name="curadaN" value="1"><?php echo $strings['curada'];?>
-						<?php }else{?>
-						<input type="radio" id="curadaN" name="curadaN" value="0"><?php echo $strings['no curada'];?>
-						<br>
-						<input type="radio" id="curadaN" name="curadaN" value="1" checked><?php echo $strings['curada'];?>
-						<?php 	} ?>
+						<select name="CuradaN" >
+											<?php if($datos['Curada'] == '1'){ ?> 
+											<option selected value="curada"><?php echo $strings['curada']; ?></option>  
+											<option value="nocurada"><?php echo $strings['no curada']; ?></option>  
+											<?php }else{ ?> 
+											<option value="curada"><?php echo $strings['curada']; ?></option>  
+											<option selected value="nocurada"><?php echo $strings['no curada']; ?></option>  
+											<?php } ?>
 					</div>
 				</div>
 				

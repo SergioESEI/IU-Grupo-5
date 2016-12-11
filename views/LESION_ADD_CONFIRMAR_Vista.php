@@ -73,23 +73,15 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 
 								<!-- Campo Curada-->
-								<div class="form-group">
-									<div class="col-sm-4">
-										<label for="nombre" class="control-label"><?php echo $strings['curada']; ?>:</label>
-									</div>
-									<div class="col-sm-4">
-											<?php if($lesion->curada == 0){?>
-														<input type="radio" readonly name="curada" value="0" disabled checked>No curada
-														<br>
-														<input type="radio" readonly name="curada" value="1" disabled>Curada
-														<?php }else{?>
-														<input type="radio" readonly name="curada" value="0" disabled>No curada
-														<br>
-														<input type="radio" readonly name="curada" value="1" disabled checked>Curada
-														<?php }?>
-													
-									</div>
-								</div>
+											<div class="form-group">
+												<div class="col-sm-4">
+													<label for="nombre" class="control-label"><?php echo $strings['curada']; ?>:</label>
+												</div>
+												<div class="col-sm-4">
+													<input type="text" class="form-control" name="curada"  value="<?php if($lesion->curada == 'curada'){ echo '1'; }else{echo '0';} ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+												</div>
+											</div>
+											
 								
 
 								<!-- Submit que envía los datos para crear el trabajador -->

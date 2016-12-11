@@ -40,16 +40,6 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 									<div class="col-md-12"><hr></div>
 									<form class="form-horizontal" role="form" action="../controllers/LESION_Controller.php?id=buscarLesion&buscar=ok" method="POST">
 										
-										<!-- Campo dni-->
-										<div class="form-group">
-											<div class="col-sm-4">
-												<label for="nombre" class="control-label"><?php echo $strings['dni']; ?>:</label>
-											</div>
-											<div class="col-sm-4">
-												<input type="text" class="form-control" name="dni"  title="<?php echo $strings['error usuario']; ?>" >
-											</div>
-										</div>
-
 
 										<!-- Campo ID-->
 										<div class="form-group">
@@ -57,47 +47,10 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 												<label for="nombre" class="control-label"><?php echo $strings['id lesion']; ?>:</label>
 											</div>
 											<div class="col-sm-4">
-												<input type="text" class="form-control" name="id"  title="<?php echo $strings['error trabajador']; ?>" >
+												<input type="text" class="form-control" name="idLesion"  title="<?php echo $strings['error trabajador']; ?>" >
 											</div>
 										</div>
 										
-
-										<!-- Campo Tipo -->
-										<div class="form-group">
-											<div class="col-sm-4">
-												<label for="nombre" class="control-label"><?php echo $strings['tipo lesion']; ?>:</label>
-											</div>
-											<div class="col-sm-4">
-												<input type="text" class="form-control" name="tipo"  title="<?php echo $strings['error trabajador']; ?>" >
-											</div>
-										</div>
-
-								
-								<!-- Campo Descripcion -->
-								<div class="form-group">
-									<div class="col-sm-4">
-										<label for="nombre" class="control-label"><?php echo $strings['descripcion']; ?>:</label>
-									</div>
-									<div class="col-sm-4">
-										<textarea name="descripcion" rows="10" cols="40"></textarea>
-									</div>
-								</div>
-
-
-
-								
-								<!-- Campo Curada-->
-								<div class="form-group">
-									<div class="col-sm-4">
-										<label for="nombre" class="control-label"><?php echo $strings['curada']; ?>:</label>
-									</div>
-									<div class="col-sm-4">
-										<input type="radio" name="curada" value="0" autofocus >No
-										<br>
-										<input type="radio" name="curada" value="1">Sí
-									</div>
-								</div>
-								
 
 										
 										<!-- Submit que envía los datos para buscar el trabajador -->
@@ -117,7 +70,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 											<div class="col-md-20"><hr></div>
 											
 
-											<br>
+									
 
 
 
@@ -191,21 +144,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 													<label for="nombre" class="control-label"><?php echo $strings['curada']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<?php if($datos['Curada'] != null){ 
-														if($datos['Curada'] == 0){?>
-														<input type="radio" readonly name="curada" value="0" disabled checked>No
-														<br>
-														<input type="radio" readonly name="curada" value="1" disabled>Si
-														<?php }else{?>
-														<input type="radio" readonly name="curada" value="0" disabled>No
-														<br>
-														<input type="radio" readonly name="curada" value="1" disabled checked>Sí
-														<?php }
-													}else{?>
-													<input type="radio" readonly name="curada" value="0" disabled>No
-													<br>
-													<input type="radio" readonly name="curada" value="1" disabled>Sí
-													<?php 	} ?>
+													<input type="text" class="form-control" name="curada"  value="<?php if($datos['Curada'] == '1'){ echo 'Curada'; }else{echo 'No Curada';} ?>" title="<?php echo $strings['error externo']; ?>" readonly>
 												</div>
 											</div>
 											<?php } ?>

@@ -89,16 +89,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 										<label for="nombre" class="control-label"><?php echo $strings['curada']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-											<?php if($datos['Curada'] == 0){?>
-														<input type="radio" readonly name="curada" value="0" disabled checked>No curada
-														<br>
-														<input type="radio" readonly name="curada" value="1" disabled>Curada
-														<?php }else{?>
-														<input type="radio" readonly name="curada" value="0" disabled>No curada
-														<br>
-														<input type="radio" readonly name="curada" value="1" disabled checked>Curada
-														<?php }?>
-													
+											<input type="text" class="form-control" name="curada"  value="<?php if($datos['Curada'] == '1'){ echo 'Curada'; }else{echo 'No curada';} ?>" title="<?php echo $strings['error externo']; ?>" readonly>
 									</div>
 								</div>
 								

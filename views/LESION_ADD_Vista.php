@@ -78,13 +78,14 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 										<label for="nombre" class="control-label"><?php echo $strings['curada']; ?>:</label>
 									</div>
 									<div class="col-sm-4">
-										<input type="radio" name="curada" value="0" autofocus required="required">No
-										<br>
-										<input type="radio" name="curada" value="1">Sí
+										<select name="curada" >
+											<option value="curada"><?php echo $strings['curada']; ?></option>  
+											<option value="nocurada"><?php echo $strings['no curada']; ?></option>  
+										</select>
 									</div>
 								</div>
 								
-
+								
 								<!-- Submit que envía los datos para crear el trabajador -->
 								<div class="form-group">
 									<div class="col-sm-4"></div>

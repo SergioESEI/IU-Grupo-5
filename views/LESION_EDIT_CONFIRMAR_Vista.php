@@ -54,7 +54,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 													<label for="nombre" class="control-label"><?php echo $strings['id lesion']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<input type="text" class="form-control" name="idN" value="<?php echo $lesion->id; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
+													<input type="text" class="form-control" name="idLesion" value="<?php echo $lesion->id; ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
 												</div>
 											</div>
 											
@@ -94,17 +94,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 													<label for="nombre" class="control-label"><?php echo $strings['curada']; ?>:</label>
 												</div>
 												<div class="col-sm-4">
-													<?php 
-
-														if($lesion->curada == 0){?>
-														<input type="radio" readonly name="curadaN" value="0" disabled checked><?php echo $strings['no curada'];?>
-														<br>
-														<input type="radio" readonly name="curadaN" value="1" disabled><?php echo $strings['curada'];?>
-														<?php }else{?>
-														<input type="radio" readonly name="curadaN" value="0" disabled><?php echo $strings['no curada'];?>
-														<br>
-														<input type="radio" readonly name="curadaN" value="1" disabled checked><?php echo $strings['curada'];?>
-														<?php }?>
+													<input type="text" class="form-control" name="curadaN"  value="<?php if($lesion->curada == 'curada'){ echo '1'; }else{echo '0';} ?>" title="<?php echo $strings['error trabajador']; ?>" readonly>
 													
 												</div>
 											</div>
