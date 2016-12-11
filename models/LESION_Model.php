@@ -104,7 +104,7 @@ class Lesion{
 				return "dni asignado";
 			}else{
 
-				$sql= "UPDATE Trabajador SET DNI='" . $TrabajadorNuevo->getDni() . "',Apellidos='" . $TrabajadorNuevo->getApellidos() . "',Nombre='" . $TrabajadorNuevo->getNombre() . "',Fecha_Nacimiento='" . $TrabajadorNuevo->getFechaNac() . "',Email='".  $TrabajadorNuevo->getEmail() . "',Direccion='" .  $TrabajadorNuevo->getDireccion() . "',Tipo_Empleado='" . $TrabajadorNuevo->getTipoEmp() . "',Url_Foto='". $TrabajadorNuevo->getUrl_Foto() . "',Telefono='" . $TrabajadorNuevo->getTelefono() . "'Observaciones='" . $TrabajadorNuevo->getObservaciones() . "',Numero_Cuenta='" . $TrabajadorNuevo->getNumeroCuenta() . "',Horas_Extra='" . $TrabajadorNuevo->getHorasExtra() . "',Externo='" . $TrabajadorNuevo->getExterno() . "'  WHERE Dni='".$this->dni."';";
+				$sql= "UPDATE Lesion SET DNI='" . $TrabajadorNuevo->getDni() . "',Apellidos='" . $TrabajadorNuevo->getApellidos() . "',Nombre='" . $TrabajadorNuevo->getNombre() . "',Fecha_Nacimiento='" . $TrabajadorNuevo->getFechaNac() . "',Email='".  $TrabajadorNuevo->getEmail() . "',Direccion='" .  $TrabajadorNuevo->getDireccion() . "',Tipo_Empleado='" . $TrabajadorNuevo->getTipoEmp() . "',Url_Foto='". $TrabajadorNuevo->getUrl_Foto() . "',Telefono='" . $TrabajadorNuevo->getTelefono() . "'Observaciones='" . $TrabajadorNuevo->getObservaciones() . "',Numero_Cuenta='" . $TrabajadorNuevo->getNumeroCuenta() . "',Horas_Extra='" . $TrabajadorNuevo->getHorasExtra() . "',Externo='" . $TrabajadorNuevo->getExterno() . "'  WHERE Dni='".$this->dni."';";
 					echo $sql;
 
 					$resultado2 = $this->mysqli->query($sql);
@@ -151,7 +151,7 @@ function verAlumnos(){
 		if ($resultado->num_rows > 0){
 			while($row = $resultado->fetch_array()) {
 
-					echo "<tr><td>".$row['DNI']."</td> <td>".$row['Nombre'] . "</td> <td>".$row['Apellidos'] ."</td> <td> <a href='../controllers/LESION_Controller.php?id=altaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Añadir Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=bajaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Borrar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Modificar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=mostrarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
+					echo "<tr><td>".$row['DNI']."</td> <td>".$row['Nombre'] . "</td> <td>".$row['Apellidos'] ."</td> <td> <a href='../controllers/LESION_Controller.php?id=altaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Añadir Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=bajaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Borrar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Modificar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=verLesiones&id2=" . $row['DNI']. "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
 			}
 		}
 	
@@ -167,7 +167,7 @@ function verAlumnosBorrados(){
 		$db->close();
 		if ($resultado->num_rows > 0){
 			while($row = $resultado->fetch_array()) {
-					echo "<tr><td>".$row['DNI']."</td> <td>".$row['Nombre'] . "</td> <td>".$row['Apellidos'] ."</td> <td> <a href='../controllers/LESION_Controller.php?id=altaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Añadir Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=bajaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Borrar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Modificar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=mostrarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
+					echo "<tr><td>".$row['DNI']."</td> <td>".$row['Nombre'] . "</td> <td>".$row['Apellidos'] ."</td> <td> <a href='../controllers/LESION_Controller.php?id=altaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Añadir Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=bajaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Borrar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Modificar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=verLesiones&id2=" . $row['DNI']. "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
 			}
 		}
 	
@@ -182,7 +182,7 @@ function verTrabajadores(){
 		$db->close();
 		if ($resultado->num_rows > 0){
 			while($row = $resultado->fetch_array()) {
-					echo "<tr><td>".$row['DNI']."</td> <td>".$row['Nombre'] . "</td> <td>".$row['Apellidos'] ."</td> <td> <a href='../controllers/LESION_Controller.php?id=altaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Añadir Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=bajaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Borrar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Modificar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=mostrarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
+					echo "<tr><td>".$row['DNI']."</td> <td>".$row['Nombre'] . "</td> <td>".$row['Apellidos'] ."</td> <td> <a href='../controllers/LESION_Controller.php?id=altaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Añadir Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=bajaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Borrar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Modificar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=verLesiones&id2=" . $row['DNI']. "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
 			}
 		}
 	
@@ -198,7 +198,7 @@ function verTrabajadoresBorrados(){
 		$db->close();
 		if ($resultado->num_rows > 0){
 			while($row = $resultado->fetch_array()) {
-					echo "<tr><td>".$row['DNI']."</td> <td>".$row['Nombre'] . "</td> <td>".$row['Apellidos'] ."</td> <td> <a href='../controllers/LESION_Controller.php?id=altaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Añadir Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=bajaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Borrar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Modificar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=mostrarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
+					echo "<tr><td>".$row['DNI']."</td> <td>".$row['Nombre'] . "</td> <td>".$row['Apellidos'] ."</td> <td> <a href='../controllers/LESION_Controller.php?id=altaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Añadir Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=bajaLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Borrar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI']. "'  class='btn btn-primary' >Modificar Lesión</a></td><td> <a href='../controllers/LESION_Controller.php?id=verLesiones&id2=" . $row['DNI']. "'  class='btn btn-primary' >Ver lesiones</a></td></tr>";
 			}
 		}
 	
@@ -236,6 +236,19 @@ function mostrarLesion($idLesion){
 
 }
 
+//Muestra los datos de un trabajador concreto pasado por parámetro en formato tabla.
+function consultarLesion($idlesion){
+		
+	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+	
+	$sql = "SELECT * FROM Lesion WHERE Id_Lesion='". $idlesion."';";
+	$resultado = $db->query($sql);
+	if ($resultado->num_rows > 0){
+		$row = $resultado->fetch_array();
+		echo "<tr> <td>".$row['DNI']."</td> <td>".$row['Id_Lesion']."</td> <td>".$row['Tipo']."</td> <td>".$row['Curada']."</td> </tr>";	
+	}
+}
+
 function verLesionesBorrar($dni){
 	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
 
@@ -249,6 +262,23 @@ function verLesionesBorrar($dni){
 		}
 	}
 }
+
+
+function verLesionesModificar($dni){
+	$db = new mysqli("localhost", "root", "iu", "MOOVETT");
+
+	$sql = "SELECT * FROM Lesion WHERE Borrado='0' AND DNI='" . $dni . "' ORDER BY Id_Lesion;";
+	$resultado = $db->query($sql);
+	$db->close();
+	if ($resultado->num_rows > 0){
+		while($row = $resultado->fetch_array()) {
+			echo "<tr> <td>".$row['DNI']."</td> <td>".$row['Id_Lesion']."</td> <td>".$row['Tipo'] . "</td> <td> <a href='../controllers/LESION_Controller.php?id=modificarLesion&id2=" . $row['DNI'] . "&idles=" . $row['Id_Lesion'] . "'  class='btn btn-primary' >Modificar</a></td></tr>";
+		
+		}
+	}
+}
+
+
 
 
 } else {

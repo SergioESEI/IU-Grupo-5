@@ -95,7 +95,12 @@ class Trabajador{
 		$sql = "SELECT * FROM Trabajador WHERE DNI='".$this->dni."';";
 		$resultado = $this->mysqli->query($sql);
 		if ($resultado->num_rows == 0){
-					$sql = "INSERT INTO Trabajador (DNI,Apellidos,Nombre,Url_Foto,Direccion,Email,Fecha_Nacimiento,Observaciones,Numero_Cuenta,Telefono,Tipo_Empleado,Externo) VALUES ('".$this->dni."','".$this->apellidos."','".$this->nombre."','".$this->url_Foto."','".$this->direccion."','".$this->email."','".$this->fechaNac."','".$this->observaciones."','".$this->numeroCuenta."','".$this->telefono."','".$this->tipoEmp."','".$this->externo. "');";
+				if($this->externo == 'externo0'){
+					$campoExterno = 0;
+				}else{
+					$campoExterno = 1;
+				}
+					$sql = "INSERT INTO Trabajador (DNI,Apellidos,Nombre,Url_Foto,Direccion,Email,Fecha_Nacimiento,Observaciones,Numero_Cuenta,Telefono,Tipo_Empleado,Externo) VALUES ('".$this->dni."','".$this->apellidos."','".$this->nombre."','".$this->url_Foto."','".$this->direccion."','".$this->email."','".$this->fechaNac."','".$this->observaciones."','".$this->numeroCuenta."','".$this->telefono."','".$this->tipoEmp."','".$campoExterno. "');";
 					
 					$this->mysqli->query($sql);		
 					return "añadido exito";
