@@ -472,5 +472,115 @@ $strings = array(
     	'Reserva modificado con exito'=> 'Se ha realizado correctamente la modificación de la reserva',
 	'Lo sentimos la reserva no se ha podido modificar'=>'Lo sentimos la reserva no se ha podido modificar',
 	
+	/*
+                                        
+    -----------------------------------------------------------------
+    -----------------------------------------------------------------
+                                        
+                            MODIFICADO ALUMNOS
+                                        
+    -----------------------------------------------------------------
+    -----------------------------------------------------------------
+                                        
+    */
+    
+    // Títulos
+    	'titulo añadir alumno' => 'Engadir alumno',
+	'titulo borrar alumno' => 'Eliminar alumno',
+	'titulo editar alumno' => 'Editar alumno',
+	'titulo listar alumno' => 'Ver alumno',
+    
+    // Menú
+        'gestionarAlumnos' => 'ALUMNOS',
+	'altaAlumno' => 'Añadir alumno',
+	'bajaAlumno' => 'Borrar alumno',
+	'modificarAlumno' => 'Modificar alumno',
+	'consultarAlumno' => 'Ver alumnos',
+        'buscarAlumno' => 'Buscar alumno',
+    
+    //Opciones vistas alumno
+	'nuevo alumno' => 'NOVO ALUMNO',
+	'borrar alumno' => 'ELIMINAR ALUMNO',
+	'editar alumno' => 'MODIFICAR ALUMNO',
+	'ver alumno' => 'VER ALUMNOS',
+        'buscar alumno' => 'BUSCAR ALUMNO',
+	'alumno' => 'Alumno',
+        'campos modificar' => '(rellenar solo campos a modificar)',
+	'dni' => 'DNI',
+        'nombre' => 'Nome',
+        'apellidos' => 'Apellidos',
+        'direccion' => 'Dirección',
+        'email' => 'email',
+        'nacimiento' => 'Fecha de nacemento',
+        'observaciones' => 'Observacións',
+        'profesion' => 'Profesión',    
+    
+    // Varios
+        'dni ocupado' => 'Ese alumno xa existe',
+        'error dniA' => 'DNI incorrecto',
+        'error nombreA' => 'Nome incorrecto (3-50 caracteres alfanuméricos)',
+        'error apellidosA' => 'Apellidos incorrectos (3-70 caracteres alfanuméricos)',
+        'error direccionA' => 'Dirección incorrecta (3-100 caracteres alfanuméricos)',
+        'error emailA' => 'email incorrecto (Exemplo: abc9@abc.com)',
+        'error nacimientoA' => 'Fecha de nacemento (DD-MM-AAAA)',
+        'error observacionesA' => 'Observacións incorrectas (3-500 caracteres alfanuméricos)',
+        'error profesionA' => 'Profesión incorrecta (3-50 caracteres alfanuméricos)',
+        'error borrar alumno array' => 'Debe seleccionar un alumno',
+ 
+    
+    /*
+                                        
+    -----------------------------------------------------------------
+    -----------------------------------------------------------------
+                                        
+                            FIN ALUMNOS
+                                        
+    -----------------------------------------------------------------
+    -----------------------------------------------------------------
+                                        
+    */
+    
+    /*
+                                        
+    -----------------------------------------------------------------
+    -----------------------------------------------------------------
+                                        
+                        MODIFICADO NOTIFICACIONES
+                                        
+    -----------------------------------------------------------------
+    -----------------------------------------------------------------
+                                        
+    */
+    
+         // Títulos
+    	'titulo enviar notificacion' => 'Enviar notificación',
+    
+        // Menú
+        'gestionarNotificaciones' => 'NOTIFICACIONS',
+	'enviarNotificacion' => 'Enviar notificación',
+    
+         //Opciones vistas alumno
+	'nueva notificacion' => 'NOVA NOTIFICACION',
+        'asunto' => 'Asunto',
+        'cuerpo' => 'Mensaxe',
+        'enviar' => 'Enviar',
+        'notificacion exito' => 'Notificación enviada',
+        
+        //Errores
+        'error asunto' => 'Asunto incorrecto (3-50 caracteres alfanuméricos)',
+        'error cuerpo' => 'Corpo incorrecto (3-500 caracteres alfanuméricos)',
+    
+    /*
+                                        
+    -----------------------------------------------------------------
+    -----------------------------------------------------------------
+                                        
+                            FIN NOTIFICACIONES
+                                        
+    -----------------------------------------------------------------
+    -----------------------------------------------------------------
+                                        
+    */
+	
 )
 ?>
