@@ -268,7 +268,34 @@
 							</ul>
 					</li>
 
-
+					<!-- Gestión de eventos -->
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarEvento']; ?>
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-briefcase"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+								<li>
+									<a href="../controllers/EVENTO_Controller.php?id=altaEvento">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaEvento']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/EVENTO_Controller.php?id=bajaEvento">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaEvento']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/EVENTO_Controller.php?id=modificarEvento">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarEvento']; ?></a>
+								</li>
+								<li>
+									<a href="../controllers/EVENTO_Controller.php?id=consultarEvento">
+									<span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarEvento']; ?></a>
+								</li>
+								<li>
+								  <a href="../controllers/EVENTO_Controller.php?id=buscarEvento">
+								  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarEvento']; ?></a>
+								</li>
+							</ul>
+					</li>
 
 					<!-- Gestión de permisos -->
 					<li class="dropdown">

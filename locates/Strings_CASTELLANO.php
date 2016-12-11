@@ -39,6 +39,10 @@ $strings = array(
 	'titulo modificar trabajador' => 'Editar trabajador',
 	'titulo listar trabajador' => 'Ver trabajadores',
 	'titulo mostrar trabajador' => 'Mostrar trabajador',
+	'titulo añadir evento' => 'Añadir evento',
+	'titulo borrar evento' => 'Borrar evento',
+	'titulo editar evento' => 'Editar evento',
+	'titulo listar evento' => 'Ver evento',
 	
 	
 
@@ -93,6 +97,12 @@ $strings = array(
 	'modificarLesion' => 'Modificar lesion',
 	'consultarLesion' => 'Ver lesion',
 	'buscar lesion' => 'Buscar lesion',
+	'gestionarEvento' => 'EVENTO',
+	'altaEvento' => 'Añadir evento perfil',
+	'bajaEvento' => 'Borrar evento perfil',
+	'modificarEvento' => 'Modificar evento perfil',
+	'consultarEvento' => 'Ver evento perfil',
+	'buscarEvento' => 'Buscar evento',
 
 	//Ventanas y botones comunes
 	'confirmar borrado' => '¿Confirmar borrado?',
@@ -266,6 +276,17 @@ $strings = array(
 	'id_trabajador' => 'Dni Trabajador',
 	'servicio' => 'Servicio',
 
+	//Opciones vistas evento
+	'nuevo evento' => 'NUEVO EVENTO',
+	'borrar evento' => 'BORRAR EVENTO',
+	'editar evento' => 'EDITAR EVENTO',
+	'ver evento' => 'VER EVENTO',
+	'buscar evento' => 'BUSCAR EVENTO',
+	'evento' => 'EVENTO',
+	'id_evento' => 'Id Evento',
+	'nombre' => 'Nombre',
+	'descripcion' => 'Descripcion',
+	
 
 	//Modelos
 	'añadido exito' => 'Elemento añadido con éxito.',

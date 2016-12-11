@@ -39,6 +39,10 @@ $strings = array(
 	'titulo modificar trabajador' => 'Editar traballador',
 	'titulo listar trabajador' => 'Listar traballadores',
 	'titulo mostrar trabajador' => 'Ver traballador',
+	'titulo añadir evento' => 'Engadir evento',
+	'titulo borrar evento' => 'Borrar evento',
+	'titulo editar evento' => 'Editar evento',
+	'titulo listar evento' => 'Ver evento',
 
 	//Menu
 	'menu' => 'Menu',
@@ -90,6 +94,12 @@ $strings = array(
 	'modificarLesion' => 'Modificar lesión',
 	'consultarLesion' => 'Ver lesión',
 	'buscar lesion' => 'Buscar lesión',
+	'gestionarEvento' => 'EVENTO',
+	'altaEvento' => 'Engadir evento perfil',
+	'bajaEvento' => 'Borrar evento perfil',
+	'modificarEvento' => 'Modificar evento perfil',
+	'consultarEvento' => 'Ver evento perfil',
+	'buscarEvento' => 'Buscar evento',
 
 	//Ventanas y botones comunes
 	'confirmar borrado' => '¿Confirmar borrado?',
@@ -151,6 +161,18 @@ $strings = array(
 	'descripcion' => 'Descripcion',
 	'id_trabajador' => 'Dni Trabajador',
 	'servicio' => 'Servizo',
+	
+	//Opciones vistas evento
+	'nuevo evento' => 'NOVO EVENTO',
+	'borrar evento' => 'BORRAR EVENTO',
+	'editar evento' => 'EDITAR EVENTO',
+	'ver evento' => 'VER EVENTO',
+	'buscar evento' => 'BUSCAR EVENTO',
+	'evento' => 'SERVIZO',
+	'id_evento' => 'Id Evento',
+	'descripcion' => 'Descripcion',
+	'nombre' => 'Nome',
+
 
 	//Opciones vistas permisos
 	'nuevo permiso' => 'NOVO PERMISO',
