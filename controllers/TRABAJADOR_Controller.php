@@ -114,13 +114,18 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 		if($nombreFoto != null){
 
-			$dir_subida = '/var/www/html/images/trabajadores/';
+			$dir_subida = '../images/';
 			$extension = substr($tipoFoto, 6);
 			$ruta = $dir_subida . $dni . ".". $extension;
 			move_uploaded_file($nombreTempFoto, $ruta);
+			
 		}else{
+			if(isset($_POST['imagen'])){
+				$ruta=$_POST['imagen'];
+			}else{
 
 			$ruta=null;
+		}
 		}
 		$trabajador = new Trabajador($apellidos,$nombre,$ruta,$direccion,$email,$fechaNac,$observaciones,$numeroCuenta,$dni,$tipoEmp,$telefono,$externo);
 		return $trabajador;
@@ -178,7 +183,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 		if($nombreTempFoto != null){
 
-			$dir_subida = '/var/www/html/images/trabajadores/';
+			$dir_subida = '../images/';
 			$extension = substr($tipoFoto, 6);
 			$ruta = $dir_subida . $dni . ".". $extension;
 			move_uploaded_file($nombreTempFoto, $ruta);
@@ -209,6 +214,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 				new Trabajador_Alta_Confirmar($trabajador);
 			}else{
 				$trabajador = datosFormTrabajador();
+				
 				$mensaje = $trabajador->crear(); 
 				?>
 				<script>
@@ -248,11 +254,11 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 					new Trabajador_Editar_Confirmar($trabajador2,$_GET['id2']);
 				}else{
 					$array = mostrarTrabajadorDni($_GET['id2']);
-					var_dump($array);
+					
 					$trabajador = datosFormTrabajador();
 
 					$trabajador2 = datosFormTrabajadorModificar($array);
-					var_dump($trabajador2);
+					
 					$mensaje = $trabajador->modificar($trabajador2); ?>
 					<script>
 						window.alert('<?php echo $strings[$mensaje]; ?>');
@@ -276,7 +282,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 					new Trabajador_Buscar();
 				}else{
 					$trabajador = datosFormTrabajador();
-					$array = buscarTrabajador($trabajador);
+					$array = consultarTrabajador($trabajador->dni);
 					new Trabajador_Buscar($array);
 				}
 				break;
@@ -293,17 +299,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 				new Trabajador_Buscar($array);
 				break;	
 
-				case 'nuevaLesionTrabajador':
-				if(!isset($_GET['ok'])){
-					new Trabajador_Nueva_Lesion($_GET['id2']);
-
-				}else{
-					$lesion=datosFormLesion();
-
-				}
-								
-
-				break;
+				
 			}
 			
 		}

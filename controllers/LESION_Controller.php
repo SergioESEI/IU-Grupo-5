@@ -70,7 +70,7 @@ if(isset($_SESSION['grupo']) && strcmp($_SESSION['grupo'],"Admin") == 0 ){
 
 function datosFormLesionModificar(){
 
-		$id=$_POST['idN'];
+		$id=$_POST['idLesion'];
 		$dni=$_POST['dniN'];
 		$tipo=$_POST['tipoN'];
 		$descripcion=$_POST['descripcionN'];
@@ -95,7 +95,6 @@ function datosFormLesionModificar(){
 					new Lesion_Nueva($_GET['id2']);
 				}else if(!isset($_GET['confirm'])){
 					$lesion=datosFormLesion();
-					var_dump($lesion);
 					new Lesion_Nueva_Confirmar($lesion);
 				}else{
 					$lesion=datosFormLesion();
@@ -180,14 +179,15 @@ function datosFormLesionModificar(){
 				break;
 				
 				
-				case 'buscarTrabajador':
+				case 'buscarLesion':
 				if(!isset($_GET['buscar'])){
 					new Lesion_Buscar();
 				}else{
-					$trabajador = datosFormLesion();
-					$array = buscarLesion($trabajador);
+					$lesion = datosFormLesion();
+					$array = mostrarDatosLesion($lesion->id);
 					new Lesion_Buscar($array);
 				}
+				break;
 				break;
 				case 'mostrarLesion':
 				$idLesion = $_GET['idles'];
