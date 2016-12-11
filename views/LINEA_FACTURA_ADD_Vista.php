@@ -45,7 +45,7 @@ class LineaFactura_Crear{
 								  <label for="nombre" class="control-label"><?php echo $strings['nombre servicio']; ?>:</label>
 								</div>
 								<div class="col-sm-4">
-								  <input type="text" class="form-control" name="service" pattern="[A-Za-zÁÉÍÓÚÑñáéíóú ]{2,30}" title="<?php echo $strings['error nombre servicio']; ?>" required>
+								  <input type="text" class="form-control" name="service" pattern="[A-Za-zÁÉÍÓÚÑñáéíóú ]{2,30}" title="<?php echo $strings['error nombre servicio']; ?>">
 								</div>
 							</div>
 							
