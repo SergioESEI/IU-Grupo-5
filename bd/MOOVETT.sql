@@ -77,7 +77,7 @@ CREATE TABLE IF NOT EXISTS `Alumno` (
 --
 
 INSERT INTO `Alumno` (`DNI`, `Apellidos`, `Nombre`, `Direccion`, `Email`, `Fecha_Nacimiento`, `Observaciones`, `Profesion`, `Borrado`) VALUES
-('33333333P', 'ApellidoA ApellidoA', 'NombreA', 'Direccion alumno, calle alumno', 'alumno@hotmail.com', '2017-10-31', 'Observo que este tío tiene esta lesión', 'Contable', 0);
+('33333333P', 'ApellidoA ApellidoA', 'NombreA', 'Direccion alumno, calle alumno', 'alumno@hotmail.com', '2017-10-31', 'Escrito de observaciones', 'Contable', 0);
 
 -- --------------------------------------------------------
 
