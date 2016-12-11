@@ -417,8 +417,101 @@
                                 <a href="../controllers/ESPACIO_Controller.php?id=modificarReserva">
                                     <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarReserva']; ?></a>
                             </li>
-                            <?php } ?>
-				</ul>
+                        </ul>
+                            
+                             <!--  
+                                        
+                                              -----------------------------------------------------------------
+                                              -----------------------------------------------------------------
+                                        
+                                                                     MODIFICADO ALUMNOS
+                                        
+                                              -----------------------------------------------------------------
+                                              -----------------------------------------------------------------
+                                        
+                                        -->
+
+
+                                <?php } ?>
+                                <?php if(strcmp($_SESSION['grupo'],'Admin') == 0 || strcmp($_SESSION['grupo'],'Secretario') == 0 ){ ?>
+
+                                       <!-- Gestión de alumnos -->
+					<li class="dropdown">	
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarAlumnos']; ?> 
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-education"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li>
+							  <a href="../controllers/ALUMNO_Controller.php?id=altaAlumno">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['altaAlumno']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/ALUMNO_Controller.php?id=bajaAlumno">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-remove"></span><?php echo $strings['bajaAlumno']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/ALUMNO_Controller.php?id=modificarAlumno">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-pencil"></span><?php echo $strings['modificarAlumno']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/ALUMNO_Controller.php?id=consultarAlumno">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-book"></span><?php echo $strings['consultarAlumno']; ?></a>
+							</li>
+							<li>
+							  <a href="../controllers/ALUMNO_Controller.php?id=buscarAlumno">
+							  <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-search"></span><?php echo $strings['buscarAlumno']; ?></a>
+							</li>
+						</ul>
+					</li>
+                                        <!--  
+                                        
+                                              -----------------------------------------------------------------
+                                              -----------------------------------------------------------------
+                                        
+                                                                      FIN ALUMNOS
+                                        
+                                              -----------------------------------------------------------------
+                                              -----------------------------------------------------------------
+                                        
+                                        -->
+                                        <!--  
+                                        
+                                              -----------------------------------------------------------------
+                                              -----------------------------------------------------------------
+                                        
+                                                                MODIFICADO NOTIFICACIONES
+                                        
+                                              -----------------------------------------------------------------
+                                              -----------------------------------------------------------------
+                                        
+                                        -->
+                                        
+                                        <li class="dropdown">	
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown"><?php echo $strings['gestionarNotificaciones']; ?> 
+						<span class="caret"></span>
+						<span style="font-size:16px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-envelope"></span></a>
+						<ul class="dropdown-menu forAnimate" role="menu">
+							<li>
+							  <a href="../controllers/NOTIFICACION_Controller.php">
+							   <span style="font-size:12px;" class="pull-right hidden-xs showopacity glyphicon glyphicon-plus"></span><?php echo $strings['enviarNotificacion']; ?></a>
+							</li>
+							<li>
+						</ul>
+					</li>             
+                                        
+                                        <!--  
+                                        
+                                              -----------------------------------------------------------------
+                                              -----------------------------------------------------------------
+                                        
+                                                                    FIN NOTIFICACIONES
+                                        
+                                              -----------------------------------------------------------------
+                                              -----------------------------------------------------------------
+                                        
+                                        -->
+                                        <?php } ?>
+
 			</div>
 		</div>
 	</nav>
